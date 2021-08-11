@@ -4,7 +4,7 @@
   "keywords": ["music", "voicechat", "telegram"],
   "repository": "https://github.com/rizkyoye/EXMusic",
   "stack": "container",
-  "logo": "https://telegra.ph/file/708896ed251f0a3a6cfeb.jpg"
+  "logo": "https://telegra.ph/file/708896ed251f0a3a6cfeb.jpg",
   "buildpacks": [
    {
      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
