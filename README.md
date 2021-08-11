@@ -24,7 +24,7 @@
 ### ⚔ Self-hosting (For Devs) 
 ```sh
 # Install Git First (apt-instll git)
-$ git clone https://github.com/vckyou/Geez-MusicProject
+$ git clone https://github.com/rizkyoye/EXMusic
 $ cd Geez-MusicProject
 # Upgrade sources
 # Install All Requirements 
@@ -35,9 +35,9 @@ $ npm i -g npm
 $ python(3) -m GeezProject
 ```
 
-### 💜 Heroku
+### Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/vckyou/Geez-MusicProject/tree/master)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/rizkyoye/EXMusic/tree/master)
 
 Get pyrogram (p)  `SESSION` from here:
 [![Run on Repl.it](https://repl.it/badge/github/vckyou/PyrogramString)](https://repl.it/@vckyou/PyrogramString?lite=1&outputonly=1)
@@ -75,23 +75,3 @@ Get pyrogram (p)  `SESSION` from here:
 
 ### Credits
 Don't edit this part
-
-#### Special Credits
-- [Rojserbest](http://github.com/rojserbes): Callsmusic Developer
-
-This bot is based on the original work done by [Rojserbest](http://github.com/rojserbest). Without his hardwork Geez Music won't exist. 
-Geez-Project is a modified version of [Callsmusic](https://github.com/callsmusic/callsmusic)
-
-#### Contribtors
-- [Vicky](https://github.com/Vckyou): Dev
-- [InukaASiTH](https://github.com/InukaAsith): Dev
-- [Rojserbest](http://github.com/rojserbes): Dev
-- [Wrench](https://github.com/EverythingSuckz/): Dev
-- [QueenArzoo](https://github.com/QueenArzoo): Dev
-- [lucifeermorningstar](https://github.com/lucifeermorningstar): Dev
-- [AuraXNetwork](https://github.com/AuraXNetwork/AuraXMusicBot)
-- [Hamker Cat](https://github.com/thehamkercat/)
-- [Anjana-Ma](https://github.com/Anjana-Ma):
-- [ImJanindu](https://github.com/ImJanindu): 
-- [Laky](https://github.com/Laky-64) & [Andrew](https://github.com/AndrewLaneX): PyTgCalls
-- [Original Repo owners](https://github.com/suprojects/CallsMusic)
