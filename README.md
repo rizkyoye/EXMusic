@@ -1,4 +1,4 @@
-<h1 align="centre">EX-Music 🎶</h1>
+<h1 align="centre">EX-Music ♫</h1>
 
 ### Repo for bots that can play songs in group voice chat
 #### POWERED BY [PYTGCALLS](https://github.com/pytgcalls/pytgcalls)
@@ -73,5 +73,4 @@ Get pyrogram (p)  `SESSION` from here:
 - `.no` - disapproove someone to pm you
 + Sudo Users can execute any command in any groups
 
-### Credits
-Don't edit this part
+### Repo by [EX](https://t.me/rizexx)
