@@ -1,11 +1,11 @@
-<h1 align="centre">🎵 Geez Music Projects 🎵</h1>
+<h1 align="centre">EX-Music 🎶</h1>
 
-### A bot that can play music on Telegram Group and Channel Voice Chats
+### Repo for bots that can play songs in group voice chat
 #### POWERED BY [PYTGCALLS](https://github.com/pytgcalls/pytgcalls)
-### Available on telegram as [@GeezMusicBot](https://t.me/GeezMusicBot)
+### Found on telegram [EXMusic](https://t.me/EXMusiccbot)
 
 <p align="center">
-  <img src="https://telegra.ph/file/9c33051aae30b996e0ca4.jpg">
+  <img src="https://telegra.ph/file/708896ed251f0a3a6cfeb.jpg">
 </p>
 <h2> Features </h2>
 
@@ -19,7 +19,7 @@
 - Control with buttons
 - Userbot auto join
 
-## 🚀 Deployment
+## ⚡Deployment
 
 ### ⚔ Self-hosting (For Devs) 
 ```sh
