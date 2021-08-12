@@ -18,9 +18,9 @@
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
 import asyncio
-from GeezProject.helpers.decorators import authorized_users_only, errors
-from GeezProject.services.callsmusic.callsmusic import client as USER
-from GeezProject.config import SUDO_USERS
+from EXmusic.helpers.decorators import authorized_users_only, errors
+from EXmusic.services.callsmusic.callsmusic import client as USER
+from EXmusic.config import SUDO_USERS
 
 
 @Client.on_message(filters.command(["userbotjoin"]) & ~filters.private & ~filters.bot)
