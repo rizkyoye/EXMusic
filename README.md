@@ -46,6 +46,6 @@ Get pyrogram (p)  `SESSION` from here:
 [![Run on Repl.it](https://repl.it/badge/github/vckyou/PyrogramString)](https://repl.it/@vckyou/PyrogramString?lite=1&outputonly=1)
 
 ## ⚡EX
-##### Repo by [EX](https://t.me/rizexx)
-##### EX Update Channel [EXProjects](https://t.me/EXProjects)
-##### Join Group Support Telegram [EXSupport](https://t.me/EXGroupSupport)
+#### Repo by [EX](https://t.me/rizexx)
+#### EX Update Channel [EXProjects](https://t.me/EXProjects)
+#### Join Group Support Telegram [EXSupport](https://t.me/EXGroupSupport)
