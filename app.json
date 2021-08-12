@@ -31,17 +31,17 @@
     "SUPPORT_GROUP": {
       "description": "Grup dukungan MusicPlayer Anda Tanpa Menggunakan ==> @ <== [skip ini jika Anda tidak punya]",
       "required": false,
-      "value": "GeezSupportGroup"
+      "value": "EXSupportGroup"
     },
     "UPDATES_CHANNEL": {
       "description": "Updates Channel @ [skip ini jika Anda tidak punya]",
       "required": false,
-      "value": "GeezProjects"
+      "value": "RizexProject"
     }, 
     "PROJECT_NAME": {
       "description": "Nama proyek MusicPlayer Anda.",
       "required": false,
-      "value": "Geez Projects"
+      "value": "EX Project"
     },
     "ASSISTANT_NAME": {
       "description": "Username Telegram asisten Music Player Anda tanpa @.",
