@@ -1,4 +1,4 @@
-from GeezProject.services.queues import queues
-from GeezProject.services.callsmusic.callsmusic import pytgcalls, run
+from EXmusic.services.queues import queues
+from EXmusic.services.callsmusic.callsmusic import pytgcalls, run
 
 __all__ = ["queues", "pytgcalls", "run"]
