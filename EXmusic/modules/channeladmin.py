@@ -16,16 +16,16 @@
 
 
 from asyncio import QueueEmpty
-from GeezProject.config import que
+from EXmusic.config import que
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from GeezProject.function.admins import set
-from GeezProject.helpers.channelmusic import get_chat_id
-from GeezProject.helpers.decorators import authorized_users_only, errors
-from GeezProject.helpers.filters import command, other_filters
-from GeezProject.services.callsmusic import callsmusic
-from GeezProject.services.queues import queues
+from EXmusic.function.admins import set
+from EXmusic.helpers.channelmusic import get_chat_id
+from EXmusic.helpers.decorators import authorized_users_only, errors
+from EXmusic.helpers.filters import command, other_filters
+from EXmusic.services.callsmusic import callsmusic
+from EXmusic.services.queues import queues
 
 
 @Client.on_message(filters.command(["channelpause","cpause"]) & filters.group & ~filters.edited)
@@ -91,7 +91,7 @@ async def stop(_, message: Message):
             pass
 
         callsmusic.pytgcalls.leave_group_call(chat_id)
-        await message.reply_text("❌ Stopped streaming!")
+        await message.reply_text("**Stopped streaming!**")
 
 
 @Client.on_message(filters.command(["channelskip","cskip"]) & filters.group & ~filters.edited)
@@ -144,4 +144,4 @@ async def admincache(client, message: Message):
             for member in await conchat.linked_chat.get_members(filter="administrators")
         ],
     )
-    await message.reply_text("❇️ Admin cache refreshed!")
+    await message.reply_text("Admin cache refreshed!")
