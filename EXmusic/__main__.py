@@ -18,8 +18,8 @@
 import requests
 from pyrogram import Client as Bot
 
-from GeezProject.config import API_HASH, API_ID, BG_IMAGE, BOT_TOKEN
-from GeezProject.services.callsmusic import run
+from EXmusic.config import API_HASH, API_ID, BG_IMAGE, BOT_TOKEN
+from EXmusic.services.callsmusic import run
 
 response = requests.get(BG_IMAGE)
 with open("./etc/foreground.png", "wb") as file:
