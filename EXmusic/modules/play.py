@@ -33,25 +33,25 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
 
-from GeezProject.config import ARQ_API_KEY
-from GeezProject.config import BOT_NAME as bn
-from GeezProject.config import DURATION_LIMIT
-from GeezProject.config import UPDATES_CHANNEL as updateschannel
-from GeezProject.config import que
-from GeezProject.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,BOT_USERNAME, OWNER
-from GeezProject.function.admins import admins as a
-from GeezProject.helpers.admins import get_administrators
-from GeezProject.helpers.channelmusic import get_chat_id
-from GeezProject.helpers.errors import DurationLimitError
-from GeezProject.helpers.decorators import errors
-from GeezProject.helpers.decorators import authorized_users_only
-from GeezProject.helpers.filters import command, other_filters
-from GeezProject.helpers.gets import get_file_name
-from GeezProject.services.callsmusic import callsmusic
-from GeezProject.services.callsmusic.callsmusic import client as USER
-from GeezProject.services.converter.converter import convert
-from GeezProject.services.downloaders import youtube
-from GeezProject.services.queues import queues
+from EXmusic.config import ARQ_API_KEY
+from EXmusic.config import BOT_NAME as bn
+from EXmusic.config import DURATION_LIMIT
+from EXmusic.config import UPDATES_CHANNEL as updateschannel
+from EXmusic.config import que
+from EXmusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,BOT_USERNAME, OWNER
+from EXmusic.function.admins import admins as a
+from EXmusic.helpers.admins import get_administrators
+from EXmusic.helpers.channelmusic import get_chat_id
+from EXmusic.helpers.errors import DurationLimitError
+from EXmusic.helpers.decorators import errors
+from EXmusic.helpers.decorators import authorized_users_only
+from EXmusic.helpers.filters import command, other_filters
+from EXmusic.helpers.gets import get_file_name
+from EXmusic.services.callsmusic import callsmusic
+from EXmusic.services.callsmusic.callsmusic import client as USER
+from EXmusic.services.converter.converter import convert
+from EXmusic.services.downloaders import youtube
+from EXmusic.services.queues import queues
 
 aiohttpsession = aiohttp.ClientSession()
 chat_id = None
@@ -123,32 +123,36 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     os.remove("background.png")
 
 
-@Client.on_message(filters.command("playlist") & filters.group & ~filters.edited)
-async def playlist(client, message):
-    global que
-    if message.chat.id in DISABLED_GROUPS:
-        return    
-    queue = que.get(message.chat.id)
-    if not queue:
-        await message.reply_text("**Sedang tidak Memutar lagu**")
-    temp = []
-    for t in queue:
-        temp.append(t)
-    now_playing = temp[0][0]
-    by = temp[0][1].mention(style="md")
-    msg = "**Lagu Yang Sedang dimainkan** di {}".format(message.chat.title)
-    msg += "\n• " + now_playing
-    msg += "\n• Req by " + by
-    temp.pop(0)
-    if temp:
-        msg += "\n\n"
-        msg += "**Antrian Lagu**"
-        for song in temp:
-            name = song[0]
-            usr = song[1].mention(style="md")
-            msg += f"\n• {name}"
-            msg += f"\n• Req by {usr}\n"
-    await message.reply_text(msg)
+async def generate_cover(requested_by, title, views, duration, thumbnail):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(thumbnail) as resp:
+            if resp.status == 200:
+                f = await aiofiles.open("background.png", mode="wb")
+                await f.write(await resp.read())
+                await f.close()
+    image1 = Image.open("./background.png")
+    image2 = Image.open("etc/foreground.png")
+    image3 = changeImageSize(1280, 720, image1)
+    image4 = changeImageSize(1280, 720, image2)
+    image5 = image3.convert("RGBA")
+    image6 = image4.convert("RGBA")
+    Image.alpha_composite(image5, image6).save("temp.png")
+    img = Image.open("temp.png")
+    draw = ImageDraw.Draw(img)
+    font = ImageFont.truetype("etc/font.otf", 32)
+    draw.text((205, 550), f"Judul: {title}", (51, 215, 255), font=font)
+    draw.text(
+        (205, 590), f"Duration: {duration}", (255, 255, 255), font=font
+    )
+    draw.text((205, 630), f"Views: {views}", (255, 255, 255), font=font)
+    draw.text((205, 670),
+        f"Request from: {requested_by}",
+        (255, 255, 255),
+        font=font,
+    )
+    img.save("final.png")
+    os.remove("temp.png")
+    os.remove("background.png")
 
 
 # ============================= Settings =========================================
@@ -183,9 +187,9 @@ def r_ply(type_):
                 InlineKeyboardButton("⏭", "skip"),
             ],
             [
-                InlineKeyboardButton("📖 Playlist", "playlist"),
+                InlineKeyboardButton("📜 Playlist", "playlist"),
             ],
-            [InlineKeyboardButton("🗑 Close", "cls")],
+            [InlineKeyboardButton("🗑️ Close", "cls")],
         ]
     )
     return mar
@@ -200,14 +204,14 @@ async def ee(client, message):
     if stats:
         await message.reply(stats)
     else:
-        await message.reply("**Silahkan Nyalakan dulu VCG nya!**")
+        await message.reply("**Nyalakan dulu VCG!**")
 
 
 @Client.on_message(filters.command("player") & filters.group & ~filters.edited)
 @authorized_users_only
 async def settings(client, message):
     if message.chat.id in DISABLED_GROUPS:
-        await message.reply("**Music Player dimatikan**")
+        await message.reply("**Music player dimatikan**")
         return    
     playing = None
     chat_id = get_chat_id(message.chat)
@@ -222,7 +226,7 @@ async def settings(client, message):
         else:
             await message.reply(stats, reply_markup=r_ply("play"))
     else:
-        await message.reply("**Silahkan Nyalakan dulu VCG nya!**")
+        await message.reply("**Nyalakan dulu VCG!**")
 
 
 @Client.on_message(
@@ -245,22 +249,22 @@ async def hfmm(_, message):
     if status == "ON" or status == "on" or status == "On":
         lel = await message.reply("`Processing...`")
         if not message.chat.id in DISABLED_GROUPS:
-            await lel.edit("**Pemutar Musik Sudah Diaktifkan Di Obrolan Ini**")
+            await lel.edit("**Pemutar musik sudah diaktifkan di obrolan ini**")
             return
         DISABLED_GROUPS.remove(message.chat.id)
         await lel.edit(
-            f"**Pemutar Musik Berhasil Diaktifkan Untuk Pengguna Dalam Obrolan** {message.chat.id}"
+            f"Pemutar musik berhasil diaktifkan untuk pengguna dalam obrolan {message.chat.id}"
         )
 
     elif status == "OFF" or status == "off" or status == "Off":
         lel = await message.reply("`Processing...`")
         
         if message.chat.id in DISABLED_GROUPS:
-            await lel.edit("**Pemutar Musik Sudah dimatikan Dalam Obrolan Ini**")
+            await lel.edit("**Pemutar musik sudah dimatikan dalam obrolan Ini**")
             return
         DISABLED_GROUPS.append(message.chat.id)
         await lel.edit(
-            f"**Pemutar Musik Berhasil Dinonaktifkan Untuk Pengguna Dalam Obrolan** {message.chat.id}"
+            f"Pemutar musik berhasil dinonaktifkan intuk pengguna dalam obrolan {message.chat.id}"
         )
     else:
         await message.reply_text(
@@ -400,9 +404,9 @@ async def m_cb(b, cb):
                     InlineKeyboardButton("⏭", "skip"),
                 ],
                 [
-                    InlineKeyboardButton("📖 Playlist", "playlist"),
+                    InlineKeyboardButton("📜 Playlist", "playlist"),
                 ],
-                [InlineKeyboardButton("❌ Close", "cls")],
+                [InlineKeyboardButton("🗑️ Close", "cls")],
             ]
         )
         await cb.message.edit(stats, reply_markup=marr)
@@ -447,14 +451,14 @@ async def play(_, message: Message):
     global useer
     if message.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message.reply("🔄 **Sedang Memproses Lagu**")
+    lel = await message.reply("🔁 **Lagu sedang di proses...**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "GeezProject"
+        user.first_name = "EXProjects"
     usar = user
     wew = usar.id
     try:
@@ -472,14 +476,14 @@ async def play(_, message: Message):
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>Tambahkan saya sebagai admin grup Anda terlebih dahulu</b>",
+                        "<b>Tambahkan saya sebagai admin grup terlebih dahulu</b>",
                     )
                     return
 
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message.chat.id, "I joined this group for playing music in VC"
+                        message.chat.id, "I joined to play a song in voice chat!"
                     )
                     await lel.edit(
                         "<b>helper userbot joined your chat</b>",
@@ -490,8 +494,8 @@ async def play(_, message: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>⛑ Flood Wait Error ⛑\n{user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dibanned dalam grup."
-                        f"\n\nAtau tambahkan @{ASSISTANT_NAME} secara manual ke Grup Anda dan coba lagi</b>",
+                        f"<b>⛑ Flood Wait Error! ⛑\n{user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dibanned dalam grup."
+                        f"\n\natau tambahkan @{ASSISTANT_NAME} secara manual ke grup anda dan coba lagi</b>",
                     )
     try:
         await USER.get_chat(chid)
@@ -502,7 +506,7 @@ async def play(_, message: Message):
         )
         return
     text_links=None
-    await lel.edit("🔄 **Sedang Mencari Lagu**")
+    await lel.edit("🔁 **Sedang mencari lagu..**")
     if message.reply_to_message:
         entities = []
         toxt = message.reply_to_message.text or message.reply_to_message.caption
@@ -529,15 +533,21 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"❌ **Lagu dengan durasi lebih dari** `{DURATION_LIMIT}` **menit tidak boleh diputar!**"
+                f"**lagu dengan durasi lebih dari** `{DURATION_LIMIT}` **menit dilarang untuk diputar!**"
             )
         keyboard = InlineKeyboardMarkup(
-            [
+            [   
                 [
-                    InlineKeyboardButton("📌 Groups", url="https://t.me/GeezSupportGroup"),
-                    InlineKeyboardButton("⛑ Channel", url="https://t.me/GeezProjets"),
-                ],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
+                               
+                    InlineKeyboardButton("ᴘʟᴀʏʟɪsᴛ", callback_data="playlist"),
+                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu")
+                
+                ],                     
+                [
+                    InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=f"{dlurl}"),
+                    InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
+                
+                ]                             
             ]
         )
         file_name = get_file_name(audio)
@@ -555,7 +565,7 @@ async def play(_, message: Message):
         )
     elif urls:
         query = toxt
-        await lel.edit("🎵 **Sedang Memproses Lagu**")
+        await lel.edit("🎵 **Lagu sedang di proses..**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
@@ -572,19 +582,25 @@ async def play(_, message: Message):
 
         except Exception as e:
             await lel.edit(
-                "**Lagu tidak ditemukan.** Coba cari dengan judul lagu yang lebih jelas, Ketik `/help` bila butuh bantuan"
+                "**Lagu tidak dapat ditemukan** Coba cari dengan judul lagu yang lebih jelas, Ketik `/help` bila butuh bantuan"
             )
             print(str(e))
             return
         dlurl=url
         dlurl=dlurl.replace("youtube","youtubepp")
         keyboard = InlineKeyboardMarkup(
-            [
+            [   
                 [
-                    InlineKeyboardButton("📌 Groups", url="https://t.me/GeezSupportGroup"),
-                    InlineKeyboardButton("⛑ Channel", url="https://t.me/GeezProjects"),
-                ],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
+                               
+                    InlineKeyboardButton("ᴘʟᴀʏʟɪsᴛ", callback_data="playlist"),
+                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu")
+                
+                ],                     
+                [
+                    InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=f"{dlurl}"),
+                    InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
+                
+                ]                             
             ]
         )
         requested_by = message.from_user.first_name
@@ -595,7 +611,7 @@ async def play(_, message: Message):
         for i in message.command[1:]:
             query += " " + str(i)
         print(query)
-        await lel.edit("🎵 **Sedang Memproses Lagu**")
+        await lel.edit("🎵 **Sedang Memproses Lagu..**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         
         try:
@@ -612,7 +628,7 @@ async def play(_, message: Message):
             while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title'][:25]}](https://youtube.com{results[j]['url_suffix']})\n"
                 toxxt += f" ├ 💡 **Duration** - {results[j]['duration']}\n"
-                toxxt += f" └ ⚡ __Powered by Geez Music Project__\n\n"
+                toxxt += f" └ ⚡ __Powered by EX Music Project__\n\n"
 
                 j += 1            
             koyboard = InlineKeyboardMarkup(
@@ -634,7 +650,7 @@ async def play(_, message: Message):
             return
             # Returning to pornhub
         except:
-            await lel.edit("**Tidak ada hasil yang cukup untuk dipilih.. Mulai bermain langsung..**")
+            await lel.edit("**Tidak ada hasil yang cukup untuk dipilih..Mulai bermain langsung..**")
                         
             # print(results)
             try:
@@ -657,12 +673,18 @@ async def play(_, message: Message):
             dlurl=url
             dlurl=dlurl.replace("youtube","youtubepp")
             keyboard = InlineKeyboardMarkup(
-            [
+            [   
                 [
-                    InlineKeyboardButton("📌 Groups", url="https://t.me/GeezSupportGroup"),
-                    InlineKeyboardButton("⛑ Channel", url="https://t.me/GeezProjects"),
-                ],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
+                               
+                    InlineKeyboardButton("ᴘʟᴀʏʟɪsᴛ", callback_data="playlist"),
+                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu")
+                
+                ],                     
+                [
+                    InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=f"{dlurl}"),
+                    InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
+                
+                ]                             
             ]
         )
             requested_by = message.from_user.first_name
@@ -712,14 +734,14 @@ async def ytplay(_, message: Message):
     global que
     if message.chat.id in DISABLED_GROUPS:
         return
-    lel = await message.reply("🔄 **Sedang Memproses Lagu**")
+    lel = await message.reply("🔄 **Sedang Memproses Lagu..**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "GeezProject"
+        user.first_name = "EXProject"
     usar = user
     wew = usar.id
     try:
@@ -730,7 +752,7 @@ async def ytplay(_, message: Message):
             if administrator == message.from_user.id:
                 if message.chat.title.startswith("Channel Music: "):
                     await lel.edit(
-                        f"<b>Ingatlah untuk menambahkan {user.first_name} ke Channel Anda</b>",
+                        f"<b>Ingatlah untuk menambahkan {user.first_name} ke channel anda</b>",
                     )
                     pass
                 try:
@@ -744,7 +766,7 @@ async def ytplay(_, message: Message):
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message.chat.id, "I joined this group for playing music in VC"
+                        message.chat.id, "`I joined this group to play songs in voice chat`"
                     )
                     await lel.edit(
                         "<b>helper userbot joined your chat</b>",
@@ -755,8 +777,8 @@ async def ytplay(_, message: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>Flood Wait Error\n{user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dibanned dalam grup."
-                        f"\n\nAtau tambahkan @{ASSISTANT_NAME} secara manual ke Grup Anda dan coba lagi</b>",
+                        f"<b>Flood Wait Error!\n{user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dibanned dalam grup."
+                        f"\n\nAtau tambahkan @{ASSISTANT_NAME} secara manual ke grup dan coba lagi</b>",
                     )
     try:
         await USER.get_chat(chid)
@@ -766,7 +788,7 @@ async def ytplay(_, message: Message):
             f"<i>{user.first_name} terkena banned dari Grup ini, Minta admin untuk mengirim perintah `/play` untuk pertama kalinya atau tambahkan @{ASSISTANT_NAME} secara manual</i>"
         )
         return
-    await lel.edit("🔎 **Sedang Mencari Lagu**")
+    await lel.edit("🔎 **Sedang mencari lagu..**")
     user_id = message.from_user.id
     user_name = message.from_user.first_name
      
@@ -775,7 +797,7 @@ async def ytplay(_, message: Message):
     for i in message.command[1:]:
         query += " " + str(i)
     print(query)
-    await lel.edit("🎵 **Sedang Memproses Lagu**")
+    await lel.edit("🎵 **Sedang memproses lagu..**")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -799,12 +821,18 @@ async def ytplay(_, message: Message):
     dlurl=url
     dlurl=dlurl.replace("youtube","youtubepp")
     keyboard = InlineKeyboardMarkup(
-            [
+            [   
                 [
-                    InlineKeyboardButton("📌 Groups", url="https://t.me/GeezSupportGroup"),
-                    InlineKeyboardButton("⛑ Channel", url="https://t.me/GeezProjects"),
-                ],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
+                               
+                    InlineKeyboardButton("ᴘʟᴀʏʟɪsᴛ", callback_data="playlist"),
+                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu")
+                
+                ],                     
+                [
+                    InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=f"{dlurl}"),
+                    InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
+                
+                ]                             
             ]
         )
     requested_by = message.from_user.first_name
@@ -855,13 +883,13 @@ async def deezer(client: Client, message_: Message):
     if message_.chat.id in DISABLED_GROUPS:
         return
     global que
-    lel = await message_.reply("🔄 **Sedang Memproses Lagu**")
+    lel = await message_.reply("🔄 **Sedang proses lagu..**")
     administrators = await get_administrators(message_.chat)
     chid = message_.chat.id
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "GeezProject"
+        user.first_name = "EXProjects"
     usar = user
     wew = usar.id
     try:
@@ -879,14 +907,14 @@ async def deezer(client: Client, message_: Message):
                     invitelink = await client.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>Tambahkan saya sebagai admin grup Anda terlebih dahulu</b>",
+                        "<b>Tambahkan saya sebagai admin grup terlebih dahulu</b>",
                     )
                     return
 
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message_.chat.id, "I joined this group for playing music in VC"
+                        message_.chat.id, "`I joined this group for playing music in VC`"
                     )
                     await lel.edit(
                         "<b>helper userbot joined your chat</b>",
@@ -927,7 +955,7 @@ async def deezer(client: Client, message_: Message):
         thumbnail = "https://telegra.ph/file/fa2cdb8a14a26950da711.png"
 
     except:
-        await res.edit("**Tidak Ditemukan Lagu Apa Pun!**")
+        await res.edit("**Nothing found!**")
         return
     try:    
         duuration= round(duration / 60)
@@ -939,7 +967,7 @@ async def deezer(client: Client, message_: Message):
     
     keyboard = InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton(text="⛑ Channel", url="https://t.me/GeezProjects")],
+            [InlineKeyboardButton(text="📣 ᴄʜᴀɴɴᴇʟ", url="https://t.me/EXProjects")],
         ]
     )
     file_path = await convert(wget.download(url))
@@ -955,9 +983,9 @@ async def deezer(client: Client, message_: Message):
         loc = file_path
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
-        await res.edit_text(f"🎼 **Lagu yang Anda minta Sedang Antri di posisi** `{position}`")
+        await res.edit_text(f"🎵 **Lagu yang Anda minta Sedang Antri di posisi** `{position}`")
     else:
-        await res.edit_text(f"🎼️ **Playing...**")
+        await res.edit_text(f"🎵 **Playing...**")
 
         que[chat_id] = []
         qeue = que.get(chat_id)
@@ -969,7 +997,7 @@ async def deezer(client: Client, message_: Message):
         try:
             callsmusic.pytgcalls.join_group_call(chat_id, file_path)
         except:
-            res.edit("Voice Chat Group tidak aktif, Saya tidak dapat bergabung")
+            res.edit("Obrolan suara tidak aktif! Saya tidak dapat bergabung")
             return
 
     await res.delete()
@@ -978,7 +1006,7 @@ async def deezer(client: Client, message_: Message):
         chat_id=message_.chat.id,
         reply_markup=keyboard,
         photo="final.png",
-        caption=f"🎼️ **Sedang Memutar Lagu** [{title}]({url}) **Via Deezer**",
+        caption=f"🎵 **Sedang Memutar Lagu** [{title}]({url}) **Via Deezer**",
     )
     os.remove("final.png")
 
@@ -1000,7 +1028,7 @@ async def lol_cb(b, cb):
     if cb.from_user.id != useer_id:
         await cb.answer("Anda bukan orang yang meminta untuk memutar lagu!", show_alert=True)
         return
-    await cb.message.edit("**Processing**")
+    await cb.message.edit("**Processing..**")
     x=int(x)
     try:
         useer_name = cb.message.reply_to_message.from_user.first_name
@@ -1032,12 +1060,18 @@ async def lol_cb(b, cb):
     dlurl=url
     dlurl=dlurl.replace("youtube","youtubepp")
     keyboard = InlineKeyboardMarkup(
-            [
+            [   
                 [
-                    InlineKeyboardButton("📌 Groups", url="https://t.me/GeezSupportGroup"),
-                    InlineKeyboardButton("🛡️ Channel", url="https://t.me/GeezProjects"),
-                ],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
+                               
+                    InlineKeyboardButton("ᴘʟᴀʏʟɪsᴛ", callback_data="playlist"),
+                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu")
+                
+                ],                     
+                [
+                    InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=f"{dlurl}"),
+                    InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
+                
+                ]                             
             ]
         )
     requested_by = useer_name
