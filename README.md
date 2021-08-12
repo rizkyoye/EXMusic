@@ -47,5 +47,5 @@ Get pyrogram (p)  `SESSION` from here:
 
 ## ⚡EX
 ##### Repo by [EX](https://t.me/rizexx)
-##### Join Group Support Telegram [EXSupport](https://t.me/EXGroupSupport)
 ##### EX Update Channel [EXProjects](https://t.me/EXProjects)
+##### Join Group Support Telegram [EXSupport](https://t.me/EXGroupSupport)
