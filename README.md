@@ -5,7 +5,7 @@
 ### Found on telegram [EXMusic](https://t.me/EXMusiccbot)
 
 <p align="center">
-  <img src="https://telegra.ph/file/708896ed251f0a3a6cfeb.jpg">
+  <img src="https://telegra.ph/file/d2b539f061923cee37797.jpg">
 </p>
 <h2> Features </h2>
 
