@@ -7,6 +7,9 @@
 <p align="center">
   <img src="https://telegra.ph/file/d2b539f061923cee37797.jpg">
 </p>
+<p align="center">
+  <img src="https://telegra.ph/file/7cd6c44d1431b0fa9063b.jpg">
+</p>
 <h2> Features </h2>
 
 - Thumbnail Support
