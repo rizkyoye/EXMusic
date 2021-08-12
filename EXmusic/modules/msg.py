@@ -15,17 +15,14 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import os
-from GeezProject.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL, OWNER
+from EXmusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL, OWNER
 class Messages():
       HELP_MSG = [
         ".",
 f"""
-**Hey 👋 Selamat datang kembali di {PROJECT_NAME}
-
-✣️ {PROJECT_NAME} dapat Memutar Lagu di Voice Chat Group Dengan cara yang Mudah.
-
-✣️ Assistant Music » @{ASSISTANT_NAME}\n\nKlik Next untuk instruksi**
-
+Haii selamat datang kembali di EXMusic
+• EXMusic dapat memutar lagu di voice chat group dan di channel kamu dengan mudah.
+• Assistant Music » @{ASSISTANT_NAME} «\n 
 """,
 
 f"""
