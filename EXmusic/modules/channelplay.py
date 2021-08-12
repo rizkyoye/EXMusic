@@ -32,30 +32,30 @@ from pyrogram.types import Voice
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
-from GeezProject.modules.play import generate_cover
-from GeezProject.modules.play import arq
-from GeezProject.modules.play import cb_admin_check
-from GeezProject.modules.play import transcode
-from GeezProject.modules.play import convert_seconds
-from GeezProject.modules.play import time_to_seconds
-from GeezProject.modules.play import changeImageSize
-from GeezProject.config import BOT_NAME as bn
-from GeezProject.config import DURATION_LIMIT
-from GeezProject.config import UPDATES_CHANNEL as updateschannel
-from GeezProject.config import que
-from GeezProject.function.admins import admins as a
-from GeezProject.helpers.errors import DurationLimitError
-from GeezProject.helpers.decorators import errors
-from GeezProject.helpers.admins import get_administrators
-from GeezProject.helpers.channelmusic import get_chat_id
-from GeezProject.helpers.decorators import authorized_users_only
-from GeezProject.helpers.filters import command, other_filters
-from GeezProject.helpers.gets import get_file_name
-from GeezProject.services.callsmusic import callsmusic
-from GeezProject.services.callsmusic.callsmusic import client as USER
-from GeezProject.services.converter.converter import convert
-from GeezProject.services.downloaders import youtube
-from GeezProject.services.queues import queues
+from EXmusic.modules.play import generate_cover
+from EXmusic.modules.play import arq
+from EXmusic.modules.play import cb_admin_check
+from EXmusic.modules.play import transcode
+from EXmusic.modules.play import convert_seconds
+from EXmusic.modules.play import time_to_seconds
+from EXmusic.modules.play import changeImageSize
+from EXmusic.config import BOT_NAME as bn
+from EXmusic.config import DURATION_LIMIT
+from EXmusic.config import UPDATES_CHANNEL as updateschannel
+from EXmusic.config import que
+from EXmusic.function.admins import admins as a
+from EXmusic.helpers.errors import DurationLimitError
+from EXmusic.helpers.decorators import errors
+from EXmusic.helpers.admins import get_administrators
+from EXmusic.helpers.channelmusic import get_chat_id
+from EXmusic.helpers.decorators import authorized_users_only
+from EXmusic.helpers.filters import command, other_filters
+from EXmusic.helpers.gets import get_file_name
+from EXmusic.services.callsmusic import callsmusic
+from EXmusic.services.callsmusic.callsmusic import client as USER
+from EXmusic.services.converter.converter import convert
+from EXmusic.services.downloaders import youtube
+from EXmusic.services.queues import queues
 
 chat_id = None
 
@@ -363,7 +363,7 @@ async def m_cb(b, cb):
 @authorized_users_only
 async def play(_, message: Message):
     global que
-    lel = await message.reply("🔄 **Processing**")
+    lel = await message.reply("🔁 **Processing**")
 
     try:
       conchat = await _.get_chat(message.chat.id)
@@ -414,7 +414,7 @@ async def play(_, message: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your channel due to heavy requests for userbot! Make sure user is not banned in group."
+                        f"<b>Flood Wait Error\nUser {user.first_name} couldn't join your channel due to heavy requests for userbot! Make sure user is not banned in group."
                         "\n\nOr manually add assistant to your Group and try again</b>",
                     )
     try:
@@ -462,10 +462,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📖 Playlist", callback_data="cplaylist"),
-                    InlineKeyboardButton("Menu ⏯ ", callback_data="cmenu"),
+                    InlineKeyboardButton("📜 ᴘʟᴀʏʟɪsᴛ", callback_data="cplaylist"),
+                    InlineKeyboardButton("ᴍᴇɴᴜ ⏯ ", callback_data="cmenu"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
+                [InlineKeyboardButton(text="🗑️ ᴄʟᴏsᴇ", callback_data="ccls")],
             ]
         )
         file_name = get_file_name(audio)
@@ -509,14 +509,14 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📖 Playlist", callback_data="cplaylist"),
+                    InlineKeyboardButton("📜 Playlist", callback_data="cplaylist"),
                     InlineKeyboardButton("Menu ⏯ ", callback_data="cmenu"),
                 ],
                 [
                     InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
                     InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
+                [InlineKeyboardButton(text="🗑️ Close", callback_data="ccls")],
             ]
         )
         requested_by = message.from_user.first_name
@@ -554,14 +554,14 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📖 Playlist", callback_data="cplaylist"),
+                    InlineKeyboardButton("📜 Playlist", callback_data="cplaylist"),
                     InlineKeyboardButton("Menu ⏯ ", callback_data="cmenu"),
                 ],
                 [
                     InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
                     InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
+                [InlineKeyboardButton(text="🗑️ Close", callback_data="ccls")],
             ]
         )
         requested_by = message.from_user.first_name
@@ -692,11 +692,11 @@ async def deezer(client: Client, message_: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📖 Playlist", callback_data="cplaylist"),
+                InlineKeyboardButton("📜 Playlist", callback_data="cplaylist"),
                 InlineKeyboardButton("Menu ⏯ ", callback_data="cmenu"),
             ],
             [InlineKeyboardButton(text="Listen On Deezer 🎬", url=f"{url}")],
-            [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
+            [InlineKeyboardButton(text="🗑️ Close", callback_data="ccls")],
         ]
     )
     file_path = await convert(wget.download(url))
@@ -740,7 +740,7 @@ async def deezer(client: Client, message_: Message):
 @authorized_users_only
 async def jiosaavn(client: Client, message_: Message):
     global que
-    lel = await message_.reply("🔄 **Processing**")
+    lel = await message_.reply("🔁 **Processing**")
     try:
       conchat = await client.get_chat(message_.chat.id)
       conid = conchat.linked_chat.id
@@ -756,7 +756,7 @@ async def jiosaavn(client: Client, message_: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "GeezProject"
+        user.first_name = "EXProjects"
     usar = user
     wew = usar.id
     try:
@@ -823,7 +823,7 @@ async def jiosaavn(client: Client, message_: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📖 Playlist", callback_data="cplaylist"),
+                InlineKeyboardButton("📜 Playlist", callback_data="cplaylist"),
                 InlineKeyboardButton("Menu ⏯ ", callback_data="cmenu"),
             ],
             [
