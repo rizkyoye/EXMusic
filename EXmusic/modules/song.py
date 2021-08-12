@@ -35,8 +35,8 @@ from pyrogram.types import Message
 from youtube_search import YoutubeSearch
 from youtubesearchpython import SearchVideos
 
-from GeezProject.config import DURATION_LIMIT
-from GeezProject.modules.play import arq
+from EXmusic.config import DURATION_LIMIT
+from EXmusic.modules.play import arq
 
 
 @Client.on_message(filters.command("song") & ~filters.channel)
@@ -67,7 +67,7 @@ def song(client, message):
         results[0]["views"]
 
     except Exception as e:
-        m.edit("❌ Found Nothing.\n\nTry another keywork or maybe spell it properly.")
+        m.edit("Found Nothing.\n\nTry another keywork or maybe spell it properly.")
         print(str(e))
         return
     m.edit("Downloading the song ")
@@ -76,7 +76,7 @@ def song(client, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = "**🎵 Diunggah Oleh @GeezProjects **"
+        rep = "**🎵 Uploaded by @EXProjects**"
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(dur_arr[i]) * secmul
@@ -91,7 +91,7 @@ def song(client, message):
         )
         m.delete()
     except Exception as e:
-        m.edit("❌ Error")
+        m.edit("`Error!`")
         print(e)
 
     try:
