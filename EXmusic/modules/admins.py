@@ -1,6 +1,6 @@
 # Calls Music 1 - Telegram bot for streaming audio in group calls
-# Copyright (C) 2021  VckyouuBitch
-# Recode By VICKY From Geez-MusicProject
+# Copyright (C) 2021  rizky
+# Recode by RIZ-EX 
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -17,16 +17,16 @@
 
 
 from asyncio import QueueEmpty
-from GeezProject.config import que
+from EXmusic.config import que
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from GeezProject.function.admins import set
-from GeezProject.helpers.channelmusic import get_chat_id
-from GeezProject.helpers.decorators import authorized_users_only, errors
-from GeezProject.helpers.filters import command, other_filters
-from GeezProject.services.callsmusic import callsmusic
-from GeezProject.services.queues import queues
+from EXmusic.function.admins import set
+from EXmusic.helpers.channelmusic import get_chat_id
+from EXmusic.helpers.decorators import authorized_users_only, errors
+from EXmusic.helpers.filters import command, other_filters
+from EXmusic.services.callsmusic import callsmusic
+from EXmusic.services.queues import queues
 
 
 @Client.on_message(filters.command("adminreset"))
@@ -53,7 +53,7 @@ async def pause(_, message: Message):
         await message.reply_text("❗ Nothing is playing!")
     else:
         callsmusic.pytgcalls.pause_stream(chat_id)
-        await message.reply_text("▶️ Paused!")
+        await message.reply_text("▶️ **Paused!**")
 
 
 @Client.on_message(command("resume") & other_filters)
@@ -84,7 +84,7 @@ async def stop(_, message: Message):
             pass
 
         callsmusic.pytgcalls.leave_group_call(chat_id)
-        await message.reply_text("❌ Stopped streaming!")
+        await message.reply_text("**Stopped streaming!**")
 
 
 @Client.on_message(command("skip") & other_filters)
@@ -123,4 +123,4 @@ async def admincache(client, message: Message):
             for member in await message.chat.get_members(filter="administrators")
         ],
     )
-    await message.reply_text("✅️ **Daftar admin** telah **diperbarui**")
+    await message.reply_text("✅ **Daftar admin** telah **diperbarui**")
