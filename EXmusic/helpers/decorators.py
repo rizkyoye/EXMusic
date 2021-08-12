@@ -20,8 +20,8 @@ from typing import Callable
 from pyrogram import Client
 from pyrogram.types import Message
 
-from GeezProject.config import SUDO_USERS
-from GeezProject.helpers.admins import get_administrators
+from EXmusic.config import SUDO_USERS
+from EXmusic.helpers.admins import get_administrators
 
 
 def errors(func: Callable) -> Callable:
