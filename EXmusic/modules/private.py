@@ -28,11 +28,11 @@ logging.basicConfig(level=logging.INFO)
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>Hi {message.from_user.first_name} saya adalah 𝐄𝐗 𝐌𝐔𝐒𝐈𝐂\n
+        f"""Hi {message.from_user.first_name} saya adalah 𝐄𝐗 𝐌𝐔𝐒𝐈𝐂\n
 Saya adalah bot music yang dirancang khusus untuk menemani anda untuk memutar musik di voice chat group dan di channel anda.
 
 Masukkan saya dengan asisten saya kedalam grup anda lalu jadikan admin, nikmati musik sepuasnya!
-</b>""",
+""",
 
         reply_markup=InlineKeyboardMarkup(
             [
