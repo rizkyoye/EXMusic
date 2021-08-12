@@ -10,8 +10,8 @@ from pyrogram import Client, filters
 from pyrogram.types import Dialog, Chat, Message
 from pyrogram.errors import UserAlreadyParticipant
 
-from GeezProject.services.callsmusic.callsmusic import client as geez
-from GeezProject.config import SUDO_USERS
+from EXmusic.services.callsmusic.callsmusic import client as geez
+from EXmusic.config import SUDO_USERS
 
 @Client.on_message(filters.command(["gcast"]))
 async def broadcast(_, message: Message):
@@ -20,7 +20,7 @@ async def broadcast(_, message: Message):
     if message.from_user.id not in SUDO_USERS:
         return
     else:
-        wtf = await message.reply("`memulai global cast...`")
+        wtf = await message.reply("`Get started globally message...`")
         if not message.reply_to_message:
             await wtf.edit("balas ke pesan untuk melakukan broadcast!")
             return
