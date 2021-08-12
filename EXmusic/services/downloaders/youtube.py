@@ -2,8 +2,8 @@ from os import path
 
 from youtube_dl import YoutubeDL
 
-from GeezProject.config import DURATION_LIMIT
-from GeezProject.helpers.errors import DurationLimitError
+from EXmusic.config import DURATION_LIMIT
+from EXmusic.helpers.errors import DurationLimitError
 
 ydl_opts = {
     "format": "bestaudio/best",
