@@ -46,7 +46,7 @@ Masukkan saya dengan asisten saya kedalam grup anda lalu jadikan admin, nikmati 
                         "📌 ɢʀᴏᴜᴘ", url=f"https://t.me/EXGroupSupport")
                 ],[
                     InlineKeyboardButton(
-                        ""ᴄʀᴇᴀᴛᴏʀ, url=f"https://t.me/rizexx")
+                        "ᴄʀᴇᴀᴛᴏʀ", url=f"https://t.me/rizexx")
                 ]
             ]
         ),
