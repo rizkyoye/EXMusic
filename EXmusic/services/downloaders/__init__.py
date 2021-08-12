@@ -1,3 +1,3 @@
-from GeezProject.services.downloaders import youtube
+from EXmusic.services.downloaders import youtube
 
 __all__ = ["youtube"]
