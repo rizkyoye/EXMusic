@@ -45,35 +45,7 @@ $ python(3) -m EXmusic
 Get pyrogram (p)  `SESSION` from here:
 [![Run on Repl.it](https://repl.it/badge/github/vckyou/PyrogramString)](https://repl.it/@vckyou/PyrogramString?lite=1&outputonly=1)
 
-### Commands for Group 🛠
-#### For all in group
-
-- `/playlist` - Show now playing list
-- `/current` - Show now playing
-- `/song <song name>` - download songs you want quickly
-- `/search <query>` - search videos on youtube with details
-- `/deezer <song name>` - download songs you want quickly via deezer
-- `/saavn <song name>` - download songs you want quickly via saavn
-- `/video <song name>` - download videos you want quickly
-
-#### Admins only.
-- `/play <song name>` - play song you requested
-- `/play <reply to audio>` - play replied file
-- `/dplay <song name>` - play song you requested via deezer
-- `/splay <song name>` - play song you requested via jio saavn
-- `/player` - open music player settings panel
-- `/pause` - pause song play
-- `/resume` - resume song play
-- `/skip` - play next song
-- `/end` - stop music play
-- `/userbotjoin` - invite assistant to your chat
-- `/userbotleave` - remove assistant from your chat
-- `/admincache` - Refresh admin list
-
-
-#### Pmpermit
-- `.yes` - approove someone to pm you
-- `.no` - disapproove someone to pm you
-+ Sudo Users can execute any command in any groups
-
-### Repo by [EX](https://t.me/rizexx)
+## ⚡EX
+##### Repo by [EX](https://t.me/rizexx)
+##### Join Group Support Telegram [EXSupport](https://t.me/EXGroupSupport)
+##### EX Update Channel [EXProjects](https://t.me/EXProjects)
