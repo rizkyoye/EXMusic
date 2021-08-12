@@ -18,7 +18,7 @@
 import asyncio
 from os import path
 
-from GeezProject.helpers.errors import FFmpegReturnCodeError
+from EXmusic.helpers.errors import FFmpegReturnCodeError
 
 
 async def convert(file_path: str) -> str:
