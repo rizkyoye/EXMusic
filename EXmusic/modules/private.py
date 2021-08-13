@@ -24,6 +24,8 @@ from EXmusic.helpers.filters import command
 from pyrogram import Client, filters
 from time import time
 from datetime import datetime
+from EXmusic.helpers.decorators import authorized_users_only
+
 
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
