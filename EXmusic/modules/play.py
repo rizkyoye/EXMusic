@@ -541,7 +541,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton("⏺ Menu", callback_data="menu"),
                     InlineKeyboardButton("🗑 Close", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
+                    InlineKeyboardButton("📣 Official Channel", url=f"https://t.me/EXProjects")
                 ],
             ]
         )
@@ -589,7 +589,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton("⏺ Menu", callback_data="menu"),
                     InlineKeyboardButton("🗑 Close", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
+                    InlineKeyboardButton("📣 Official Channel", url=f"https://t.me/EXProjects")
                 ],
             ]
         )
@@ -668,7 +668,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton("⏺ Menu", callback_data="menu"),
                     InlineKeyboardButton("🗑 Close", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 CHANNEL", url=f"https://t.me/{UPDATES_CHANNEL}")
+                    InlineKeyboardButton("📣 CHANNEL", url=f"https://t.me/EXProjects")
                 ],
             ]
         )
@@ -811,7 +811,7 @@ async def ytplay(_, message: Message):
                     InlineKeyboardButton("⏺ Menu", callback_data="menu"),
                     InlineKeyboardButton("🗑 Close", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
+                    InlineKeyboardButton("📣 Official Channel", url=f"https://t.me/EXProjects")
                 ],
             ]
         )
@@ -1045,7 +1045,7 @@ async def lol_cb(b, cb):
                     InlineKeyboardButton("⏺ Menu", callback_data="menu"),
                     InlineKeyboardButton("🗑 Close", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 CHANNEL", url=f"https://t.me/{UPDATES_CHANNEL}")
+                    InlineKeyboardButton("📣 CHANNEL", url=f"https://t.me/EXProjects")
                 ],
             ]
         )
