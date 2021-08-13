@@ -31,7 +31,7 @@ async def start_(client: Client, message: Message):
         f"""Hi {message.from_user.first_name} saya adalah 𝐄𝐗 𝐌𝐔𝐒𝐈𝐂\n
 Saya adalah bot music yang dirancang khusus untuk menemani anda untuk memutar musik di voice chat group dan di channel anda.
 
-Masukkan saya dengan asisten saya kedalam grup anda lalu jadikan admin, nikmati musik sepuasnya!
+Masukkan saya dengan asisten saya kedalam grup anda lalu jadikan admin, nikmati musik [sepuasnya!](https://telegra.ph/file/d2b539f061923cee37797.jpg)
 """,
 
         reply_markup=InlineKeyboardMarkup(
