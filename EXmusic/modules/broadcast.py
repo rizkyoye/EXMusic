@@ -7,7 +7,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Dialog, Chat, Message
 from pyrogram.errors import UserAlreadyParticipant
 
-from EXmusic.services.callsmusic.callsmusic import client as EX
+from EXmusic.services.callsmusic.callsmusic import client as exmusic
 from EXmusic.config import SUDO_USERS
 
 @Client.on_message(filters.command(["gcast"]))
