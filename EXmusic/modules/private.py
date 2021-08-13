@@ -30,9 +30,8 @@ async def start_(client: Client, message: Message):
     await message.reply_text(
         f"""Halo {message.from_user.first_name} saya adalah 𝐄𝐗 𝐌𝐔𝐒𝐈𝐂\n
 Saya adalah bot yang memungkinkan untuk memutar musik di grup anda
-klik [disini](https://t.me/{BOT_USERNAME}?startgroup=true)untuk menambahkan saya ke grup anda.
-dan jangan lupa untuk menambahkan [asisten]({ASSISTANT_NAME})saya, selengkapnya /help 
-[⚡](https://telegra.ph/file/d2b539f061923cee37797.jpg)
+klik [disini](https://t.me/{BOT_USERNAME}?startgroup=true) untuk menambahkan saya ke grup anda.
+dan jangan lupa untuk menambahkan [asisten]({ASSISTANT_NAME})saya, selengkapnya /help [.](https://telegra.ph/file/d2b539f061923cee37797.jpg)
 """,
 
         reply_markup=InlineKeyboardMarkup(
