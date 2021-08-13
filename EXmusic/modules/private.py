@@ -55,14 +55,14 @@ async def _human_time_duration(seconds):
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""Haii {message.from_user.first_name}\n
-[{BOT_NAME}](https://t.me/{BOT_USERNAME}) allow you to play music on groups through the new Telegram's Voice Chats!
+        f"""<b>**Haii** {message.from_user.first_name}**\n
+⚡ **EX Music allow you to play music on groups through the new Telegram's Voice Chats!**
 
-Find out all the bot's commands and how they work by clicking on the » 📚 Commands button.
+💡 **Find out all the bot's commands and how they work by clicking on the » 📚 Commands button.**
 
-Untuk informasi keseluruhan tentang bot, selengkapnya /help
-Jangan lupa untuk menambahkan [asisten](https://t.me/{ASSISTANT_NAME})
-""",
+❓ **Untuk informasi keseluruhan tentang bot, selengkapnya** /help
+**Jangan lupa untuk menambahkan** [asisten](https://t.me/{ASSISTANT_NAME})
+<b>""",
 
         reply_markup=InlineKeyboardMarkup(
             [
