@@ -70,5 +70,6 @@ f"""
 /wibu - check it by yourself
 /asupan - check it by yourself
 /truth - check it by yourself
-/dare - check it by yourself"""
+/dare - check it by yourself
+"""
       ]
