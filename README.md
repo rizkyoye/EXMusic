@@ -42,12 +42,6 @@ $ python(3) -m EXmusic
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/rizkyoye/EXMusic)
 
-## Railway Deployment 🚄
-For deployment on railway you can see the full of [Necessary Variables Here](https://github.com/rizkyoye/EXMusic/blob/main/example.env), make sure you fill all of it.
-
-[![Deploy+on+Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/rizkyoye/EXMusic&envs=SESSION_NAME,BOT_TOKEN,BOT_NAME,GROUP_SUPPORT,ASSISTANT_NAME,BG_IMAGE,UPDATES_CHANNEL,API_ID,PMPERMIT,API_HASH,SUDO_USERS,DURATION_LIMIT)
-
-
 Get pyrogram (p)  `SESSION` from here:
 [![Run on Repl.it](https://repl.it/badge/github/vckyou/PyrogramString)](https://repl.it/@vckyou/PyrogramString?lite=1&outputonly=1)
 
