@@ -24,7 +24,7 @@ async def broadcast(_, message: Message):
         lmao = message.reply_to_message.text
         async for dialog in veez.iter_dialogs():
             try:
-                await veez.send_message(dialog.chat.id, lmao)
+                await exmusic.send_message(dialog.chat.id, lmao)
                 sent = sent+1
                 await wtf.edit(f"`broadcasting...` \n\n**sent to:** `{sent}` chats \n**failed in:** {failed} chats")
                 await asyncio.sleep(3)
