@@ -55,7 +55,7 @@ async def _human_time_duration(seconds):
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>**Haii** {message.from_user.first_name}**
+        f"""<b>👋 **Welcome** {message.from_user.first_name}**
 ⚡ **EX Music allow you to play music on groups through the new Telegram's Voice Chats!**
 
 💡 **Find out all the bot's commands and how they work by clicking on the » 📚 Commands button.**
@@ -78,7 +78,7 @@ async def start_(client: Client, message: Message):
                         "⚡ Created by", url=f"https://t.me/rizexx")
                 ],[
                     InlineKeyboardButton(
-                        "📚 Panduan bot", url=f"https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13")
+                        "📚 Commands", url=f"https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13")
                 ]
             ]
         ),
@@ -162,12 +162,12 @@ async def start(client: Client, message: Message):
 )
 async def help(client: Client, message: Message):
     await message.reply_text(
-        """baca [panduan bot](https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13) atau bisa langsung contact creator""",
+        """baca panduan bot dibawah ini""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "⚡ Creator", url="https://t.me/rizexx/"
+                        "📚 Panduan Bot", url="https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13"
                     )
                 ]
             ]
