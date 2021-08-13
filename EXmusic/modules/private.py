@@ -20,7 +20,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from EXmusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL,BOT_USERNAME, OWNER
 logging.basicConfig(level=logging.INFO)
-from helpers.filters import command
+from EXmusic.helpers.filters import command
 from pyrogram import Client, filters
 
 START_TIME = datetime.utcnow()
