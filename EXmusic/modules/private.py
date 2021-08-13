@@ -22,6 +22,8 @@ from EXmusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP
 logging.basicConfig(level=logging.INFO)
 from EXmusic.helpers.filters import command
 from pyrogram import Client, filters
+from time import time
+from datetime import datetime
 
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
