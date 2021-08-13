@@ -536,18 +536,13 @@ async def play(_, message: Message):
                 f"**lagu dengan durasi lebih dari** `{DURATION_LIMIT}` **menit dilarang untuk diputar!**"
             )
         keyboard = InlineKeyboardMarkup(
-            [   
+            [
                 [
-                               
-                    InlineKeyboardButton("ᴘʟᴀʏʟɪsᴛ", callback_data="playlist"),
-                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu")
-                
-                ],                     
-                [
-                    InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=f"{dlurl}"),
-                    InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
-                
-                ]                             
+                    InlineKeyboardButton("⏺ Menu", callback_data="menu"),
+                    InlineKeyboardButton("🗑 Close", callback_data="cls"),
+                ],[
+                    InlineKeyboardButton("📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
+                ],
             ]
         )
         file_name = get_file_name(audio)
@@ -589,18 +584,13 @@ async def play(_, message: Message):
         dlurl=url
         dlurl=dlurl.replace("youtube","youtubepp")
         keyboard = InlineKeyboardMarkup(
-            [   
+            [
                 [
-                               
-                    InlineKeyboardButton("ᴘʟᴀʏʟɪsᴛ", callback_data="playlist"),
-                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu")
-                
-                ],                     
-                [
-                    InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=f"{dlurl}"),
-                    InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
-                
-                ]                             
+                    InlineKeyboardButton("⏺ Menu", callback_data="menu"),
+                    InlineKeyboardButton("🗑 Close", callback_data="cls"),
+                ],[
+                    InlineKeyboardButton("📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
+                ],
             ]
         )
         requested_by = message.from_user.first_name
@@ -620,7 +610,7 @@ async def play(_, message: Message):
           await lel.edit("**berikan judul lagu yang ingin kamu putar !**")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**__silahkan pilih lagu untuk diputar:__**\n\n"
+            toxxt = "**__please select the song you want to play:__**\n\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣",]
@@ -628,7 +618,7 @@ async def play(_, message: Message):
             while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title'][:25]}](https://youtube.com{results[j]['url_suffix']})\n"
                 toxxt += f" ├ 💡 **Duration** - {results[j]['duration']}\n"
-                toxxt += f" └ ⚡ __Powered by EX Music Project__\n\n"
+                toxxt += f" └ ⚡ __Powered by EX Music__\n\n"
 
                 j += 1            
             koyboard = InlineKeyboardMarkup(
@@ -673,18 +663,13 @@ async def play(_, message: Message):
             dlurl=url
             dlurl=dlurl.replace("youtube","youtubepp")
             keyboard = InlineKeyboardMarkup(
-            [   
+            [
                 [
-                               
-                    InlineKeyboardButton("ᴘʟᴀʏʟɪsᴛ", callback_data="playlist"),
-                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu")
-                
-                ],                     
-                [
-                    InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=f"{dlurl}"),
-                    InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
-                
-                ]                             
+                    InlineKeyboardButton("⏺ Menu", callback_data="menu"),
+                    InlineKeyboardButton("🗑 Close", callback_data="cls"),
+                ],[
+                    InlineKeyboardButton("📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
+                ],
             ]
         )
             requested_by = message.from_user.first_name
@@ -821,18 +806,13 @@ async def ytplay(_, message: Message):
     dlurl=url
     dlurl=dlurl.replace("youtube","youtubepp")
     keyboard = InlineKeyboardMarkup(
-            [   
+            [
                 [
-                               
-                    InlineKeyboardButton("ᴘʟᴀʏʟɪsᴛ", callback_data="playlist"),
-                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu")
-                
-                ],                     
-                [
-                    InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=f"{dlurl}"),
-                    InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
-                
-                ]                             
+                    InlineKeyboardButton("⏺ Menu", callback_data="menu"),
+                    InlineKeyboardButton("🗑 Close", callback_data="cls"),
+                ],[
+                    InlineKeyboardButton("📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
+                ],
             ]
         )
     requested_by = message.from_user.first_name
@@ -967,7 +947,7 @@ async def deezer(client: Client, message_: Message):
     
     keyboard = InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton(text="📣 ᴄʜᴀɴɴᴇʟ", url="https://t.me/EXProjects")],
+            [InlineKeyboardButton(text="📣 Official Channel", url="https://t.me/EXProjects")],
         ]
     )
     file_path = await convert(wget.download(url))
@@ -1060,18 +1040,13 @@ async def lol_cb(b, cb):
     dlurl=url
     dlurl=dlurl.replace("youtube","youtubepp")
     keyboard = InlineKeyboardMarkup(
-            [   
+            [
                 [
-                               
-                    InlineKeyboardButton("ᴘʟᴀʏʟɪsᴛ", callback_data="playlist"),
-                    InlineKeyboardButton("ᴍᴇɴᴜ", callback_data="menu")
-                
-                ],                     
-                [
-                    InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=f"{dlurl}"),
-                    InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
-                
-                ]                             
+                    InlineKeyboardButton("⏺ Menu", callback_data="menu"),
+                    InlineKeyboardButton("🗑 Close", callback_data="cls"),
+                ],[
+                    InlineKeyboardButton("📣 CHANNEL", url=f"https://t.me/{UPDATES_CHANNEL}")
+                ],
             ]
         )
     requested_by = useer_name
