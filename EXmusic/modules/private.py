@@ -28,10 +28,11 @@ logging.basicConfig(level=logging.INFO)
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""Hi {message.from_user.first_name} saya adalah 𝐄𝐗 𝐌𝐔𝐒𝐈𝐂\n
-Saya adalah bot music yang dirancang khusus untuk menemani anda untuk memutar musik di voice chat group dan di channel anda.
-
-Masukkan saya dengan asisten saya kedalam grup anda lalu jadikan admin, nikmati musik [sepuasnya!](https://telegra.ph/file/d2b539f061923cee37797.jpg)
+        f"""Halo {message.from_user.first_name} saya adalah 𝐄𝐗 𝐌𝐔𝐒𝐈𝐂\n
+Saya adalah bot yang memungkinkan untuk memutar musik di grup anda
+klik [disini](https://t.me/{BOT_USERNAME}?startgroup=true)untuk menambahkan saya ke grup anda.
+dan jangan lupa untuk menambahkan [asisten]({ASSISTANT_NAME})saya, selengkapnya /help 
+[⚡](https://telegra.ph/file/d2b539f061923cee37797.jpg)
 """,
 
         reply_markup=InlineKeyboardMarkup(
@@ -41,9 +42,9 @@ Masukkan saya dengan asisten saya kedalam grup anda lalu jadikan admin, nikmati 
                         "➕ ᴛᴀᴍʙᴀʜᴋᴀɴ sᴀʏᴀ ᴋᴇ ɢʀᴜᴘ ᴀɴᴅᴀ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
                 [
                     InlineKeyboardButton(
-                        "📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects"), 
+                        "ᴄʜᴀɴɴᴇʟ ɪɴғᴏ", url=f"https://t.me/EXProjects"), 
                     InlineKeyboardButton(
-                        "📌 ɢʀᴏᴜᴘ", url=f"https://t.me/EXGroupSupport")
+                        "ɢʀᴏᴜᴘ sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/EXGroupSupport")
                 ],[
                     InlineKeyboardButton(
                         "ᴄʀᴇᴀᴛᴏʀ", url=f"https://t.me/rizexx")
