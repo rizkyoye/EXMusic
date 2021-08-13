@@ -18,7 +18,7 @@ import logging
 from EXmusic.modules.msg import Messages as tr
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-from EXmusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL,BOT_USERNAME, OWNER
+from EXmusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL,BOT_USERNAME, OWNER, BOT_NAME
 logging.basicConfig(level=logging.INFO)
 from EXmusic.helpers.filters import command
 from pyrogram import Client, filters
@@ -55,24 +55,29 @@ async def _human_time_duration(seconds):
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""Halo {message.from_user.first_name} saya adalah 𝐄𝐗 𝐌𝐔𝐒𝐈𝐂\n
-Saya adalah bot yang memungkinkan untuk memutar musik di grup anda.
-klik [DISINI](https://t.me/{BOT_USERNAME}?startgroup=true) untuk menambahkan saya ke grup anda, dan jangan lupa untuk menambahkan ([asisten]({ASSISTANT_NAME})) saya, selengkapnya /help
+        f"""Haii {message.from_user.first_name}\n
+[{BOT_NAME}](https://t.me/{BOT_USERNAME}) allow you to play music on groups through the new Telegram's Voice Chats!
+Find out all the bot's commands and how they work by clicking on the » 📚 Commands button.
+Untuk informasi keseluruhan tentang bot, selengkapnya /help
+Jangan lupa untuk menambahkan [asisten](https://t.me/{ASSISTANT_NAME})
 """,
 
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "➕ ᴛᴀᴍʙᴀʜᴋᴀɴ sᴀʏᴀ ᴋᴇ ɢʀᴜᴘ ᴀɴᴅᴀ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
+                        "➕ Tambahkan saya ke grup anda ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
                 [
                     InlineKeyboardButton(
-                        "ᴄʜᴀɴɴᴇʟ ɪɴғᴏ", url=f"https://t.me/EXProjects"), 
+                        "Official Channel", url=f"https://t.me/EXProjects"), 
                     InlineKeyboardButton(
-                        "ɢʀᴏᴜᴘ sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/EXGroupSupport")
+                        "Support Group", url=f"https://t.me/EXGroupSupport")
                 ],[
                     InlineKeyboardButton(
-                        "ᴄʀᴇᴀᴛᴏʀ", url=f"https://t.me/rizexx")
+                        "Created by", url=f"https://t.me/rizexx")
+                ],[
+                    InlineKeyboardButton(
+                        "📚 Panduan bot", url=f"https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13")
                 ]
             ]
         ),
@@ -111,10 +116,10 @@ def map(pos):
     elif(pos==len(tr.HELP_MSG)-1):
         url = f"https://t.me/EXGroupSupport"
         button = [
-            [InlineKeyboardButton("➕ ᴛᴀᴍʙᴀʜᴋᴀɴ sᴀʏᴀ ᴋᴇ ɢʀᴜᴘ ᴀɴᴅᴀ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
-            [InlineKeyboardButton(text = 'ᴄʜᴀɴɴᴇʟ ᴜᴘᴅᴀᴛᴇs', url=f"https://t.me/EXProject"),
-             InlineKeyboardButton(text = 'ɢʀᴏᴜᴘ sᴜᴘᴘᴏʀᴛ', url=f"https://t.me/EXGroupSupport")],
-            [InlineKeyboardButton(text = 'ʙᴀᴄᴋ', callback_data = f"help+{pos-1}")]
+            [InlineKeyboardButton("➕ Tambahkan saya ke grup anda ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
+            [InlineKeyboardButton(text = 'Official Channel', url=f"https://t.me/EXProject"),
+             InlineKeyboardButton(text = 'Support Group', url=f"https://t.me/EXGroupSupport")],
+            [InlineKeyboardButton(text = '🌻 Developer', url=f"https://t.me/rizexx")]
         ]
     else:
         button = [
@@ -156,12 +161,12 @@ async def start(client: Client, message: Message):
 )
 async def help(client: Client, message: Message):
     await message.reply_text(
-        """klik tombol dibawah untuk melihat cara penggunaan bot.""",
+        """baca [panduan bot](https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13) atau bisa langsung contact creator""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "ᴄᴀʀᴀ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ʙᴏᴛ", url="https://t.me/rizexx/32"
+                        "⚡ Creator", url="https://t.me/rizexx/"
                     )
                 ]
             ]
@@ -209,6 +214,6 @@ async def get_uptime(client: Client, message: Message):
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_text(
         "🤖 bot status:\n"
-        f"• **uptime:** `{uptime}`\n"
-        f"• **start time:** `{START_TIME_ISO}`"
+        f"• 🚀 **uptime:** `{uptime}`\n"
+        f"• ⚡ **start time:** `{START_TIME_ISO}`"
     )
