@@ -628,14 +628,16 @@ async def play(_, message: Message):
                     [
                         InlineKeyboardButton("4️⃣", callback_data=f'plll 3|{query}|{user_id}'),
                         InlineKeyboardButton("5️⃣", callback_data=f'plll 4|{query}|{user_id}'),
+                        InlineKeyboardButton("6️⃣", callback_data=f'plll 5|{query}|{user_id}'),
                     ],
                     [
-                        InlineKeyboardButton("6️⃣", callback_data=f'plll 5|{query}|{user_id}'),
                         InlineKeyboardButton("7️⃣", callback_data=f'plll 6|{query}|{user_id}'),
                     ],
                     [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
                 ]
-            )       
+            ) 
+
+      
             await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
             # WHY PEOPLE ALWAYS LOVE PORN ?? (A point to think)
             return
