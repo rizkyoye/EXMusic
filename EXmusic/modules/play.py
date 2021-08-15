@@ -607,12 +607,12 @@ async def play(_, message: Message):
           await lel.edit("**berikan judul lagu yang ingin kamu putar !**")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**__please select the song you want to play:__**\n\n"
+            toxxt = "**__choose a song to play:__⚡**\n\n"
             j = 0
             useer=user_name
-            emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣",]
+            emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣",]
 
-            while j < 5:
+            while j < 7:
                 toxxt += f"{emojilist[j]} [{results[j]['title'][:25]}](https://youtube.com{results[j]['url_suffix']})\n"
                 toxxt += f" ├ 💡 **Duration** - {results[j]['duration']}\n"
                 toxxt += f" └ ⚡ __Powered by EX Music__\n\n"
@@ -628,6 +628,10 @@ async def play(_, message: Message):
                     [
                         InlineKeyboardButton("4️⃣", callback_data=f'plll 3|{query}|{user_id}'),
                         InlineKeyboardButton("5️⃣", callback_data=f'plll 4|{query}|{user_id}'),
+                    ],
+                    [
+                        InlineKeyboardButton("6️⃣", callback_data=f'plll 5|{query}|{user_id}'),
+                        InlineKeyboardButton("7️⃣", callback_data=f'plll 6|{query}|{user_id}'),
                     ],
                     [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
                 ]
