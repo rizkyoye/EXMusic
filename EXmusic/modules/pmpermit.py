@@ -33,7 +33,7 @@ async def pmPermit(client: USER, message: Message):
                 return
             await USER.send_message(
                 message.chat.id,
-            f"Hii saya adalah layanan assistant bot music EXM⚡\n• Jangan spam pesan disini!\n Apabila saya tidak dapat anda tambahkan ke grup, kirim tautan grup dan saya akan bergabung sendiri.\n\nGroup Support : @EXGroupSupport\nChannel Update : @EXProjects\nMaintained by : @rizexx",
+            f"✨Hai, saya adalah **asisten musik resmi EX**\n\n**catatan:**\n\n⫸ jangan mengirim pesan spam.\n⫸ jangan kirimi saya apa pun rahasia\n\n Join channel : @EXProjects \nSupport Group : @EXGroupSupport\n👩‍💻 Developer : @rizexx",
             )
             return
 
