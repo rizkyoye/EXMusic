@@ -43,7 +43,7 @@ $ python(3) -m EXmusic
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/rizkyoye/EXMusic)
 
 ## Railway Deployment 🚄
-[![Deploy+on+Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/rizkyoye/EXmusic&envs=SESSION_NAME,BOT_TOKEN,BOT_USERNAME,BOT_NAME,GROUP_SUPPORT,ASSISTANT_NAME,BG_IMAGE,UPDATES_CHANNEL,API_ID,PMPERMIT,API_HASH,SUDO_USERS,DURATION_LIMIT,THUMB_IMG)
+[![Deploy+on+Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/rizkyoye/EXmusic&envs=SESSION_NAME,BOT_TOKEN,BOT_NAME,BOT_USERNAME,API_ID,API_HASH,SUDO_USERS,DURATION_LIMIT,ARQ_API_KEY,UPDATES_CHANNEL,BG_IMAGE,SUPPORT_GROUP,PROJECT_NAME,ASSISTANT_NAME,OWNER,PMPERMIT)
 
 
 Get pyrogram (p)  `SESSION` from here:
