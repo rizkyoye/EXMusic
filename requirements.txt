@@ -16,3 +16,4 @@ future
 psutil
 wget
 tswift
+python-arq
