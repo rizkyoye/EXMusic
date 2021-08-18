@@ -56,7 +56,7 @@ async def _human_time_duration(seconds):
 async def start_(client: Client, message: Message):
     await message.reply_text(
         f"""<b>👋 **𝗪𝗲𝗹𝗰𝗼𝗺𝗲** {message.from_user.first_name}**\n
-🎧  **𝗘𝗫 𝗠𝘂𝘀𝗶𝗰**  𝗮𝗹𝗹𝗼𝘄 𝘆𝗼𝘂 𝘁𝗼 𝗽𝗹𝗮𝘆 𝗺𝘂𝘀𝗶𝗰 𝗼𝗻 𝗴𝗿𝗼𝘂𝗽𝘀 𝘁𝗵𝗿𝗼𝘂𝗴𝗵 𝘁𝗵𝗲 𝗻𝗲𝘄 𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺'𝘀 𝘃𝗼𝗶𝗰𝗲 𝗰𝗵𝗮𝘁𝘀 !
+🎧 **[BOT_NAME](https://t.me/{BOT_USERNAME}) 𝗮𝗹𝗹𝗼𝘄 𝘆𝗼𝘂 𝘁𝗼 𝗽𝗹𝗮𝘆 𝗺𝘂𝘀𝗶𝗰 𝗼𝗻 𝗴𝗿𝗼𝘂𝗽𝘀 𝘁𝗵𝗿𝗼𝘂𝗴𝗵 𝘁𝗵𝗲 𝗻𝗲𝘄 𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺'𝘀 𝘃𝗼𝗶𝗰𝗲 𝗰𝗵𝗮𝘁𝘀!**
 
 💡 𝗖𝗹𝗶𝗰𝗸 [𝗵𝗲𝗿𝗲](https://t.me/{BOT_USERNAME}?startgroup=true) 𝘁𝗼 𝗮𝗱𝗱 𝗺𝗲 𝘁𝗼 𝘆𝗼𝘂𝗿 𝗴𝗿𝗼𝘂𝗽
 
@@ -67,18 +67,12 @@ async def start_(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "➕ Tambahkan saya ke grup anda ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
-                [
-                    InlineKeyboardButton(
                         "📣 Official Channel", url=f"https://t.me/EXProjects"), 
                     InlineKeyboardButton(
                         "👥 Support Group", url=f"https://t.me/EXGroupSupport")
                 ],[
                     InlineKeyboardButton(
                         "👩‍💻 Created by", url=f"https://t.me/rizexx")
-                ],[
-                    InlineKeyboardButton(
-                        "📚 Commands", url=f"https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13")
                 ]
             ]
         ),
@@ -114,14 +108,14 @@ def map(pos):
         button = [
             [
               InlineKeyboardButton(text = 'About bot ❔', callback_data = "help+2"),
-              InlineKeyboardButton(text = 'Panduan bot 📚', url=f"https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13")],
+              InlineKeyboardButton(text = 'Commands 📚', url=f"https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13")],
         ]
     elif(pos==len(tr.HELP_MSG)-1):
         url = f"https://t.me/EXGroupSupport"
         button = [
             [InlineKeyboardButton(text = '📣 Official Channel', url=f"https://t.me/EXProject"),
              InlineKeyboardButton(text = '👥 Support Group', url=f"https://t.me/EXGroupSupport")],
-            [InlineKeyboardButton(text = 'back «', callback_data = f"help+{pos-1}")]
+            [InlineKeyboardButton(text = 'Back «', callback_data = f"help+{pos-1}")]
         ]
     else:
         button = [
@@ -163,15 +157,15 @@ async def start(client: Client, message: Message):
 )
 async def help(client: Client, message: Message):
     await message.reply_text(
-        """<b>👋🏻 **Hello** kamu, baca panduan bot dibawah ini, atau kamu bisa langsung menghubungi **creator** apabila memerlukan **bantuan**<b>""",
+        """<b>👋🏻 **Hello** kamu, sebelum menggunakan bot kamu bisa membaca **Commands** dibawah ini\n\\nAtau kamu bisa langsung **menghubungi** creator apabila memerlukan **bantuan**<b>""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "📚 Panduan Bot", url="https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13"
+                        "📚 Commands", url="https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13"
                     ),
                     InlineKeyboardButton(
-                        "👩‍💻 Contact Owner", url=f"https://t.me/rizexx"
+                        "👩‍💻 Creator", url=f"https://t.me/rizexx"
                     )
                 ]
             ]
