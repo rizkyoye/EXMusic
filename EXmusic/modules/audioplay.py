@@ -12,7 +12,7 @@ from EXmusic.services.callsmusic import callsmusic, queues
 from EXmusic.services.converter import converter
 from EXmusic.services.downloaders import youtube
 
-from EXmusic.config import BOT_NAME as bn, DURATION_LIMIT, UPDATES_CHANNEL,GROUP_SUPPORT
+from EXmusic.config import BOT_NAME as bn, DURATION_LIMIT, UPDATES_CHANNEL,SUPPORT_GROUP
 from EXmusic.helpers.filters import command, other_filters
 from EXmusic.helpers.decorators import errors
 from EXmusic.helpers.errors import DurationLimitError
