@@ -164,7 +164,7 @@ async def start(client: Client, message: Message):
 )
 async def help(client: Client, message: Message):
     await message.reply_text(
-        """<b>👋🏻 Hello {message.from_user.mention()}, baca panduan bot dibawah ini<b>""",
+        """<b>👋🏻 Hello {message.from_user.first_name}, baca panduan bot dibawah ini<b>""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
