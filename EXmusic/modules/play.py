@@ -634,12 +634,12 @@ async def play(_, message: Message):
                         InlineKeyboardButton(text="📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects")],
                 ]
             ) 
+            await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
             await message.reply_photo(
                 photo=f"https://telegra.ph/file/7f64a79e81d85e815b6e1.jpg",
                 caption=toxxt,
                 reply_markup=keyboard
             )   
-            await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
             # WHY PEOPLE ALWAYS LOVE PORN ?? (A point to think)
             return
             # Returning to pornhub
@@ -660,7 +660,7 @@ async def play(_, message: Message):
 
             except Exception as e:
                 await lel.edit(
-                "**❌ Lagu tidak ditemukan.** Coba cari dengan judul lagu yang lebih jelas, Contoh `/play [judul lagu]'"
+                "**Lagu tidak ditemukan.** Coba cari dengan judul lagu yang lebih jelas, Contoh `/play [judul lagu]`"
             )
                 print(str(e))
                 return
@@ -803,7 +803,7 @@ async def ytplay(_, message: Message):
 
     except Exception as e:
         await lel.edit(
-            "**❌ Lagu tidak ditemukan.** Coba cari dengan judul lagu yang lebih jelas"
+            "**Lagu tidak ditemukan.** Coba cari dengan judul lagu yang lebih jelas"
         )
         print(str(e))
         return
