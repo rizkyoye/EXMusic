@@ -110,7 +110,7 @@ def map(pos):
               InlineKeyboardButton(text = 'Commands 📚', url=f"https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13"),
             ],
             [
-              InlineKeyboarButton(text = 'Back ◀️', callback_data = "start")],
+              InlineKeyboarButton(text = 'Back ◀️', callback_data = f"start")],
         ]
     elif(pos==len(tr.HELP_MSG)-1):
         url = f"https://t.me/EXGroupSupport"
