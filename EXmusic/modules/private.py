@@ -163,18 +163,19 @@ async def start(client: Client, message: Message):
 )
 async def help(client: Client, message: Message):
     await message.reply_text(
-        """<b>👋🏻 Hello kamu, baca panduan bot dibawah ini<b>""",
+        """<b>👋🏻 **Hello** kamu, baca panduan bot dibawah ini, atau kamu bisa langsung menghubungi **creator** apabila memerlukan **bantuan**<b>""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "📚 Panduan Bot", url="https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13"),
-                ],
-                [
-                    InlineKeyboardButton("👩‍💻 Contact Owner", url=f"https://t.me/rizexx)
+                        "📚 Panduan Bot", url="https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13"
+                    ),
+                    InlineKeyboardButton(
+                        "👩‍💻 Contact Owner", url=f"https://t.me/rizexx"
+                    )
                 ]
             ]
-        ),
+        )
     )  
 
 
