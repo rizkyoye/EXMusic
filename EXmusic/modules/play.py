@@ -635,12 +635,12 @@ async def play(_, message: Message):
                 ]
             ) 
             await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
-            await message.reply_photo(
-                photo=f"https://telegra.ph/file/7f64a79e81d85e815b6e1.jpg",
-                caption=toxxt,
-                reply_markup=keyboard
-            )   
             # WHY PEOPLE ALWAYS LOVE PORN ?? (A point to think)
+            await message.reply_photo(
+                photo="https://telegra.ph/file/7f64a79e81d85e815b6e1.jpg",
+                caption=toxxt, reply_markup=koyboard,
+            )
+            await lel.delete()
             return
             # Returning to pornhub
         except:
