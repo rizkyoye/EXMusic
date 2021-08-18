@@ -82,9 +82,8 @@ async def start_(client: Client, message: Message):
                 ]
             ]
         ),
-        reply_to_message_id=message.message_id
-        )
         disable_web_page_preview=True
+        )
 
 @Client.on_message(filters.private & filters.incoming & filters.command(['help']))
 def _help(client, message):
