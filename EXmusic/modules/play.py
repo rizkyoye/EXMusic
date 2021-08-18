@@ -639,7 +639,7 @@ async def play(_, message: Message):
                 photo=f"https://telegra.ph/file/7f64a79e81d85e815b6e1.jpg",
                 caption=toxxt,
                 reply_markup=keyboard
-            (
+            )
             # WHY PEOPLE ALWAYS LOVE PORN ?? (A point to think)
             return
             # Returning to pornhub
