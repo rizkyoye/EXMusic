@@ -113,13 +113,12 @@ def map(pos):
     if(pos==1):
         button = [
             [
-              InlineKeyboardButton(text = '❔ Bantuan', callback_data = "help+2"),
-              InlineKeyboardButton(text = '📚 Panduan bot', url=f"https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13")],
+              InlineKeyboardButton(text = 'About bot ❔', callback_data = "help+2"),
+              InlineKeyboardButton(text = 'Panduan bot 📚', url=f"https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13")],
         ]
     elif(pos==len(tr.HELP_MSG)-1):
         url = f"https://t.me/EXGroupSupport"
         button = [
-            [InlineKeyboardButton("➕ Tambahkan saya ke grup anda ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
             [InlineKeyboardButton(text = '📣 Official Channel', url=f"https://t.me/EXProject"),
              InlineKeyboardButton(text = '👥 Support Group', url=f"https://t.me/EXGroupSupport")],
             [InlineKeyboardButton(text = 'back «', callback_data = f"help+{pos-1}")]
@@ -141,7 +140,7 @@ def map(pos):
 )
 async def start(client: Client, message: Message):
     await message.reply_text(
-        "**Apakah anda ingin mencari link YouTube?**",
+        "**Apakah kamu ingin mencari link via YouTube?**",
         reply_markup=InlineKeyboardMarkup(
             [   
                 [    
@@ -169,8 +168,10 @@ async def help(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "📚 Panduan Bot", url="https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13"
-                    )
+                        "📚 Panduan Bot", url="https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13"),
+                ],
+                [
+                    InlineKeyboardButton("👩‍💻 Contact Owner", url=f"https://t.me/rizexx)
                 ]
             ]
         ),
@@ -188,10 +189,10 @@ async def reload(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ", url=f"https://t.me/EXGroupSupport"
+                        "👥 sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ", url=f"https://t.me/EXGroupSupport"
                     ),
                     InlineKeyboardButton(
-                        "ᴄʀᴇᴀᴛᴇᴅ ʙʏ", url=f"https://t.me/rizexx"
+                        "👩‍💻 ᴄʀᴇᴀᴛᴇᴅ ʙʏ", url=f"https://t.me/rizexx"
                     )
                 ]
             ]
