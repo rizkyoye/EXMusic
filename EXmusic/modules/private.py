@@ -113,8 +113,8 @@ def map(pos):
     if(pos==1):
         button = [
             [
-              InlineKeyboardButton(text = '❔ Bantuan', callback_data = "help+2")
-              InlineKeyboardButton(text = '📚 Panduan bot', url=f"https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13")]
+              InlineKeyboardButton(text = '❔ Bantuan', callback_data = "help+2"),
+              InlineKeyboardButton(text = '📚 Panduan bot', url=f"https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13")],
         ]
     elif(pos==len(tr.HELP_MSG)-1):
         url = f"https://t.me/EXGroupSupport"
