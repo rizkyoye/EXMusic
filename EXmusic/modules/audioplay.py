@@ -32,10 +32,10 @@ async def stream(_, message: Message):
                 [
                     InlineKeyboardButton(
                         text="👥 ɢʀᴏᴜᴘ",
-                        url=f"https://t.me/{SUPPORT_GROUP}"),
+                        url=f"https://t.me/EXGroupSupport"),
                     InlineKeyboardButton(
-                        text="📣 ᴄʜᴀɴɴᴇʟ",
-                        url=f"https://t.me/{UPDATES_CHANNEL}")
+                        text="⏺️ ᴄʜᴀɴɴᴇʟ",
+                        url=f"https://t.me/EXProjects")
                 ]
             ]
         )
@@ -64,7 +64,7 @@ async def stream(_, message: Message):
         await message.reply_photo(
         photo=f"https://telegra.ph/file/611885195dfe94ee0f66e.jpg",
         reply_markup=keyboard,
-        caption=f"#⃣  your requested song was added to **queue** at position {position} !\n\n⚡ __Powered by EX MUSIC__")
+        caption=f"#⃣  your requested song was added to **queue** at position {position} !\n\n⚡ **__Powered by EX MUSIC__**")
         return await lel.delete()
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
@@ -72,6 +72,6 @@ async def stream(_, message: Message):
         await message.reply_photo(
         photo=f"https://telegra.ph/file/611885195dfe94ee0f66e.jpg",
         reply_markup=keyboard,
-        caption=f"🎧 **now playing** a song requested by {costumer} !\n⚡ __Powered by EX MUSIC__"
+        caption=f"🎧 **now playing** a song requested by {costumer} !\n⚡ **__Powered by EX MUSIC__**"
         )
         return await lel.delete()
