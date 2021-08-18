@@ -462,10 +462,11 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📜 ᴘʟᴀʏʟɪsᴛ", callback_data="cplaylist"),
-                    InlineKeyboardButton("ᴍᴇɴᴜ ⏯ ", callback_data="cmenu"),
+                    InlineKeyboardButton("⏺ menu", callback_data="menu"),
+                    InlineKeyboardButton("🗑 Close", callback_data="cls"),
+                ],[
+                    InlineKeyboardButton("📣 Official Channel", url=f"https://t.me/EXProjects")
                 ],
-                [InlineKeyboardButton(text="🗑️ ᴄʟᴏsᴇ", callback_data="ccls")],
             ]
         )
         file_name = get_file_name(audio)
@@ -509,14 +510,11 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📜 Playlist", callback_data="cplaylist"),
-                    InlineKeyboardButton("Menu ⏯ ", callback_data="cmenu"),
+                    InlineKeyboardButton("⏺ Menu", callback_data="menu"),
+                    InlineKeyboardButton("🗑 Close", callback_data="cls"),
+                ],[
+                    InlineKeyboardButton("📣 Official Channel", url=f"https://t.me/EXProjects")
                 ],
-                [
-                    InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                    InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
-                ],
-                [InlineKeyboardButton(text="🗑️ Close", callback_data="ccls")],
             ]
         )
         requested_by = message.from_user.first_name
@@ -554,14 +552,11 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📜 Playlist", callback_data="cplaylist"),
-                    InlineKeyboardButton("Menu ⏯ ", callback_data="cmenu"),
+                    InlineKeyboardButton("⏺ Menu", callback_data="menu"),
+                    InlineKeyboardButton("🗑 Close", callback_data="cls"),
+                ],[
+                    InlineKeyboardButton("📣 Official Channel", url=f"https://t.me/EXProjects")
                 ],
-                [
-                    InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                    InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
-                ],
-                [InlineKeyboardButton(text="🗑️ Close", callback_data="ccls")],
             ]
         )
         requested_by = message.from_user.first_name
@@ -625,7 +620,7 @@ async def deezer(client: Client, message_: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "DaisyMusic"
+        user.first_name = "EXMusic"
     usar = user
     wew = usar.id
     try:
@@ -691,14 +686,14 @@ async def deezer(client: Client, message_: Message):
         return
     keyboard = InlineKeyboardMarkup(
         [
-            [
-                InlineKeyboardButton("📜 Playlist", callback_data="cplaylist"),
-                InlineKeyboardButton("Menu ⏯ ", callback_data="cmenu"),
-            ],
-            [InlineKeyboardButton(text="Listen On Deezer 🎬", url=f"{url}")],
-            [InlineKeyboardButton(text="🗑️ Close", callback_data="ccls")],
-        ]
-    )
+                [
+                    InlineKeyboardButton("⏺ Menu", callback_data="menu"),
+                    InlineKeyboardButton("🗑 Close", callback_data="cls"),
+                ],[
+                    InlineKeyboardButton("📣 Official Channel", url=f"https://t.me/EXProjects")
+                ],
+            ]
+        )
     file_path = await convert(wget.download(url))
     await res.edit("Generating Thumbnail")
     await generate_cover(requested_by, title, artist, duration, thumbnail)
@@ -790,7 +785,7 @@ async def jiosaavn(client: Client, message_: Message):
                     # print(e)
                     await lel.edit(
                         f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your channel due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add @DaisyXmusic to your Group and try again</b>",
+                        "\n\nOr manually add @EXMusicxbot to your Group and try again</b>",
                     )
     try:
         await USER.get_chat(chid)
@@ -822,18 +817,14 @@ async def jiosaavn(client: Client, message_: Message):
         return
     keyboard = InlineKeyboardMarkup(
         [
-            [
-                InlineKeyboardButton("📜 Playlist", callback_data="cplaylist"),
-                InlineKeyboardButton("Menu ⏯ ", callback_data="cmenu"),
-            ],
-            [
-                InlineKeyboardButton(
-                    text="Join Updates Channel", url=f"https://t.me/{updateschannel}"
-                )
-            ],
-            [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
-        ]
-    )
+                [
+                    InlineKeyboardButton("⏺ Menu", callback_data="menu"),
+                    InlineKeyboardButton("🗑 Close", callback_data="cls"),
+                ],[
+                    InlineKeyboardButton("📣 Official Channel", url=f"https://t.me/EXProjects")
+                ],
+            ]
+        )
     file_path = await convert(wget.download(slink))
     chat_id = chid
     if chat_id in callsmusic.pytgcalls.active_calls:
@@ -849,11 +840,11 @@ async def jiosaavn(client: Client, message_: Message):
             chat_id=message_.chat.id,
             reply_markup=keyboard,
             photo="final.png",
-            caption=f"{bn}=#️⃣ Queued at position {position}",
+            caption=f"{bn}=#️⃣ **Queued at position** {position}",
         )
 
     else:
-        await res.edit_text(f"{bn}=▶️ Playing.....")
+        await res.edit_text(f"{bn}=▶️ **Playing...**")
         que[chat_id] = []
         qeue = que.get(chat_id)
         s_name = sname
