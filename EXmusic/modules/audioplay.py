@@ -62,7 +62,7 @@ async def stream(_, message: Message):
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
-        photo=f"https://telegra.ph/file/b8532ef50a4a72b0954bc.jpg",
+        photo=f"https://telegra.ph/file/611885195dfe94ee0f66e.jpg",
         reply_markup=keyboard,
         caption=f"#⃣  your requested song was added to **queue** at position {position} !\n\n⚡ __Powered by EX MUSIC__")
         return await lel.delete()
@@ -70,8 +70,8 @@ async def stream(_, message: Message):
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         costumer = message.from_user.mention
         await message.reply_photo(
-        photo=f"https://telegra.ph/file/7f64a79e81d85e815b6e1.jpg",
+        photo=f"https://telegra.ph/file/611885195dfe94ee0f66e.jpg",
         reply_markup=keyboard,
-        caption=f"🎧 **now playing** a song requested by {costumer} !\n\n⚡ __Powered by EX MUSIC__"
+        caption=f"🎧 **now playing** a song requested by {costumer} !\n⚡ __Powered by EX MUSIC__"
         )
         return await lel.delete()
