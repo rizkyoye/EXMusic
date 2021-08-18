@@ -20,9 +20,7 @@ class Messages():
       HELP_MSG = [
         ".",
 f"""
-Haii selamat datang kembali di EXMusic
-• EXMusic dapat memutar lagu di voice chat group dan di channel kamu dengan mudah.
-• Assistant Music » @{ASSISTANT_NAME} «\n 
+Haii 👋 baca daftar perintah terlebih dahulu
 """,
 
 f"""
