@@ -107,10 +107,12 @@ def map(pos):
         button = [
             [
               InlineKeyboardButton(text = 'About bot ❔', callback_data = "help+2"),
-              InlineKeyboardButton(text = 'Commands 📚', url=f"https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13")
+              InlineKeyboardButton(text = 'Commands 📚', url=f"https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13"),
             ],
-            [InlineKeyboarButton(text = 'Back ◀️', callback_data = "start")],
+            [
+              InlineKeyboarButton(text = 'Back ◀️', callback_data = "start")],
         ]
+     )
     elif(pos==len(tr.HELP_MSG)-1):
         url = f"https://t.me/EXGroupSupport"
         button = [
