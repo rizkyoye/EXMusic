@@ -112,7 +112,6 @@ def map(pos):
             [
               InlineKeyboarButton(text = 'Back ◀️', callback_data = "start")],
         ]
-     )
     elif(pos==len(tr.HELP_MSG)-1):
         url = f"https://t.me/EXGroupSupport"
         button = [
