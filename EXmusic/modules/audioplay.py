@@ -7,10 +7,10 @@ from os import path
 from pyrogram import Client
 from pyrogram.types import Message, Voice
 
-from callsmusic import callsmusic, queues
+from EXmusic.services.callsmusic import callsmusic, queues
 
-import converter
-from downloaders import youtube
+from EXmusic.services.converter import converter
+from EXmusic.services.downloaders import youtube
 
 from EXmusic.config import BOT_NAME as bn, DURATION_LIMIT, UPDATES_CHANNEL,GROUP_SUPPORT
 from EXmusic.helpers.filters import command, other_filters
