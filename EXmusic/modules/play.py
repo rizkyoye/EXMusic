@@ -638,7 +638,6 @@ async def play(_, message: Message):
             message.reply_photo(
                 photo="https://telegra.ph/file/c595250581bdbbe5be931.jpg",
             )
-            await lel.delete()
             return
             # Returning to pornhub
         except:
