@@ -602,7 +602,7 @@ async def play(_, message: Message):
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         
         try:
-          results = YoutubeSearch(query, max_results=6).to_dict()
+          results = YoutubeSearch(query, max_results=5).to_dict()
         except:
           await lel.edit("**Give the title of the song to play!**")
         # Looks like hell. Aren't it?? FUCK OFF
@@ -611,8 +611,8 @@ async def play(_, message: Message):
             j = 0
             useer=user_name
 
-            emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣"]
-            while j < 6:
+            emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]
+            while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title'][:25]}](https://youtube.com{results[j]['url_suffix']})\n"
                 toxxt += f" ├ 💡 **Duration** - {results[j]['duration']}\n"
                 toxxt += f" └ ⚡ __Powered by EX MUSIC__\n\n"
@@ -627,10 +627,7 @@ async def play(_, message: Message):
                     ],
                     [
                         InlineKeyboardButton("4️⃣", callback_data=f'plll 3|{query}|{user_id}'),
-                        InlineKeyboardButton("5️⃣", callback_data=f'plll 4|{query}|{user_id}'),    
-                    ],
-                    [
-                        InlineKeyboardButton("6️⃣", callback_data=f'plll 5|{query}|{user_id}'),
+                        InlineKeyboardButton("5️⃣", callback_data=f'plll 4|{query}|{user_id}'),
                     ],
                     [
                         InlineKeyboardButton(text="🗑 ᴄʟᴏsᴇ", callback_data="cls"),
@@ -638,9 +635,11 @@ async def play(_, message: Message):
                 ]
             )    
             await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
-            message.reply_photo(
-                photo=f"https://telegra.ph/file/34c22249398e00376d207.jpg",
-            )
+            await message.reply_photo(
+                photo=f"https://telegra.ph/file/7f64a79e81d85e815b6e1.jpg",
+                caption=toxxt,
+                reply_markup=keyboard
+            (
             # WHY PEOPLE ALWAYS LOVE PORN ?? (A point to think)
             return
             # Returning to pornhub
