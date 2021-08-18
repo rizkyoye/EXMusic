@@ -20,7 +20,7 @@ class Messages():
       HELP_MSG = [
         ".",
 f"""
-Haii 👋 baca daftar perintah terlebih dahulu
+**Haii** 👋 baca daftar perintah terlebih dahulu, untuk menggunakan **bot**.
 """,
 
 f"""
