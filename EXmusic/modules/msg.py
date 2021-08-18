@@ -24,13 +24,18 @@ Haii 👋 baca daftar perintah terlebih dahulu
 """,
 
 f"""
-**About __EX Music bot__** 🎧
+**About EX Music bot** 🎧
 
-• **I can play songs in your group and on your channel, via telegram voice chat**
-• **Download songs easily**
+• **I can play songs in your group and on your channel, via telegram voice chat.**
+
+• **Download songs easily.**
+
 • **Looking for song links from youtube**
+
 • **Download videos easily via youtube**
+
 • **I was created to keep your group entertained**
+
 ✨ **Don't forget to join the support group and channel for info from EX bots**
 **Thanks.**
 """
