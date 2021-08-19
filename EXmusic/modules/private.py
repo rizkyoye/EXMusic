@@ -60,7 +60,7 @@ async def start_(client: Client, message: Message):
 💡 Click [𝗵𝗲𝗿𝗲](https://t.me/{BOT_USERNAME}?startgroup=true) to add me to your **group.**
 
 ❔ 𝗙𝗼𝗿 information about all **feature** of this bot, 𝗷𝘂𝘀𝘁 𝘁𝘆𝗽𝗲 /help
-<b>""",
+</b>""",
 
         reply_markup=InlineKeyboardMarkup(
             [
@@ -136,7 +136,7 @@ async def start(client: Client, message: Message):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_text(
-        "✅ **bot is running**\n<b>⚡ **uptime:**</b> `{uptime}`",
+        f"""✅ **bot is running**\n<b>⚡ **uptime:**</b> `{uptime}`""",
         reply_markup=InlineKeyboardMarkup(
             [   
                 [    
@@ -159,7 +159,7 @@ async def start(client: Client, message: Message):
 )
 async def help(client: Client, message: Message):
     await message.reply_text(
-        """<b>👋🏻**Hello** {message.from_user.mention()}, sebelum menggunakan bot kamu bisa membaca **Commands** dibawah ini.\n\n**Atau** kamu bisa langsung **menghubungi** creator apabila memerlukan **bantuan**</b>""",
+        """👋🏻**Hello** kamu, sebelum menggunakan bot kamu bisa membaca **Commands** dibawah ini.\n\n**Atau** kamu bisa langsung **menghubungi** creator apabila memerlukan **bantuan**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
