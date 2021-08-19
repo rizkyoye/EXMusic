@@ -144,7 +144,7 @@ async def start(client: Client, message: Message):
                         "👥 Group", url=f"https://t.me/EXGroupSupport"
                     ),
                     InlineKeyboardButton(
-                        "⏺️ Channel", url=f"https://t.me/EXProjects""
+                        "⏺️ Channel", url=f"https://t.me/EXProjects"
                     )
                 ]
             ]
