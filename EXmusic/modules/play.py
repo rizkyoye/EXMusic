@@ -535,10 +535,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("⏺ ᴍᴇɴᴜ", callback_data="menu"),
+                    InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
                     InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects")
+                    InlineKeyboardButton("⏺️ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects")
                 ],
             ]
         )
@@ -583,10 +583,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("⏺ ᴍᴇɴᴜ", callback_data="menu"),
+                    InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
                     InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects")
+                    InlineKeyboardButton("⏺️ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects")
                 ],
             ]
         )
@@ -631,8 +631,8 @@ async def play(_, message: Message):
                         InlineKeyboardButton("6️⃣", callback_data=f'plll 5|{query}|{user_id}'),
                     ],
                     [
-                        InlineKeyboardButton(text="🗑 ᴄʟᴏsᴇ", callback_data="cls"),
-                        InlineKeyboardButton(text="⏺️ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects")],
+                        InlineKeyboardButton(text="⏺️ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects"),
+                        InlineKeyboardButton(text="🗑️ ᴄʟᴏsᴇ", callback_data="cls")],
                 ]
             ) 
             await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
@@ -807,10 +807,10 @@ async def ytplay(_, message: Message):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("⏺ ᴍᴇɴᴜ", callback_data="menu"),
+                    InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
                     InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects")
+                    InlineKeyboardButton("⏺️ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects")
                 ],
             ]
         )
@@ -946,7 +946,7 @@ async def deezer(client: Client, message_: Message):
     
     keyboard = InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton(text="📣 ᴄʜᴀɴɴᴇʟ ", url="https://t.me/EXProjects")],
+            [InlineKeyboardButton(text="⏺️ ᴄʜᴀɴɴᴇʟ ", url="https://t.me/EXProjects")],
         ]
     )
     file_path = await convert(wget.download(url))
@@ -1041,10 +1041,10 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("⏺ ᴍᴇɴᴜ", callback_data="menu"),
+                    InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
                     InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects")
+                    InlineKeyboardButton("⏺️ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects")
                 ],
             ]
         )
