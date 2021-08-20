@@ -84,7 +84,7 @@ async def stop(_, message: Message):
             pass
 
         callsmusic.pytgcalls.leave_group_call(chat_id)
-        await message.reply_text("**✅ **streaming ended!**\n\n• **Assistant has been disconnected from voice chat group**")
+        await message.reply_text("✅ **streaming ended!**\n\n• **Assistant has been disconnected from voice chat group**")
 
 
 @Client.on_message(command("skip") & other_filters)
