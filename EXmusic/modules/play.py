@@ -707,7 +707,7 @@ async def play(_, message: Message):
             photo="final.png",
             caption = f"🏷 **Judul:** [{title[:30]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang Memutar\n" \
                     + f"🎧 **Request Dari:** {message.from_user.mention}",
-                   reply_markup=keyboard)
+                   reply_markup=keyboard,)
 
     os.remove("final.png")
     return await lel.delete()
