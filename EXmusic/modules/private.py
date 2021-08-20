@@ -136,7 +136,7 @@ async def start(client: Client, message: Message):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_text(
-        f"""✅ **bot is running Successful**\n\n<b>✳️ **uptime:**</b> `{uptime}`\n❇️ **start time:** `{START_TIME_ISO}`""",
+        f"""✅ **bot is running Successful**\n\n<b>• **uptime:**</b> `{uptime}`\n• **start time:** `{START_TIME_ISO}`""",
         reply_markup=InlineKeyboardMarkup(
             [   
                 [    
@@ -181,7 +181,7 @@ async def help(client: Client, message: Message):
     & ~ filters.edited
 )
 async def reload(client: Client, message: Message):
-    await message.reply_text("""✅ Bot **berhasil dimulai ulang!**\n\n• **Daftar admin** telah **diperbarui**""",
+    await message.reply_text("""✅ Bots **Successful restart!**\n\n• **Admin list** Has been successfully **updated**""",
       reply_markup=InlineKeyboardMarkup(
             [
                 [
