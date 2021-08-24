@@ -17,7 +17,7 @@ from EXmusic.services.callsmusic.callsmusic import queues
 from EXmusic.config import LOG_CHANNEL, OWNER, BOT_USERNAME
 from EXmusic.helpers.database import db, dcmdb, Database
 from EXmusic.helpers.dbtools import handle_user_status, delcmd_is_on, delcmd_on, delcmd_off
-from EXmusic.modules.admins import que, admins as fuck
+from EXmusic.modules.admins import que, admins
 
 
 
