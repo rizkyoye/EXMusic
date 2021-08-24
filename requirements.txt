@@ -15,5 +15,8 @@ Pillow
 future
 psutil
 wget
+motor
+dnspython
+bs4
 tswift
 python-arq
