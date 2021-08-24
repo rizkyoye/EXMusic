@@ -123,7 +123,7 @@ async def controlset(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "ᴘᴀᴜsᴇ", callback_data="pause"
+                        "ᴘᴀᴜsᴇ", callback_data="cbpause"
                     ),
                     InlineKeyboardButton(
                         "ʀᴇsᴜᴍᴇ", callback_data="resume"
@@ -245,7 +245,7 @@ async def unsilent(_, message: Message):
 
 # music player callbacks (control by buttons feature)
 
-@Client.on_callback_query(filters.regex("pause") & other_filters)
+@Client.on_callback_query(filters.regex("cbpause") & other_filters)
 async def cbpause(_, query: CallbackQuery):
     if callsmusic.pause(query.message.chat.id):
         await query.edit_message_text("⏸ Music has been temporarily suspended!", reply_markup=BACK_BUTTON)
