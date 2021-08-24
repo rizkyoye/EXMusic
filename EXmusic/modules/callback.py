@@ -3,6 +3,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, Chat, CallbackQuery
 from EXmusic.config import BOT_NAME
+from EXmusic.services.callsmusic.kalmusik import client as USER
 
 
 # close calllback
