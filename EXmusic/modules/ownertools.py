@@ -17,7 +17,7 @@ from EXmusic.services.callsmusic.callsmusic import client as pakaya
 from EXmusic.helpers.database import db
 from EXmusic.helpers.dbtools import main_broadcast_handler
 from EXmusic.modules.song import humanbytes, get_text
-from EXmusic.config import BOT_USERNAME, OWNER_NAME, SUDO_USERS, SUPPORT_GROUP
+from EXmusic.config import BOT_USERNAME, OWNER, SUDO_USERS, SUPPORT_GROUP
 
 
 # Stats Of Your Bot
@@ -32,7 +32,7 @@ async def botstats(_, message: Message):
     disk_usage = psutil.disk_usage('/').percent
     total_users = await db.total_users_count()
     await message.reply_text(
-        text=f"**📊 stats Of @{BOT_USERNAME}** \n\n**🤖 bot version:** `v6.5` \n\n**users:** \n » **users on pm:** `{total_users}` \n\n**💾 disk usage,** \n » **disk space:** `{total}` \n » **used:** `{used}({disk_usage}%)` \n » **free:** `{free}` \n\n**🎛 hardware usage,** \n » **CPU usage:** `{cpu_usage}%` \n » **RAM usage:** `{ram_usage}%`",
+        text=f"**📊 stats Of @{BOT_USERNAME}** \n\n**🤖 bot version:** `v7.0` \n\n**users:** \n » **users on pm:** `{total_users}` \n\n**💾 disk usage,** \n » **disk space:** `{total}` \n » **used:** `{used}({disk_usage}%)` \n » **free:** `{free}` \n\n**🎛 hardware usage,** \n » **CPU usage:** `{cpu_usage}%` \n » **RAM usage:** `{ram_usage}%`",
         parse_mode="Markdown",
         quote=True
     )
