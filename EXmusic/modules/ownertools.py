@@ -32,45 +32,20 @@ async def botstats(_, message: Message):
     disk_usage = psutil.disk_usage('/').percent
     total_users = await db.total_users_count()
     await message.reply_text(
-        text=f"**📊 stats Of @{BOT_USERNAME}** \n\n**🤖 bot version:** `v7.0` \n\n**users:** \n » **users on pm:** `{total_users}` \n\n**💾 disk usage,** \n » **disk space:** `{total}` \n » **used:** `{used}({disk_usage}%)` \n » **free:** `{free}` \n\n**🎛 hardware usage,** \n » **CPU usage:** `{cpu_usage}%` \n » **RAM usage:** `{ram_usage}%`",
+        text=f"**📊 stats Of @{BOT_USERNAME}** \n\n**🤖 bot version:** `v7.0` \n\n**🙎🏼 users:** \n » **users on pm:** `{total_users}` \n\n**💾 disk usage,** \n » **disk space:** `{total}` \n » **used:** `{used}({disk_usage}%)` \n » **free:** `{free}` \n\n**🎛 hardware usage,** \n » **CPU usage:** `{cpu_usage}%` \n » **RAM usage:** `{ram_usage}%`",
         parse_mode="Markdown",
         quote=True
     )
 
 
 
-@Client.on_message(filters.private & filters.command("broadcast") & filters.user(OWNER_NAME) & filters.reply)
+@Client.on_message(filters.private & filters.command("broadcast") & filters.user(OWNER) & filters.reply)
 async def broadcast_handler_open(_, m: Message):
     await main_broadcast_handler(m, db)
 
 
-@Client.on_message(filters.command(["chatcast"]))
-async def chatcast(_, message: Message):
-    sent=0
-    failed=0
-    if message.from_user.id not in SUDO_USERS:
-        await message.reply("this is not for you !")
-        return
-    else:
-        wtf = await message.reply("`starting a chatcast...`")
-        if not message.reply_to_message:
-            await wtf.edit("reply to a message to do chat cast!")
-            return
-        lmao = message.reply_to_message.text
-        async for dialog in pakaya.iter_dialogs():
-            try:
-                await pakaya.send_message(dialog.chat.id, lmao)
-                sent = sent+1
-                await wtf.edit(f"`Casting...` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
-            except:
-                failed=failed+1
-                await wtf.edit(f"`Casting...` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
-            await asyncio.sleep(3)
-        await message.reply_text(f"✅ `Chat casting finished` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
-
-
 # Ban User
-@Client.on_message(filters.private & filters.command("ban") & filters.user(OWNER_NAME))
+@Client.on_message(filters.private & filters.command("ban") & filters.user(OWNER))
 async def ban(c: Client, m: Message):
     if len(m.command) == 1:
         await m.reply_text(
@@ -107,7 +82,7 @@ async def ban(c: Client, m: Message):
 
 
 # Unban User
-@Client.on_message(filters.private & filters.command("unban") & filters.user(OWNER_NAME))
+@Client.on_message(filters.private & filters.command("unban") & filters.user(OWNER))
 async def unban(c: Client, m: Message):
     if len(m.command) == 1:
         await m.reply_text(
@@ -121,7 +96,7 @@ async def unban(c: Client, m: Message):
         try:
             await c.send_message(
                 user_id,
-                f"`congratulations, you was unbanned!`"
+                f"🎊 congratulations, you was unbanned!"
             )
             unban_log_text += '\n\n✅ this notification was sent to that user'
         except:
@@ -142,7 +117,7 @@ async def unban(c: Client, m: Message):
 
 
 # Banned User List
-@Client.on_message(filters.private & filters.command("banlist") & filters.user(OWNER_NAME))
+@Client.on_message(filters.private & filters.command("banlist") & filters.user(OWNER))
 async def _banned_usrs(_, m: Message):
     all_banned_users = await db.get_all_banned_users()
     banned_usr_count = 0
@@ -153,8 +128,8 @@ async def _banned_usrs(_, m: Message):
         banned_on = banned_user['ban_status']['banned_on']
         ban_reason = banned_user['ban_status']['ban_reason']
         banned_usr_count += 1
-        text += f"⫸ **user id**: `{user_id}`\n⫸ **ban duration**: `{ban_duration}`\n⫸ **banned date**: `{banned_on}`\n⫸ **ban reason**: `{ban_reason}`\n\n"
-    reply_text = f"⫸ **total banned:** `{banned_usr_count}`\n\n{text}"
+        text += f"• **user id**: `{user_id}`\n• **ban duration**: `{ban_duration}`\n• **banned date**: `{banned_on}`\n• **ban reason**: `{ban_reason}`\n\n"
+    reply_text = f"• **total banned:** `{banned_usr_count}`\n\n{text}"
     if len(reply_text) > 4096:
         with open('banned-user-list.txt', 'w') as f:
             f.write(reply_text)
