@@ -121,7 +121,7 @@ async def update_admin(client, message):
 @authorized_users_only
 async def controlset(_, message: Message):
     await message.reply_text(
-        "🎛️ **here is the control menu of bot:**",
+        "💡 **here is the control menu of bot :**",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
