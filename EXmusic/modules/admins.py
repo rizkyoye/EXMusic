@@ -12,7 +12,6 @@ from EXmusic.function.admins import admins
 from EXmusic.helpers.channelmusic import get_chat_id
 from EXmusic.helpers.decorators import errors, authorized_users_only
 from EXmusic.helpers.filters import command, other_filters
-from EXmusic.services.callsmusic import callsmusic
 from EXmusic.services.callsmusic.callsmusic import queues
 from EXmusic.config import LOG_CHANNEL, OWNER, BOT_USERNAME
 from EXmusic.helpers.database import db, dcmdb, Database
