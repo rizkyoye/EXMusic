@@ -12,6 +12,9 @@ from EXmusic.services.callsmusic.callsmusic import client
 async def close(_, query: CallbackQuery):
     await query.message.delete()
 
+# back button
+BACK_BUTTON = InlineKeyboardMarkup([[InlineKeyboardButton("⬅️ ʙᴀᴄᴋ", callback_data="cbback")]])
+
 # Player Control Callbacks
 
 @Client.on_callback_query(filters.regex("cbback"))
@@ -80,3 +83,10 @@ async def cbdelcmds(_, query: CallbackQuery):
             ]
         )
     )
+
+@Client.on_callback_query(filters.regex("cbpause") & other_filters)
+async def cbpause(_, query: CallbackQuery):
+    if callsmusic.pause(query.message.chat.id):
+        await query.edit_message_text("⏸ Music has been temporarily suspended!", reply_markup=BACK_BUTTON)
+    else:
+        await query.edit_message_text("❗️ nothing is playing", reply_markup=BACK_BUTTON)
