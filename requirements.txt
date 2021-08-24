@@ -18,3 +18,4 @@ wget
 motor
 dnspython
 bs4
+Python_ARQ
