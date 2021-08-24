@@ -50,36 +50,36 @@ async def update_admin(client, message):
 @authorized_users_only
 async def controlset(_, message: Message):
     await message.reply_text(
-        "🔢 **music player control menu opened.**",
+        "🎛️ **here is the control menu of bot:**",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "⏸ ᴘᴀᴜsᴇ", callback_data="cbpause"
+                        "ᴘᴀᴜsᴇ", callback_data="cbpause"
                     ),
                     InlineKeyboardButton(
-                        "▶️ ʀᴇsᴜᴍᴇ", callback_data="cbresume"
+                        "ʀᴇsᴜᴍᴇ", callback_data="cbresume"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "⏩ sᴋɪᴘ", callback_data="cbskip"
+                        "sᴋɪᴘ", callback_data="cbskip"
                     ),
                     InlineKeyboardButton(
-                        "⏹ ᴇɴᴅ", callback_data="cbend"
+                        "ᴇɴᴅ", callback_data="cbend"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "🔇 ᴍᴜᴛᴇ ᴘʟᴀʏᴇʀ", callback_data="cbmute"
+                        "ᴍᴜᴛᴇ", callback_data="cbmute"
                     ),
                     InlineKeyboardButton(
-                        "🔊 ᴜɴᴍᴜᴛᴇ ᴘʟᴀʏᴇʀ", callback_data="cbunmute"
+                        "ᴜɴᴍᴜᴛᴇ ᴘʟᴀʏ", callback_data="cbunmute"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "🗑 ᴅᴇʟ ᴄᴍᴅ", callback_data="cbdelcmds"
+                        "ᴅᴇʟ ᴄᴍᴅ", callback_data="cbdelcmds"
                     )
                 ]
             ]
@@ -98,7 +98,7 @@ async def pause(_, message: Message):
         await message.reply_text("❎ **No song is playing**")
     else:
         callsmusic.pytgcalls.pause_stream(chat_id)
-        await message.reply_text("▶️ **Music paused!**\nTo resume music use **Command** » `/resume`")
+        await message.reply_text("❗ **Music paused!**\n\nTo resume music use **Command** » `/resume`")
 
 
 @Client.on_message(command("resume") & other_filters)
@@ -112,7 +112,7 @@ async def resume(_, message: Message):
         await message.reply_text("❎ *No song is playing to stop!**")
     else:
         callsmusic.pytgcalls.resume_stream(chat_id)
-        await message.reply_text("⏸ **Music resumed!**\nTo stop the song use the ""command** » `/stop`")
+        await message.reply_text("⏸ **Music resumed!**\n\nTo stop the song use the **Command** » `/stop`")
 
 
 @Client.on_message(command("end") & other_filters)
@@ -154,7 +154,7 @@ async def skip(_, message: Message):
         skip = qeue.pop(0)
     if not qeue:
         return
-    await message.reply_text(f"⫸ skipped : **{skip[0]}**\n⫸ now playing : **{qeue[0][0]}**")
+    await message.reply_text(f"• skipped : **{skip[0]}**\n√ now playing : **{qeue[0][0]}**")
 
 
 @Client.on_message(filters.command("auth"))
@@ -190,7 +190,7 @@ async def deautenticate(client, message):
 
 
 # this is a anti cmd feature
-@Client.on_message(filters.command(["delcmd", f"delcmd@{BOT_USERNAME}"]) & ~filters.private)
+@Client.on_message(filters.command(["delcmd"]) & ~filters.private)
 @authorized_users_only
 async def delcmdc(_, message: Message):
     if len(message.command) != 2:
@@ -210,14 +210,14 @@ async def delcmdc(_, message: Message):
             )
     elif status == "off":
         await delcmd_off(chat_id)
-        await message.reply_text("❎ Disabled successfully")
+        await message.reply_text("✅ **Disabled successfully**")
     else:
         await message.reply_text(
             "read the /help message to know how to use this command"
         )
 
 
-@Client.on_message(command(["silent", f"silent@{BOT_USERNAME}", "m"]))
+@Client.on_message(command(["silent"]))
 @errors
 @authorized_users_only
 async def silent(_, message: Message):
@@ -231,7 +231,7 @@ async def silent(_, message: Message):
         await message.reply_text("❎ **not connected to voice chat**")
 
 
-@Client.on_message(command(["unsilent", f"unsilent@{BOT_USERNAME}", "um"]))
+@Client.on_message(command(["unsilent"]))
 @errors
 @authorized_users_only
 async def unsilent(_, message: Message):
