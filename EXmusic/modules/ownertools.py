@@ -36,7 +36,7 @@ async def botstats(_, message: Message):
         parse_mode="Markdown",
         quote=True
     )
-
+    disable_web_page_preview=True
 
 
 @Client.on_message(filters.private & filters.command("broadcast") & filters.user(OWNER) & filters.reply)
