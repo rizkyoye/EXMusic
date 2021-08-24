@@ -607,7 +607,7 @@ async def play(_, message: Message):
           await lel.edit("**Give the title of the song to play!**")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**▶️__Please select the song you want to play__:**\n\n"
+            toxxt = "**💡 __Please select the song you want to play__ :**\n\n"
             j = 0
             useer=user_name
 
