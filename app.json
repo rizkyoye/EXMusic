@@ -81,6 +81,16 @@
       "description": "Batas durasi audio maksimal untuk download (minutes).",
       "required": true,
       "value": "15"
+    },
+    "DATABASE_URL": {
+      "description": "fill with the mongodb url get from mongodb.com",
+      "required": true,
+      "value": ""
+    },
+    "LOG_CHANNEL": {
+      "description": "make a private channel and get the channel id, add your bot as admin to the channel too",
+      "required": true,
+      "value": ""
     }
   }
 }
