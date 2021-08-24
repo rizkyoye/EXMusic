@@ -84,7 +84,7 @@ async def cbdelcmds(_, query: CallbackQuery):
         )
     )
 
-@Client.on_callback_query(filters.regex("cbpause") & other_filters)
+@Client.on_callback_query(filters.regex("cbpause"))
 async def cbpause(_, query: CallbackQuery):
     if callsmusic.pause(query.message.chat.id):
         await query.edit_message_text("⏸ Music has been temporarily suspended!", reply_markup=BACK_BUTTON)
