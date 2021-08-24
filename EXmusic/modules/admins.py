@@ -18,14 +18,7 @@ from EXmusic.helpers.database import db, dcmdb, Database
 from EXmusic.helpers.dbtools import handle_user_status, delcmd_is_on, delcmd_on, delcmd_off
 from EXmusic.modules.admins import que, admins
 
-
-
-@Client.on_message()
-async def _(bot: Client, cmd: Message):
-    await handle_user_status(bot, cmd)
-
-# Back Button
-BACK_BUTTON = InlineKeyboardMarkup([[InlineKeyboardButton("⬅️ ʙᴀᴄᴋ", callback_data="cbback")]])
+# Credit ©️ Rizky ganteng
 
 @Client.on_message(command("pause") & other_filters)
 @errors
@@ -107,6 +100,14 @@ async def update_admin(client, message):
     admins[message.chat.id] = new_admins
     await message.reply_text("✅ Bot **reloaded correctly !**\n✅ **Admin list** has been **updated !**")
 
+# Khontolss
+
+@Client.on_message()
+async def _(bot: Client, cmd: Message):
+    await handle_user_status(bot, cmd)
+
+# Back Button
+BACK_BUTTON = InlineKeyboardMarkup([[InlineKeyboardButton("⬅️ ʙᴀᴄᴋ", callback_data="cbback")]])
 
 # Control Menu Of Player
 @Client.on_message(command(["control", f"control@{BOT_USERNAME}", "p"]))
@@ -284,7 +285,7 @@ async def cbskip(_, query: CallbackQuery):
 
         await query.edit_message_text("⏭ skipped to the next music", reply_markup=BACK_BUTTON)
 
-@Client.on_callback_query(filters.regex("cbmute"))
+@Client.on_callback_query(filters.regex("cbmute") & other_filters)
 async def cbmute(_, query: CallbackQuery):
     result = callsmusic.mute(query.message.chat.id)
 
