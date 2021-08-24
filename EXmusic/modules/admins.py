@@ -34,61 +34,6 @@ async def delcmd(_, message: Message):
         await message.delete()
     await message.continue_propagation()
 
-
-@Client.on_message(filters.command("reload"))
-async def update_admin(client, message):
-    global admins
-    new_admins = []
-    new_ads = await client.get_chat_members(message.chat.id, filter="administrators")
-    for u in new_ads:
-        new_admins.append(u.user.id)
-    admins[message.chat.id] = new_admins
-    await message.reply_text("✅ Bot **reloaded correctly !**\n✅ **Admin list** has been **updated !**")
-
-
-# Control Menu Of Player
-@Client.on_message(command(["control", f"control@{BOT_USERNAME}", "p"]))
-@errors
-@authorized_users_only
-async def controlset(_, message: Message):
-    await message.reply_text(
-        "🎛️ **here is the control menu of bot:**",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "ᴘᴀᴜsᴇ", callback_data="cbpause"
-                    ),
-                    InlineKeyboardButton(
-                        "ʀᴇsᴜᴍᴇ", callback_data="cbresume"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "sᴋɪᴘ", callback_data="cbskip"
-                    ),
-                    InlineKeyboardButton(
-                        "ᴇɴᴅ", callback_data="cbend"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "ᴍᴜᴛᴇ", callback_data="cbmute"
-                    ),
-                    InlineKeyboardButton(
-                        "ᴜɴᴍᴜᴛᴇ ᴘʟᴀʏ", callback_data="cbunmute"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "ᴅᴇʟ ᴄᴍᴅ", callback_data="cbdelcmds"
-                    )
-                ]
-            ]
-        )
-    )
-
-
 @Client.on_message(command("pause") & other_filters)
 @errors
 @authorized_users_only
@@ -157,6 +102,60 @@ async def skip(_, message: Message):
     if not qeue:
         return
     await message.reply_text(f"• skipped : **{skip[0]}**\n√ now playing : **{qeue[0][0]}**")
+
+
+@Client.on_message(filters.command("reload"))
+async def update_admin(client, message):
+    global admins
+    new_admins = []
+    new_ads = await client.get_chat_members(message.chat.id, filter="administrators")
+    for u in new_ads:
+        new_admins.append(u.user.id)
+    admins[message.chat.id] = new_admins
+    await message.reply_text("✅ Bot **reloaded correctly !**\n✅ **Admin list** has been **updated !**")
+
+
+# Control Menu Of Player
+@Client.on_message(command(["control", f"control@{BOT_USERNAME}", "p"]))
+@errors
+@authorized_users_only
+async def controlset(_, message: Message):
+    await message.reply_text(
+        "🎛️ **here is the control menu of bot:**",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "ᴘᴀᴜsᴇ", callback_data="cbpause"
+                    ),
+                    InlineKeyboardButton(
+                        "ʀᴇsᴜᴍᴇ", callback_data="cbresume"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "sᴋɪᴘ", callback_data="cbskip"
+                    ),
+                    InlineKeyboardButton(
+                        "ᴇɴᴅ", callback_data="cbend"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "ᴍᴜᴛᴇ", callback_data="cbmute"
+                    ),
+                    InlineKeyboardButton(
+                        "ᴜɴᴍᴜᴛᴇ ᴘʟᴀʏ", callback_data="cbunmute"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "ᴅᴇʟ ᴄᴍᴅ", callback_data="cbdelcmds"
+                    )
+                ]
+            ]
+        )
+    )
 
 
 @Client.on_message(filters.command("auth"))
