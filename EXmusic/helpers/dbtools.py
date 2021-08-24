@@ -9,7 +9,7 @@ import traceback
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid
 
 from EXmusic.helpers.database import db, Database, dcmdb
-from EXmusic.config import LOG_CHANNEL, BROADCAST_AS_COPY, GROUP_SUPPORT
+from EXmusic.config import LOG_CHANNEL, BROADCAST_AS_COPY, SUPPORT_GROUP
 
 async def handle_user_status(bot, cmd):
     chat_id = cmd.chat.id
@@ -27,7 +27,7 @@ async def handle_user_status(bot, cmd):
         ).days > ban_status["ban_duration"]:
             await db.remove_ban(chat_id)
         else:
-            await cmd.reply_text(f"sorry, you're banned, ask in @{GROUP_SUPPORT} if you think this was an mistake.", quote=True)
+            await cmd.reply_text(f"sorry, you're banned, ask in @{SUPPORT_GROUP} if you think this was an mistake.", quote=True)
             return
     await cmd.continue_propagation()
     
