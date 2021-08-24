@@ -2,6 +2,7 @@
 
 import traceback
 import asyncio
+
 from asyncio import QueueEmpty
 from EXmusic.config import que
 from pyrogram import Client, filters
@@ -17,6 +18,8 @@ from EXmusic.config import LOG_CHANNEL, OWNER, BOT_USERNAME
 from EXmusic.helpers.database import db, dcmdb, Database
 from EXmusic.helpers.dbtools import handle_user_status, delcmd_is_on, delcmd_on, delcmd_off
 from EXmusic.modules.admins import que, admins
+from EXmusic.services.callsmusic import callsmusic
+from EXmusic.services.queues import queues
 
 # Credit ©️ Rizky ganteng
 
