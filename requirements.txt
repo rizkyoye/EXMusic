@@ -1,6 +1,6 @@
 pyrogram
 tgcrypto
-pytgcalls
+py-tgcalls==0.5.5
 python-dotenv
 youtube_dl
 youtube_search_python
@@ -21,4 +21,3 @@ bs4
 Python_ARQ
 heroku3
 gitpython
-py-tgcalls==0.5.5
