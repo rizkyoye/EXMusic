@@ -21,3 +21,4 @@ bs4
 Python_ARQ
 heroku3
 gitpython
+py-tgcalls==0.5.5
