@@ -184,10 +184,11 @@ def r_ply(type_):
                     InlineKeyboardButton("⏭", "skip"),
                 ],
                 [
-                    InlineKeyboardButton("📜 Playlist", "playlist")
-                    InlineKeyboardButton("⏺️ Channl", url=f"https://t.me/EXProjects"),
+                    InlineKeyboardButton("⏺️ Channel", url=f"https://t.me/EXProjects"),
+                    InlineKeyboardButton("📜 Playlist", "playlist"),
+                ],[
+                    InlineKeyboardButton("🗑️ Close", "cls")
                 ],
-                [InlineKeyboardButton("🗑️ Close", "cls")],
             ]
         )
     return mar
@@ -402,10 +403,11 @@ async def m_cb(b, cb):
                     InlineKeyboardButton("⏭", "skip"),
                 ],
                 [
-                    InlineKeyboardButton("📜 Playlist", "playlist")
-                    InlineKeyboardButton("⏺️ Channl", url=f"https://t.me/EXProjects"),
+                    InlineKeyboardButton("⏺️ Channel", url=f"https://t.me/EXProjects"),
+                    InlineKeyboardButton("📜 Playlist", "playlist"),
+                ],[
+                    InlineKeyboardButton("🗑️ Close", "cls")
                 ],
-                [InlineKeyboardButton("🗑️ Close", "cls")],
             ]
         )
         await cb.message.edit(stats, reply_markup=marr)
@@ -485,7 +487,7 @@ async def play(_, message: Message):
                         message.chat.id, "✅ I joined to play a song in **voice chat!**"
                     )
                     await lel.edit(
-                        "<b>✅ **Helper userbot has successfully joined this group**</b>",
+                        "<b>✅ **Helper userbot has successfully joined this group**\n\n**Subs Channel**: @EXProjects\n\n**Group Support**: @EXGroupSupport</b>",
                     )
 
                 except UserAlreadyParticipant:
