@@ -177,18 +177,19 @@ def r_ply(type_):
         pass
     mar = InlineKeyboardMarkup(
         [
-            [
-                InlineKeyboardButton("⏹", "leave"),
-                InlineKeyboardButton("⏸", "puse"),
-                InlineKeyboardButton("▶️", "resume"),
-                InlineKeyboardButton("⏭", "skip"),
-            ],
-            [
-                InlineKeyboardButton("📜 Playlist", "playlist"),
-            ],
-            [InlineKeyboardButton("🗑️ Close", "cls")],
-        ]
-    )
+                [
+                    InlineKeyboardButton("⏹", "leave"),
+                    InlineKeyboardButton("⏸", "puse"),
+                    InlineKeyboardButton("▶️", "resume"),
+                    InlineKeyboardButton("⏭", "skip"),
+                ],
+                [
+                    InlineKeyboardButton("📜 Playlist", "playlist")
+                    InlineKeyboardButton("⏺️ Channl", url=f"https://t.me/EXProjects"),
+                ],
+                [InlineKeyboardButton("🗑️ Close", "cls")],
+            ]
+        )
     return mar
 
 
@@ -401,7 +402,8 @@ async def m_cb(b, cb):
                     InlineKeyboardButton("⏭", "skip"),
                 ],
                 [
-                    InlineKeyboardButton("📜 Playlist", "playlist"),
+                    InlineKeyboardButton("📜 Playlist", "playlist")
+                    InlineKeyboardButton("⏺️ Channl", url=f"https://t.me/EXProjects"),
                 ],
                 [InlineKeyboardButton("🗑️ Close", "cls")],
             ]
@@ -607,7 +609,7 @@ async def play(_, message: Message):
           await lel.edit("**Give the title of the song to play!**")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**💡 __Please select the song you want to play__ :**\n\n"
+            toxxt = "**💡__Please select the song you want to play:__:**\n\n"
             j = 0
             useer=user_name
 
