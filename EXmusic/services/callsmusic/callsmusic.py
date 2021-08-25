@@ -1,12 +1,15 @@
 from typing import Dict
 
 from pytgcalls import GroupCall
+from pytgcalls import PyTgCalls
 
 from EXmusic.services.queues.queues import queues
 from pyrogram import client
 
 instances: Dict[int, GroupCall] = {}
 active_chats: Dict[int, Dict[str, bool]] = {}
+
+pytgcalls = PyTgCalls(client)
 
 
 def init_instance(chat_id: int):
