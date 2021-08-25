@@ -1,5 +1,4 @@
 from typing import Dict
-from pytgcalls import GroupCall
 
 from pyrogram import Client
 from pytgcalls import PyTgCalls
