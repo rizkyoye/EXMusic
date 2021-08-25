@@ -1,4 +1,5 @@
-from EXmusic.services.queues import queues
-from EXmusic.services.callsmusic.callsmusic import pytgcalls, run
+from pyrogram import Client
+import config
 
-__all__ = ["queues", "pytgcalls", "run"]
+client = Client(config.SESSION_NAME, config.API_ID, config.API_HASH)
+run = client.run
