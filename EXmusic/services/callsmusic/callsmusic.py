@@ -3,7 +3,7 @@ from typing import Dict
 from pytgcalls import GroupCall
 
 from EXmusic.services.queues.queues import queues
-from EXmusic.services.callsmusic.init import client
+from pyrogram import client
 
 instances: Dict[int, GroupCall] = {}
 active_chats: Dict[int, Dict[str, bool]] = {}
