@@ -5,7 +5,7 @@ from pytgcalls import PyTgCalls
 
 from EXmusic import config
 from EXmusic.services.queues.queues import queues
-from EXmusix.services.callsmusic.callsmusic import client
+from EXmusic.services.callsmusic.callsmusic import client
 
 instances: Dict[int, GroupCall] = {}
 active_chats: Dict[int, Dict[str, bool]] = {}
