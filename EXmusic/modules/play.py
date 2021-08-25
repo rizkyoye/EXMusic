@@ -64,7 +64,7 @@ def cb_admin_check(func: Callable) -> Callable:
         if cb.from_user.id in admemes:
             return await func(client, cb)
         else:
-            await cb.answer("Kamu tidak diizinkan!", show_alert=True)
+            await cb.answer("You're not allowed, because you didn't ask!", show_alert=True)
             return
 
     return decorator
@@ -158,7 +158,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
 def updated_stats(chat, queue, vol=100):
     if chat.id in callsmusic.pytgcalls.active_calls:
         # if chat.id in active_chats:
-        stats = "Pengaturan dari **{}**".format(chat.title)
+        stats = "🎛️ Settings of **{}**".format(chat.title)
         if len(que) > 0:
             stats += "\n\n"
             stats += "Volume : {}%\n".format(vol)
@@ -225,7 +225,7 @@ async def settings(client, message):
         else:
             await message.reply(stats, reply_markup=r_ply("play"))
     else:
-        await message.reply("**Please turn on voice chat first**")
+        await message.reply("**💡 Please turn on voice chat first**")
 
 
 @Client.on_message(
@@ -240,7 +240,7 @@ async def hfmm(_, message):
         return
     if len(message.command) != 2:
         await message.reply_text(
-            "**I only recognize** `/musicplayer on` **and** `/musicplayer off`"
+            "💡**I only recognize** `/musicplayer on` **and** `/musicplayer off`"
         )
         return
     status = message.text.split(None, 1)[1]
@@ -288,7 +288,7 @@ async def p_cb(b, cb):
             temp.append(t)
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
-        msg = "**Song currently playing** di {}".format(cb.message.chat.title)
+        msg = "💡 **Song currently playing** in {}".format(cb.message.chat.title)
         msg += "\n• " + now_playing
         msg += "\n• Req by " + by
         temp.pop(0)
@@ -659,7 +659,7 @@ async def play(_, message: Message):
 
             except Exception as e:
                 await lel.edit(
-                "❎ **Lagu tidak ditemukan.** Coba cari dengan judul lagu yang lebih jelas, Contoh `/play bts butter`"
+                "❎ **Song not found! Try searching with the correct title**\n**Example** » /play desahan manja\n\n💡 **Subs Channel** : @EXProjects"
             )
                 print(str(e))
                 return
