@@ -4,8 +4,8 @@ from pyrogram import Client
 from pytgcalls import PyTgCalls
 
 from EXmusic import config
-from . import queues
-from . import client
+from EXmusic.services.queues.queues import queues
+from EXmusix.services.callsmusic.callsmusic import client
 
 instances: Dict[int, GroupCall] = {}
 active_chats: Dict[int, Dict[str, bool]] = {}
