@@ -611,7 +611,7 @@ async def play(_, message: Message):
           await lel.edit("**Give the title of the song to play!**")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**💡__Please select the song you want to play:__:**\n\n"
+            toxxt = "**💡 Please select the song you want to play :**\n\n"
             j = 0
             useer=user_name
 
@@ -639,7 +639,14 @@ async def play(_, message: Message):
                         InlineKeyboardButton(text="🗑️ ᴄʟᴏsᴇ", callback_data="cls")],
                 ]
             ) 
-            await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
+            await message.reply_photo(
+                photo=f"https://telegra.ph/file/03b7244c8901a3f0c55d3.jpg",
+                caption=toxxt,
+                reply_markup=keyboard
+            )
+
+            await lel.delete()
+            # pap tete dong plis
             return
             # Returning to pornhub
         except:
