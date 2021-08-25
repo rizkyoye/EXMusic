@@ -1,6 +1,6 @@
 pyrogram
 tgcrypto
-py-tgcalls==0.5.5
+pytgcalls
 python-dotenv
 youtube_dl
 youtube_search_python
@@ -19,3 +19,5 @@ motor
 dnspython
 bs4
 Python_ARQ
+heroku3
+gitpython
