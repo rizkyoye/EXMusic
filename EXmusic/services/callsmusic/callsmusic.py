@@ -1,12 +1,10 @@
 from typing import Dict
-
-from pytgcalls import GroupCall
 from pytgcalls import PyTgCalls
 
 from EXmusic.services.queues.queues import queues
 from pyrogram import client
 
-instances: Dict[int, GroupCall] = {}
+instances: Dict[int, PyTgCalls] = {}
 active_chats: Dict[int, Dict[str, bool]] = {}
 
 pytgcalls = PyTgCalls(client)
@@ -14,7 +12,7 @@ pytgcalls = PyTgCalls(client)
 
 def init_instance(chat_id: int):
     if chat_id not in instances:
-        instances[chat_id] = GroupCall(client)
+        instances[chat_id] = PyTgCalls(client)
 
     instance = instances[chat_id]
 
@@ -28,7 +26,7 @@ def init_instance(chat_id: int):
             instance.input_filename = queues.get(chat_id)["file"]
 
 
-def get_instance(chat_id: int) -> GroupCall:
+def get_instance(chat_id: int) -> PyTgCalls:
     init_instance(chat_id)
     return instances[chat_id]
 
