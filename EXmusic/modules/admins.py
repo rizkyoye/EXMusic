@@ -112,6 +112,12 @@ async def _(bot: Client, cmd: Message):
 # Back Button
 BACK_BUTTON = InlineKeyboardMarkup([[InlineKeyboardButton("⬅️ ʙᴀᴄᴋ", callback_data="cbback")]])
 
+@Client.on_message(filters.text & ~filters.private)
+async def delcmd(_, message: Message):
+    if await delcmd_is_on(message.chat.id) and message.text.startswith("/") or message.text.startswith("!"):
+        await message.delete()
+    await message.continue_propagation()
+
 # Control Menu Of Player
 @Client.on_message(command(["control"]))
 @errors
@@ -126,20 +132,20 @@ async def controlset(_, message: Message):
                         "ᴘᴀᴜsᴇ", callback_data="cbpause"
                     ),
                     InlineKeyboardButton(
-                        "ʀᴇsᴜᴍᴇ", callback_data="resume"
+                        "ʀᴇsᴜᴍᴇ", callback_data="cbresume"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "sᴋɪᴘ", callback_data="skip"
+                        "sᴋɪᴘ", callback_data="cbskip"
                     ),
                     InlineKeyboardButton(
-                        "ᴇɴᴅ", callback_data="end"
+                        "ᴇɴᴅ", callback_data="cbend"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "ᴍᴜᴛᴇ", callback_data="mute"
+                        "ᴍᴜᴛᴇ", callback_data="cbmute"
                     ),
                     InlineKeyboardButton(
                         "ᴜɴᴍᴜᴛᴇ ᴘʟᴀʏ", callback_data="cbunmute"
@@ -252,14 +258,14 @@ async def cbpause(_, query: CallbackQuery):
     else:
         await query.edit_message_text("❗️ nothing is playing", reply_markup=BACK_BUTTON)
 
-@Client.on_callback_query(filters.regex("resume") & other_filters)
+@Client.on_callback_query(filters.regex("cbresume") & other_filters)
 async def cbresume(_, query: CallbackQuery):
     if callsmusic.resume(query.message.chat.id):
         await query.edit_message_text("▶ music resumed", reply_markup=BACK_BUTTON)
     else:
         await query.edit_message_text("❗️ nothing is paused", reply_markup=BACK_BUTTON)
 
-@Client.on_callback_query(filters.regex("end") & other_filters)
+@Client.on_callback_query(filters.regex("cbend") & other_filters)
 async def cbend(_, query: CallbackQuery):
     if query.message.chat.id not in callsmusic.active_chats:
         await query.edit_message_text("❗️ nothing is playing", reply_markup=BACK_BUTTON)
@@ -272,7 +278,7 @@ async def cbend(_, query: CallbackQuery):
         await callsmusic.stop(query.message.chat.id)
         await query.edit_message_text("✅ cleared the queue and left the voice chat!", reply_markup=BACK_BUTTON)
 
-@Client.on_callback_query(filters.regex("skip") & other_filters)
+@Client.on_callback_query(filters.regex("cbskip") & other_filters)
 async def cbskip(_, query: CallbackQuery):
      if query.message.chat.id not in callsmusic.active_chats:
         await query.edit_message_text("❗️ nothing is playing", reply_markup=BACK_BUTTON)
