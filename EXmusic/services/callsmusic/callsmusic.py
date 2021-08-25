@@ -1,17 +1,12 @@
 from typing import Dict
+
 from pytgcalls import GroupCall
 
-from pyrogram import Client
-from pytgcalls import PyTgCalls
-
-from EXmusic import config
-from EXmusic.services.queues.queues import queues
+from . import queues
+from . import client
 
 instances: Dict[int, GroupCall] = {}
 active_chats: Dict[int, Dict[str, bool]] = {}
-
-client = Client(config.SESSION_NAME, config.API_ID, config.API_HASH)
-pytgcalls = PyTgCalls(client)
 
 
 def init_instance(chat_id: int):
@@ -95,18 +90,3 @@ def unmute(chat_id: int) -> int:
     get_instance(chat_id).set_is_mute(False)
     active_chats[chat_id]["muted"] = False
     return 0
-
-
-@pytgcalls.on_stream_end()
-def on_stream_end(chat_id: int) -> None:
-    queues.task_done(chat_id)
-
-    if queues.is_empty(chat_id):
-        pytgcalls.leave_group_call(chat_id)
-    else:
-        pytgcalls.change_stream(
-            chat_id, queues.get(chat_id)["file"]
-        )
-
-
-run = pytgcalls.run
