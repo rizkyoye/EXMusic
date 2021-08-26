@@ -641,7 +641,7 @@ async def play(_, message: Message):
             ) 
             await lel.edit(toxxt,reply_markup=koyboard,message.reply_photo)
             await message.reply_photo(
-            photo=f"{THUMB_IMG}",
+            photo=f"{KONTOL_IMG}",
             )
 
             await lel.delete()
