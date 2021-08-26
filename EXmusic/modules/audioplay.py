@@ -23,7 +23,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 @errors
 async def stream(_, message: Message):
 
-    lel = await message.reply("🔁 **processing** sound...")
+    lel = await message.reply("🔁 **Processing** sound...")
     sender_id = message.from_user.id
     sender_name = message.from_user.first_name
 
@@ -31,12 +31,16 @@ async def stream(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        text="👥 ɢʀᴏᴜᴘ",
+                        text="👥 Support",
                         url=f"https://t.me/EXGroupSupport"),
                     InlineKeyboardButton(
-                        text="⏺️ ᴄʜᴀɴɴᴇʟ",
-                        url=f"https://t.me/EXProjects")
-                ]
+                        text="⏺️ Updates",
+                        url=f"https://t.me/EXProjects"),
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="🧑‍💻 Created by",
+                        url=f"https://t.me/rizexx")
             ]
         )
 
@@ -62,16 +66,16 @@ async def stream(_, message: Message):
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
-        photo=f"https://telegra.ph/file/611885195dfe94ee0f66e.jpg",
+        photo=f"https://telegra.ph/file/06128b8298df70f2d3c5f.jpg",
         reply_markup=keyboard,
-        caption=f"#⃣  your requested song was added to **queue** at position {position} !\n\n⚡ **__Powered by EX MUSIC__**")
+        caption=f"💡 **Track added to the queue**\n\n🎧 **Request by**: {costumer}\n🔢 **Track position**: » `{position}` « ")
         return await lel.delete()
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         costumer = message.from_user.mention
         await message.reply_photo(
-        photo=f"https://telegra.ph/file/611885195dfe94ee0f66e.jpg",
+        photo=f"https://telegra.ph/file/06128b8298df70f2d3c5f.jpg",
         reply_markup=keyboard,
-        caption=f"🎧 **now playing** a song requested by {costumer} !\n⚡ **__Powered by EX MUSIC__**"
+        caption=f"💡 **Status**: **Playing**\n\n🎧 **Request by**: {costumer}\n\n⚡ **Powered** by EX Music bot"
         )
         return await lel.delete()
