@@ -23,7 +23,7 @@ async def _(bot: Client, cmd: Message):
     await handle_user_status(bot, cmd)
 
 # Back Button
-BACK_BUTTON = InlineKeyboardMarkup([[InlineKeyboardButton("🏡 BACK", callback_data="cbback")]])
+BACK_BUTTON = InlineKeyboardMarkup([[InlineKeyboardButton("⬅️ Back", callback_data="cbback")]])
 
 @Client.on_message(filters.text & ~filters.private)
 async def delcmd(_, message: Message):
@@ -94,10 +94,10 @@ async def pause(_, message: Message):
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
         callsmusic.pytgcalls.active_calls[chat_id] == "paused"
     ):
-        await message.reply_text("❗ nothing in streaming!")
+        await message.reply_text("❎ **No song is playing!**")
     else:
         callsmusic.pytgcalls.pause_stream(chat_id)
-        await message.reply_text("▶️ music paused!")
+        await message.reply_text("▶️ **Music paused!**\n\n• For resuming the song, use **command** » /resume")
 
 
 @Client.on_message(command("resume") & other_filters)
@@ -108,10 +108,10 @@ async def resume(_, message: Message):
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
         callsmusic.pytgcalls.active_calls[chat_id] == "playing"
     ):
-        await message.reply_text("❗ nothing is paused!")
+        await message.reply_text("❎ **Nothing is paused**")
     else:
         callsmusic.pytgcalls.resume_stream(chat_id)
-        await message.reply_text("⏸ music resumed!")
+        await message.reply_text("⏸ **Music resumed!**\n\n• For end the song, use **command** » /end")
 
 
 @Client.on_message(command("end") & other_filters)
@@ -120,7 +120,7 @@ async def resume(_, message: Message):
 async def stop(_, message: Message):
     chat_id = get_chat_id(message.chat)
     if chat_id not in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("❗ nothing in streaming!")
+        await message.reply_text("❎ **No song is playing!**")
     else:
         try:
             queues.clear(chat_id)
@@ -128,7 +128,7 @@ async def stop(_, message: Message):
             pass
 
         callsmusic.pytgcalls.leave_group_call(chat_id)
-        await message.reply_text("⏹ streaming ended!")
+        await message.reply_text("✅ **Streaming ended**\n\n• **Assistant** has been **disconnected** from voice chat group")
 
 
 @Client.on_message(command("skip") & other_filters)
@@ -138,7 +138,7 @@ async def skip(_, message: Message):
     global que
     chat_id = get_chat_id(message.chat)
     if chat_id not in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("❗ nothing in streaming!")
+        await message.reply_text("❎ **No songs playing to skip!**")
     else:
         queues.task_done(chat_id)
 
@@ -162,13 +162,13 @@ async def skip(_, message: Message):
 async def authenticate(client, message):
     global admins
     if not message.reply_to_message:
-        await message.reply("❗ reply to message to authorize user!")
+        await message.reply("❎ **reply to message to authorize user!**")
         return
     if message.reply_to_message.from_user.id not in admins[message.chat.id]:
         new_admins = admins[message.chat.id]
         new_admins.append(message.reply_to_message.from_user.id)
         admins[message.chat.id] = new_admins
-        await message.reply("🟢 user authorized.\n\nfrom now on, that's user can use the admin commands.")
+        await message.reply("✅ **User authorized.**\n\nfrom now on, that's user can use the admin **commands.**")
     else:
         await message.reply("✅ user already authorized!")
 
@@ -178,13 +178,13 @@ async def authenticate(client, message):
 async def deautenticate(client, message):
     global admins
     if not message.reply_to_message:
-        await message.reply("❗ reply to message to deauthorize user!")
+        await message.reply("❎ **reply to message to deauthorize user!**")
         return
     if message.reply_to_message.from_user.id in admins[message.chat.id]:
         new_admins = admins[message.chat.id]
         new_admins.remove(message.reply_to_message.from_user.id)
         admins[message.chat.id] = new_admins
-        await message.reply("🔴 user deauthorized.\n\nfrom now that's user can't use the admin commands.")
+        await message.reply("✅ **user deauthorized.**\n\nfrom now that's user can't use the admin **commands.**")
     else:
         await message.reply("✅ user already deauthorized!")
 
@@ -206,14 +206,14 @@ async def delcmdc(_, message: Message):
         else:
             await delcmd_on(chat_id)
             await message.reply_text(
-                "🟢 activated successfully"
+                "✅ Activated **successfully**"
             )
     elif status == "off":
         await delcmd_off(chat_id)
-        await message.reply_text("🔴 disabled successfully")
+        await message.reply_text("🔴 Disabled **successfully**")
     else:
         await message.reply_text(
-            "read the /help message to know how to use this command"
+            "📝 Read the /help message to know how to use this **command!**"
         )
 
 
