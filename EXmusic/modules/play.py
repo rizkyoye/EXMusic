@@ -643,7 +643,7 @@ async def play(_, message: Message):
             ) 
             await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
             # cipa cantik
-            message.reply_photo(
+            reply_photo(
                 photo=f"https://telegra.ph/file/bd0518330549a8bcafba8.jpg",
                 caption=toxxt,
                 reply_markup=keyboard
