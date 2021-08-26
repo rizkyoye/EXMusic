@@ -17,11 +17,10 @@
 import logging
 from EXmusic.modules.msg import Messages as tr
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, Chat, CallbackQuery
 from EXmusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL,BOT_USERNAME, OWNER, BOT_NAME
 logging.basicConfig(level=logging.INFO)
 from EXmusic.helpers.filters import command
-from pyrogram import Client, filters
 from time import time
 from datetime import datetime
 from EXmusic.helpers.decorators import authorized_users_only
