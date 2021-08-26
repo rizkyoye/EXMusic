@@ -645,11 +645,7 @@ async def play(_, message: Message):
             # pap tete dong plis
             await message.reply_photo(
                 photo=f"https://telegra.ph/file/bd0518330549a8bcafba8.jpg",
-                caption=toxxt,
-                reply_markup=keyboard
             )
-
-            await lel.delete()
             return
             # Returning to pornhub
         except:
