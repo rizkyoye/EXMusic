@@ -13,7 +13,7 @@ from EXmusic.helpers.decorators import authorized_users_only, errors
 from EXmusic.helpers.filters import command, other_filters
 from EXmusic.services.callsmusic import callsmusic
 from EXmusic.services.queues import queues
-from EXmusic.config import LOG_CHANNEL, OWNER_ID, BOT_USERNAME
+from EXmusic.config import LOG_CHANNEL, OWNER, BOT_USERNAME
 from EXmusic.helpers.database import db, dcmdb, Database
 from EXmusic.helpers.dbtools import handle_user_status, delcmd_is_on, delcmd_on, delcmd_off
 
