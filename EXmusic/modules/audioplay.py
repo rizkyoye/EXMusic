@@ -41,6 +41,7 @@ async def stream(_, message: Message):
                     InlineKeyboardButton(
                         text="🧑‍💻 Created by",
                         url=f"https://t.me/rizexx")
+                ]
             ]
         )
 
@@ -68,7 +69,7 @@ async def stream(_, message: Message):
         await message.reply_photo(
         photo=f"https://telegra.ph/file/06128b8298df70f2d3c5f.jpg",
         reply_markup=keyboard,
-        caption=f"💡 **Track added to the queue**\n\n🎧 **Request by**: {costumer}\n🔢 **Track position**: » `{position}` « ")
+        caption=f"💡 **Track added to the queue**\n\n🎧 **Request by**: {costumer}\n🔢 **Track position**: » `{position}` «")
         return await lel.delete()
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
