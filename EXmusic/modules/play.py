@@ -642,7 +642,8 @@ async def play(_, message: Message):
             await message.reply_photo(
                 photo=f"{THUMB_IMG}",
                 caption=toxxt,
-                reply_markup=keyboard
+                reply_markup=keyboard,
+                disable_web_page_preview=True
             )
 
             await lel.delete()
