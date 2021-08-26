@@ -646,8 +646,6 @@ async def play(_, message: Message):
                 caption=toxxt,
                 reply_markup=keyboard
             )
-
-            await lel.delete()
             # pap tete dong plis
             return
             # Returning to pornhub
