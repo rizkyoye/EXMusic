@@ -639,17 +639,14 @@ async def play(_, message: Message):
                         InlineKeyboardButton(text="🗑️ ᴄʟᴏsᴇ", callback_data="cls")],
                 ]
             ) 
+            await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
+            # WHY PEOPLE ALWAYS LOVE PORN ?? (A point to think)
             await message.reply_photo(
-                photo=f"{THUMB_IMG}",
-                caption=toxxt,
-                reply_markup=keyboard,
-                disable_web_page_preview=True
+                photo="https://telegra.ph/file/bd0518330549a8bcafba8.jpg",
+                caption=toxxt, reply_markup=koyboard,
             )
-
             await lel.delete()
-            # veez project
             return
-            # veez project
         except:
             await lel.edit("🤖 **There are not enough results to choose from, start playing right away.**")
                         
