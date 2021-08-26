@@ -152,27 +152,43 @@ async def start(client: Client, message: Message):
     )
 
 
-@Client.on_message(
-    filters.command("help")
-    & filters.group
-    & ~ filters.edited
-)
-async def help(client: Client, message: Message):
+@Client.on_message(command("help") & filters.private & ~filters.edited)
+async def help_(client: Client, message: Message):
     await message.reply_text(
-        f"""👋🏻**Hello** {message.from_user.mention()}, sebelum menggunakan bot kamu bisa membaca **Commands** dibawah ini.\n\n**Atau** kamu bisa langsung **menghubungi** creator apabila memerlukan **bantuan**""",
+        f"""<b>👋 Hello {message.from_user.mention} welcome to the help menu !</b>
+**in this menu you can open several available command menus, in each command menu there is also a brief explanation of each command**
+⚡ __Powered by EX MUSIC__""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "📚 Commands", url="https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13"
+                        "📚 Basic", callback_data="cbbasic"
                     ),
                     InlineKeyboardButton(
-                        "👩‍💻 Creator", url=f"https://t.me/rizexx"
+                        "📕 Advanced", callback_data="cbadvanced"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "📘 Admin Commands", callback_data="cbadmin"
+                    ),
+                    InlineKeyboardButton(
+                        "📗 Sudo Commands", callback_data="cbsudo"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "📙 Owner Commands", callback_data="cbowner"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "📔 Fun Commands", callback_data="cbfun"
                     )
                 ]
             ]
         )
-    )  
+    )
 
 
 @Client.on_message(
