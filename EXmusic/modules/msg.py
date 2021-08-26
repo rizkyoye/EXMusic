@@ -24,7 +24,7 @@ f"""
 """,
 
 f"""
-**ABOUT EX MUSIC BOT**🎵
+**ABOUT EX MUSIC BOT** 🎵
 
 • I can play songs in your **group** and on your channel, via **telegram** voice chat.
 • **Download** songs easily.
@@ -33,8 +33,8 @@ f"""
 • I was created to keep your group **entertained**
 
 I will be **happy** if added to your group, and enjoy the sensation of hearing music in **voice chat.**
-Don't forget to join the **support group** and **channel** for info from EX bots
+Don't forget to join the **Support Group** and **Channel** for info from EX bots.
 
-**Thanks.**[✨](https://telegra.ph/file/a3d6d2aaa69d0dca9c6ad.jpg)
+**Thanks.**[✨](https://telegra.ph/file/ae2549194e59c057f6c0e.jpg)
 """
       ]
