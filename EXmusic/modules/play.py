@@ -38,8 +38,7 @@ from EXmusic.config import BOT_NAME as bn
 from EXmusic.config import DURATION_LIMIT
 from EXmusic.config import UPDATES_CHANNEL as updateschannel
 from EXmusic.config import que
-from EXmusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,BOT_USERNAME, OWNER
-from EXmusic.config import KONTOL_IMG as bi
+from EXmusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,BOT_USERNAME, OWNER, THUMB_IMG
 from EXmusic.function.admins import admins as a
 from EXmusic.helpers.admins import get_administrators
 from EXmusic.helpers.channelmusic import get_chat_id
@@ -612,13 +611,13 @@ async def play(_, message: Message):
           await lel.edit("**Give the title of the song to play!**")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "[💡](https://telegra.ph/file/bd0518330549a8bcafba8.jpg)\n\nPlease select the song you want to play :\n\n"
+            toxxt = "💡Please select the song you want to play:\n\n"
             j = 0
             useer=user_name
 
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣"]
             while j < 6:
-                toxxt += f"{emojilist[j]} [{results[j]['title'][:25]}](https://youtube.com{results[j]['url_suffix']})\n"
+                toxxt += f"{emojilist[j]} [{results[j]['title'][:30]}](https://youtube.com{results[j]['url_suffix']})\n"
                 toxxt += f" ├ 💡 **Duration** - {results[j]['duration']}\n"
                 toxxt += f" └ ⚡ __Powered by EX Music__\n\n"
 
@@ -640,10 +639,16 @@ async def play(_, message: Message):
                         InlineKeyboardButton(text="🗑️ ᴄʟᴏsᴇ", callback_data="cls")],
                 ]
             ) 
-            await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=False)
-            # cipa cantik
+            await message.reply_photo(
+                photo=f"{THUMB_IMG}",
+                caption=toxxt,
+                reply_markup=keyboard
+            )
+
+            await lel.delete()
+            # veez project
             return
-            # kmeme
+            # veez project
         except:
             await lel.edit("🤖 **There are not enough results to choose from, start playing right away.**")
                         
