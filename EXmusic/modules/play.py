@@ -641,11 +641,6 @@ async def play(_, message: Message):
                 ]
             ) 
             await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
-            await message.reply_photo(
-                photo=f"{bi}",
-                caption=toxxt,
-                reply_markup=keyboard
-            )
             # pap tete dong plis
             return
             # Returning to pornhub
