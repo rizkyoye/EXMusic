@@ -2,7 +2,7 @@
 
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, Chat, CallbackQuery
-from EXmusic.config import BOT_NAME, BOT_USERNAME, OWNER_NAME, GROUP_SUPPORT, UPDATES_CHANNEL, ASSISTANT_NAME
+from EXmusic.config import BOT_NAME, BOT_USERNAME, OWNER, SUPPORT_GROUP, UPDATES_CHANNEL, ASSISTANT_NAME
 
 
 @Client.on_callback_query(filters.regex("cbstart"))
