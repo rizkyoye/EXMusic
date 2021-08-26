@@ -151,7 +151,11 @@ async def start(client: Client, message: Message):
     )
 
 
-@Client.on_message(command("help") & filters.private & ~filters.edited)
+@Client.on_message(
+    filters.command("help")
+    & filters.group
+    & ~ filters.edited
+)
 async def help_(client: Client, message: Message):
     await message.reply_text(
         f"""<b>👋 Hello {message.from_user.mention} welcome to the help menu !</b>
