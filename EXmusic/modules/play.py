@@ -640,8 +640,11 @@ async def play(_, message: Message):
                         InlineKeyboardButton(text="🗑️ ᴄʟᴏsᴇ", callback_data="cls")],
                 ]
             ) 
+            await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
             await message.reply_photo(
-                photo=f"{bi}", caption=toxxt, reply_markup=keyboard
+                photo=f"{bi}",
+                caption=toxxt,
+                reply_markup=keyboard
             )
 
             await lel.delete()
