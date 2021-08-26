@@ -77,6 +77,6 @@ async def stream(_, message: Message):
         await message.reply_photo(
         photo=f"https://telegra.ph/file/06128b8298df70f2d3c5f.jpg",
         reply_markup=keyboard,
-        caption=f"💡 **Status**: **Playing**\n\n🎧 **Request by**: {costumer}\n\n⚡ **Powered** by EX Music bot"
+        caption=f"💡 **Status**: **Playing**\n\n🎧 **Request by**: {costumer}\n🎛️ **Powered** by EX Music bot"
         )
         return await lel.delete()
