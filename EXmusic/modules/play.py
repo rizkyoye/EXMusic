@@ -38,7 +38,8 @@ from EXmusic.config import BOT_NAME as bn
 from EXmusic.config import DURATION_LIMIT
 from EXmusic.config import UPDATES_CHANNEL as updateschannel
 from EXmusic.config import que
-from EXmusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,BOT_USERNAME, OWNER, KONTOL_IMG
+from EXmusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,BOT_USERNAME, OWNER
+from EXmusic.config import KONTOL_IMG as bi
 from EXmusic.function.admins import admins as a
 from EXmusic.helpers.admins import get_administrators
 from EXmusic.helpers.channelmusic import get_chat_id
@@ -639,9 +640,8 @@ async def play(_, message: Message):
                         InlineKeyboardButton(text="🗑️ ᴄʟᴏsᴇ", callback_data="cls")],
                 ]
             ) 
-            await lel.edit(toxxt,reply_markup=koyboard,message.reply_photo)
             await message.reply_photo(
-            photo=f"{KONTOL_IMG}",
+                photo=f"{bi}", caption=toxxt, reply_markup=keyboard
             )
 
             await lel.delete()
