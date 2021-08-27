@@ -96,7 +96,7 @@ async def pause(_, message: Message):
     ):
         await message.reply_text("❎ **No song is playing!**")
     else:
-        await callsmusic.pytgcalls.pause_stream(chat_id)
+        callsmusic.pytgcalls.pause_stream(chat_id)
         await message.reply_text("▶️ **Music paused!**\n\n• For resuming the song, use **command** » /resume")
 
 
@@ -110,7 +110,7 @@ async def resume(_, message: Message):
     ):
         await message.reply_text("❎ **Nothing is paused**")
     else:
-        await callsmusic.pytgcalls.resume_stream(chat_id)
+        callsmusic.pytgcalls.resume_stream(chat_id)
         await message.reply_text("⏸ **Music resumed!**\n\n• For end the song, use **command** » /end")
 
 
@@ -127,7 +127,7 @@ async def stop(_, message: Message):
         except QueueEmpty:
             pass
 
-        await callsmusic.pytgcalls.leave_group_call(chat_id)
+        callsmusic.pytgcalls.leave_group_call(chat_id)
         await message.reply_text("✅ **Streaming ended**\n\n• **Assistant** has been **disconnected** from voice chat group")
 
 
@@ -143,9 +143,9 @@ async def skip(_, message: Message):
         queues.task_done(chat_id)
 
         if queues.is_empty(chat_id):
-            await callsmusic.pytgcalls.leave_group_call(chat_id)
+            callsmusic.pytgcalls.leave_group_call(chat_id)
         else:
-            await callsmusic.pytgcalls.change_stream(
+            callsmusic.pytgcalls.change_stream(
                 chat_id, queues.get(chat_id)["file"]
             )
 
@@ -271,7 +271,7 @@ async def cbend(_, query: CallbackQuery):
         except QueueEmpty:
             pass
 
-        await callsmusic.stop(query.message.chat.id)
+        callsmusic.stop(query.message.chat.id)
         await query.edit_message_text("✅ cleared the queue and left the voice chat!", reply_markup=BACK_BUTTON)
 
 @Client.on_callback_query(filters.regex("cbskip"))
@@ -282,9 +282,9 @@ async def cbskip(_, query: CallbackQuery):
         queues.task_done(query.message.chat.id)
         
         if queues.is_empty(query.message.chat.id):
-            await callsmusic.stop(query.message.chat.id)
+            callsmusic.stop(query.message.chat.id)
         else:
-            await callsmusic.set_stream(
+            callsmusic.set_stream(
                 query.message.chat.id, queues.get(query.message.chat.id)["file"]
             )
 
