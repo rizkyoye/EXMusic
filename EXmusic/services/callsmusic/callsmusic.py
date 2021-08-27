@@ -36,4 +36,4 @@ async def on_stream_end(client: PyTgCalls, update: Update, chat_id: int) -> None
         await pytgcalls.change_stream({chat_id}, queues.get(chat_id)["file"])
 
 
-run = pytgcalls.start
+run = pytgcalls.start()
