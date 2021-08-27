@@ -92,7 +92,7 @@ async def controlset(_, message: Message):
 async def pause(_, message: Message):
     chat_id = get_chat_id(message.chat)
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
-        callsmusic.pytgcalls.active_calls[chat_id] == "paused"
+        await callsmusic.pytgcalls.active_calls[chat_id] == "paused"
     ):
         await message.reply_text("❎ **No song is playing!**")
     else:
@@ -106,7 +106,7 @@ async def pause(_, message: Message):
 async def resume(_, message: Message):
     chat_id = get_chat_id(message.chat)
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
-        callsmusic.pytgcalls.active_calls[chat_id] == "playing"
+        await callsmusic.pytgcalls.active_calls[chat_id] == "playing"
     ):
         await message.reply_text("❎ **Nothing is paused**")
     else:
@@ -127,7 +127,7 @@ async def stop(_, message: Message):
         except QueueEmpty:
             pass
 
-        callsmusic.pytgcalls.leave_group_call(chat_id)
+        await callsmusic.pytgcalls.leave_group_call(chat_id)
         await message.reply_text("✅ **Streaming ended**\n\n• **Assistant** has been **disconnected** from voice chat group")
 
 
@@ -142,8 +142,8 @@ async def skip(_, message: Message):
     else:
         queues.task_done(chat_id)
 
-        if queues.is_empty(chat_id):
-            callsmusic.pytgcalls.leave_group_call(chat_id)
+        if callsmusic.queues.is_empty(chat_id):
+            await callsmusic.pytgcalls.leave_group_call(chat_id)
         else:
             callsmusic.pytgcalls.change_stream(
                 chat_id, queues.get(chat_id)["file"]
