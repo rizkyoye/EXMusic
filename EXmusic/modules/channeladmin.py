@@ -66,7 +66,7 @@ async def resume(_, message: Message):
     ):
         await message.reply_text("❗ Nothing is paused!")
     else:
-        aqait callsmusic.pytgcalls.resume_stream(chat_id)
+        await callsmusic.pytgcalls.resume_stream(chat_id)
         await message.reply_text("⏸ Resumed!")
 
 
