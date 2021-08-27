@@ -135,7 +135,7 @@ async def start(client: Client, message: Message):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_text(
-        f"""✅ **bot is running Successful**\n\n<b>• **uptime:**</b> `{uptime}`\n• **start time:** `{START_TIME_ISO}`[.](https://telegra.ph/file/73298cab26ced8b9d9c75.jpg)""",
+        f"""✅ **bot is running Successful**\n\n<b>• **uptime:**</b> `{uptime}`\n• **start time:** `{START_TIME_ISO}`""",
         reply_markup=InlineKeyboardMarkup(
             [   
                 [    
@@ -176,9 +176,8 @@ async def help(client: Client, message: Message):
 @Client.on_message(command("help") & filters.private & ~filters.edited)
 async def help_(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>👋 Hello {message.from_user.mention()} welcome to the help menu !</b>
-**in this menu you can open several available command menus, in each command menu there is also a brief explanation of each command**
-⚡ __Powered by E X Music__""",
+        f"""<b>👋 Hello {message.from_user.mention} welcome to the help menu !</b>
+**in this menu you can open several available command menus**\n\n in each **command** menu there is also a brief **explanation** of each command.\n🎛️ **Powered by** EX Music bot.""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
