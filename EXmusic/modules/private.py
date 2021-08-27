@@ -138,7 +138,6 @@ async def start(client: Client, message: Message):
         photo=f"https://telegra.ph/file/73298cab26ced8b9d9c75.jpg",
         reply_markup=keyboard,
         caption=f"✅ **bot is running Successful**\n\n<b>• **uptime:**</b> `{uptime}`\n• **start time:** `{START_TIME_ISO}`")
-        return await lel.delete()
         reply_markup=InlineKeyboardMarkup(
             [   
                 [    
