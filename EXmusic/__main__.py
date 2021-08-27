@@ -36,4 +36,4 @@ bot = Bot(
 )
 
 bot.start()
-pyrogram.idle()
+idle()
