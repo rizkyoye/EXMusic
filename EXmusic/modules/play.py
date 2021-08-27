@@ -606,7 +606,7 @@ async def play(_, message: Message):
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         
         try:
-          results = YoutubeSearch(query, max_results=6).to_dict()
+          results = YoutubeSearch(query, max_results=5).to_dict()
         except:
           await lel.edit("**Give the title of the song to play!**")
         # Looks like hell. Aren't it?? FUCK OFF
@@ -615,8 +615,8 @@ async def play(_, message: Message):
             j = 0
             useer=user_name
 
-            emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣"]
-            while j < 6:
+            emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]
+            while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title'][:30]}](https://youtube.com{results[j]['url_suffix']})\n"
                 toxxt += f" ├ 💡 **Duration** - {results[j]['duration']}\n"
                 toxxt += f" └ ⚡ __Powered by EX Music__\n\n"
@@ -632,15 +632,13 @@ async def play(_, message: Message):
                     [
                         InlineKeyboardButton("4️⃣", callback_data=f'plll 3|{query}|{user_id}'),
                         InlineKeyboardButton("5️⃣", callback_data=f'plll 4|{query}|{user_id}'),
-                        InlineKeyboardButton("6️⃣", callback_data=f'plll 5|{query}|{user_id}'),
                     ],
                     [
-                        InlineKeyboardButton(text="⏺️ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects"),
                         InlineKeyboardButton(text="🗑️ ᴄʟᴏsᴇ", callback_data="cls")],
                 ]
             ) 
             await message.reply_photo(
-                photo="https://telegra.ph/file/acebace11c4c4ba59d099.jpg",
+                photo="https://telegra.ph/file/567360098af1f3a09150d.jpg",
                 caption=toxxt, reply_markup=koyboard, 
             )
             await lel.delete()
