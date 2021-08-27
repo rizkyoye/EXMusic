@@ -35,7 +35,8 @@ async def cbstart(_, query: CallbackQuery):
 async def cbhelp(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>👋 Hello {message.from_user.mention()} welcome to the help menu!</b>
-in this menu you can open several available **Command** menus\n\n in each **Command** menu there is also a brief **explanation** of each command\n🎛️ **Powered by** EX Music bot.""",
+in this menu you can open several available **Command** menus\n\n in each **Command** menu there is also a brief **explanation** of each command\n🎛️ **Powered by** EX Music bot.
+""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
