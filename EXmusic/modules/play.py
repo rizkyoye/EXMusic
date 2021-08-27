@@ -639,11 +639,9 @@ async def play(_, message: Message):
                         InlineKeyboardButton(text="🗑️ ᴄʟᴏsᴇ", callback_data="cls")],
                 ]
             ) 
-            await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
-            # WHY PEOPLE ALWAYS LOVE PORN ?? (A point to think)
             await message.reply_photo(
-                photo="https://telegra.ph/file/bd0518330549a8bcafba8.jpg",
-                caption=toxxt, reply_markup=koyboard,
+                photo="https://telegra.ph/file/acebace11c4c4ba59d099.jpg",
+                caption=toxxt, reply_markup=koyboard, disable_web_page_preview=True
             )
             await lel.delete()
             return
