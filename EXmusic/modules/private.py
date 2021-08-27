@@ -136,7 +136,6 @@ async def start(client: Client, message: Message):
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_photo(
         photo=f"https://telegra.ph/file/73298cab26ced8b9d9c75.jpg",
-        reply_markup=keyboard,
         caption=f"✅ **bot is running Successful**\n\n<b>• **uptime:**</b> `{uptime}`\n• **start time:** `{START_TIME_ISO}`")
         reply_markup=InlineKeyboardMarkup(
             [   
