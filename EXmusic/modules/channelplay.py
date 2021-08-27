@@ -41,7 +41,7 @@ from EXmusic.modules.play import (
         time_to_seconds, 
         changeImageSize
     )
-from EXmusix.config import BOT_NAME as bn
+from EXmusic.config import BOT_NAME as bn
 from EXmusic.config import DURATION_LIMIT, que
 from EXmusic.config import UPDATES_CHANNEL as updateschannel
 from EXmusic.function.admins import admins as a
