@@ -19,4 +19,4 @@ motor
 dnspython
 bs4
 httpx
-python-arq
+Python_ARQ
