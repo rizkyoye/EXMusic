@@ -48,7 +48,7 @@ async def _human_time_duration(seconds):
     return ', '.join(parts)
 
 @Client.on_message(
-    filters.command(["start", f"start@{BOT_USERNSME}"])
+    filters.command(["start", f"start@{BOT_USERNAME}"])
     & filters.private
     & ~ filters.edited
 )
