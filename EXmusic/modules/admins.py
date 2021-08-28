@@ -142,7 +142,7 @@ async def skip(_, message: Message):
     else:
         queues.task_done(chat_id)
 
-        if callsmusic.queues.is_empty(chat_id):
+        if queues.is_empty(chat_id):
             callsmusic.pytgcalls.leave_group_call(chat_id)
         else:
             callsmusic.pytgcalls.change_stream(
@@ -154,7 +154,7 @@ async def skip(_, message: Message):
         skip = qeue.pop(0)
     if not qeue:
         return
-    await message.reply_text(f"⫸ skipped : **{skip[0]}**\n⫸ now playing : **{qeue[0][0]}**")
+    await message.reply_text(f" ⫸ skipped : **{skip[0]}**\n⫸ now playing : **{qeue[0][0]}**")
 
 
 @Client.on_message(filters.command("auth"))
