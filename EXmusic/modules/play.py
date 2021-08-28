@@ -823,7 +823,7 @@ async def ytplay(_, message: Message):
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file_path = await convert(youtube.download(url))
     chat_id = get_chat_id(message.chat)
-    if chat_id in callsmusic.pytgcalls.active_calls:
+    if chat_id in await callsmusic.pytgcalls.active_calls:
         position = await queues.put(chat_id, file=file_path)
         qeue = que.get(chat_id)
         s_name = title
@@ -958,7 +958,7 @@ async def deezer(client: Client, message_: Message):
     await res.edit("📥 **Generating Thumbnail**")
     await generate_cover(requested_by, title, artist, duration, thumbnail)
     chat_id = get_chat_id(message_.chat)
-    if chat_id in callsmusic.pytgcalls.active_calls:
+    if chat_id in await callsmusic.pytgcalls.active_calls:
         await res.edit("adding in queue")
         position = await queues.put(chat_id, file=file_path)
         qeue = que.get(chat_id)
@@ -1056,7 +1056,7 @@ async def lol_cb(b, cb):
     requested_by = useer_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file_path = await convert(youtube.download(url))  
-    if chat_id in callsmusic.pytgcalls.active_calls:
+    if chat_id in await callsmusic.pytgcalls.active_calls:
         position = await queues.put(chat_id, file=file_path)
         qeue = que.get(chat_id)
         s_name = title
