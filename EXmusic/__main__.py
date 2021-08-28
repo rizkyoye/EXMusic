@@ -1,3 +1,4 @@
+
 # DaisyXMusic (Telegram bot project)
 # Copyright (C) 2021  Inuka Asith & Rojserbest
 
@@ -17,16 +18,13 @@
 
 import requests
 from pyrogram import Client as Bot
-from pyrogram import idle
 
 from EXmusic.config import API_HASH, API_ID, BG_IMAGE, BOT_TOKEN
-from EXmusic.services.callsmusic.callsmusic import run
+from EXmusic.services.callsmusic import run
 
 response = requests.get(BG_IMAGE)
-file = open("./etc/foreground.png", "wb")
-file.write(response.content)
-file.close()
-
+with open("./etc/foreground.png", "wb") as file:
+    file.write(response.content)
 bot = Bot(
     ":memory:",
     API_ID,
@@ -34,6 +32,6 @@ bot = Bot(
     bot_token=BOT_TOKEN,
     plugins=dict(root="EXmusic.modules"),
 )
-run()
+
 bot.start()
-idle()
+run()
