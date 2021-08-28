@@ -17,7 +17,7 @@
 
 from pyrogram import Client
 from pytgcalls import PyTgCalls
-from pytgcalls.pytgcalls.types import Update
+from pytgcalls import Update
 
 from EXmusic.config import API_HASH, API_ID, SESSION_NAME
 from EXmusic.services.queues import queues
