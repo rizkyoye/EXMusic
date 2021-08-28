@@ -34,6 +34,6 @@ bot = Bot(
     bot_token=BOT_TOKEN,
     plugins=dict(root="EXmusic.modules"),
 )
-
+run()
 bot.start()
 idle()
