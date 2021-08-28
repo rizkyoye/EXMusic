@@ -23,7 +23,7 @@ from EXmusic.config import API_HASH, API_ID, BG_IMAGE, BOT_TOKEN
 from EXmusic.services.callsmusic.callsmusic import run
 
 response = requests.get(BG_IMAGE)
-file = open("./etc/foreground.png", "wb")
+file = open("./etc/20210825_041531.png")
 file.write(response.content)
 file.close()
 
@@ -35,5 +35,6 @@ bot = Bot(
     plugins=dict(root="EXmusic.modules"),
 )
 
+bot.start()
 run()
 idle()
