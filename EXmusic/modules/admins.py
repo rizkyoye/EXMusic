@@ -10,7 +10,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 from EXmusic.function.admins import admins
 from EXmusic.helpers.channelmusic import get_chat_id
 from EXmusic.helpers.decorators import authorized_users_only, errors
-from EXmusic.handlers.play import cb_admin_check
+from EXmusic.modules.play import cb_admin_check
 from EXmusic.helpers.filters import command, other_filters
 from EXmusic.services.callsmusic.callsmusic import callsmusic
 from EXmusic.services.callsmusic.callsmusic import queues
