@@ -48,7 +48,7 @@ async def _human_time_duration(seconds):
     return ', '.join(parts)
 
 @Client.on_message(
-    filters.command("start")
+    filters.command(["start", f"start@{BOT_USERNSME}"])
     & filters.private
     & ~ filters.edited
 )
@@ -126,7 +126,7 @@ def map(pos):
 
 
 @Client.on_message(
-    filters.command("start")
+    filters.command(["start", f"start@{BOT_USERNAME}"])
     & filters.group
     & ~ filters.edited
 )
@@ -151,7 +151,7 @@ async def start(client: Client, message: Message):
     )
 
 @Client.on_message(
-    filters.command("help")
+    filters.command(["help", f"help@{BOT_USERNAME}"])
     & filters.group
     & ~ filters.edited
 )
