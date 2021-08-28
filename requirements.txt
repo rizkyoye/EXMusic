@@ -19,3 +19,8 @@ motor
 dnspython
 bs4
 Python_ARQ
+heroku3
+gitpython
+httpx
+
+
