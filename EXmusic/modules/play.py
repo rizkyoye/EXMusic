@@ -38,7 +38,7 @@ from EXmusic.config import BOT_NAME as bn
 from EXmusic.config import DURATION_LIMIT
 from EXmusic.config import UPDATES_CHANNEL as updateschannel
 from EXmusic.config import que
-from EXmusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,BOT_USERNAME, OWNER, THUMB_IMG
+from EXmusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,BOT_USERNAME, OWNER
 from EXmusic.function.admins import admins as a
 from EXmusic.helpers.admins import get_administrators
 from EXmusic.helpers.channelmusic import get_chat_id
