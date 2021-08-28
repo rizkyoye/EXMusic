@@ -32,18 +32,17 @@ from pyrogram.types import Voice
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
-from EXmusic.modules.play import (
-        generate_cover, 
-        arq, 
-        cb_admin_check,
-        transcode, 
-        convert_seconds, 
-        time_to_seconds, 
-        changeImageSize
-    )
+from EXmusic.modules.play import generate_cover
+from EXmusic.modules.play import arq
+from EXmusic.modules.play import cb_admin_check
+from EXmusic.modules.play import transcode
+from EXmusic.modules.play import convert_seconds
+from EXmusic.modules.play import time_to_seconds
+from EXmusic.modules.play import changeImageSize
 from EXmusic.config import BOT_NAME as bn
-from EXmusic.config import DURATION_LIMIT, que
+from EXmusic.config import DURATION_LIMIT
 from EXmusic.config import UPDATES_CHANNEL as updateschannel
+from EXmusic.config import que
 from EXmusic.function.admins import admins as a
 from EXmusic.helpers.errors import DurationLimitError
 from EXmusic.helpers.decorators import errors
