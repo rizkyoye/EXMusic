@@ -619,7 +619,7 @@ async def play(_, message: Message):
             while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title'][:25]}](https://youtube.com{results[j]['url_suffix']})\n"
                 toxxt += f" ├ 💡 **Duration** - {results[j]['duration']}\n"
-                toxxt += f" └ ⚡ __Powered by EX MUSIC__\n\n"
+                toxxt += f" └ ⚡ **__Empowered by EX music bot__**\n\n"
 
                 j += 1            
             koyboard = InlineKeyboardMarkup(
@@ -672,9 +672,7 @@ async def play(_, message: Message):
                     [
                 [
                     InlineKeyboardButton("⏺️ ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
-                ],[
-                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects")
+                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
                 ],
             ]
         )
@@ -815,9 +813,7 @@ async def ytplay(_, message: Message):
             [
                 [
                     InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
-                ],[
-                    InlineKeyboardButton("⏺️ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects")
+                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
                 ],
             ]
         )
@@ -1049,9 +1045,7 @@ async def lol_cb(b, cb):
             [
                 [
                     InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
-                ],[
-                    InlineKeyboardButton("⏺️ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects")
+                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
                 ],
             ]
         )
