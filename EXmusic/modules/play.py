@@ -1041,13 +1041,13 @@ async def lol_cb(b, cb):
         return
     dlurl=url
     dlurl=dlurl.replace("youtube","youtubepp")
-    keyboard = InlineKeyboardButton(
+    mar = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardMarkup(
+                    InlineKeyboardButton(
                         "Menu", callback_data="menu"
                     ),
-                    InlineKeyboardMarkup(
+                    InlineKeyboardButton(
                         "Close", callback_data="cls"
                     )
                 ]
