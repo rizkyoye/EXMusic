@@ -1041,8 +1041,8 @@ async def lol_cb(b, cb):
             [   
                 [    
                     InlineKeyboardButton(
-                        "menu", callback_data="menu"
-                    ),
+                        "menu", callback_data="menu"),
+                    ],[
                     InlineKeyboardButton(
                         "close", callback_data="cls"
                     )
