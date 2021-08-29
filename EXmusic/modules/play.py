@@ -672,10 +672,9 @@ async def play(_, message: Message):
                     [
                 [
                     InlineKeyboardButton("⏺️ ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
-                ],
-            ]
-        )
+                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")],
+                ]
+            )
             requested_by = message.from_user.first_name
             await generate_cover(requested_by, title, views, duration, thumbnail)
             file_path = await convert(youtube.download(url))   
@@ -813,10 +812,9 @@ async def ytplay(_, message: Message):
             [
                 [
                     InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
-                ],
-            ]
-        )
+                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")],
+                ]
+            )
     requested_by = message.from_user.first_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file_path = await convert(youtube.download(url))
@@ -1045,10 +1043,9 @@ async def lol_cb(b, cb):
             [
                 [
                     InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
-                ],
-            ]
-        )
+                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")],
+                ]
+            )
     requested_by = useer_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file_path = await convert(youtube.download(url))  
