@@ -1044,10 +1044,10 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(
+                    InlineKeyboardMarkup(
                         "Menu", callback_data="menu"
                     ),
-                    InlineKeyboardButton(
+                    InlineKeyboardMarkup(
                         "Close", callback_data="cls"
                     )
                 ]
