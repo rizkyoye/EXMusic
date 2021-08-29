@@ -672,8 +672,8 @@ async def play(_, message: Message):
             [
                 [
                     InlineKeyboardButton("⏺️ ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
-                ],
+                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
+                ]
             ]
         )
             requested_by = message.from_user.first_name
@@ -813,8 +813,8 @@ async def ytplay(_, message: Message):
             [
                 [
                     InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
-                ],
+                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
+                ]
             ]
         )
     requested_by = message.from_user.first_name
@@ -1045,8 +1045,8 @@ async def lol_cb(b, cb):
             [
                 [
                     InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
-                ],
+                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
+                ]
             ]
         )
     requested_by = useer_name
