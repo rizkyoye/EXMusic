@@ -1053,7 +1053,6 @@ async def lol_cb(b, cb):
                 ]
             ]
         )
-   ) 
     requested_by = useer_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file_path = await convert(youtube.download(url))  
