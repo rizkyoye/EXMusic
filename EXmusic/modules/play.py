@@ -669,11 +669,10 @@ async def play(_, message: Message):
             dlurl=url
             dlurl=dlurl.replace("youtube","youtubepp")
             keyboard = InlineKeyboardMarkup(
-                    [
                 [
                     InlineKeyboardButton("⏺️ ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")],
-                ]
+                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
+                ],
             )
             requested_by = message.from_user.first_name
             await generate_cover(requested_by, title, views, duration, thumbnail)
@@ -809,11 +808,10 @@ async def ytplay(_, message: Message):
     dlurl=url
     dlurl=dlurl.replace("youtube","youtubepp")
     keyboard = InlineKeyboardMarkup(
-            [
                 [
                     InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")],
-                ]
+                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
+                ],
             )
     requested_by = message.from_user.first_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
