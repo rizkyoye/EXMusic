@@ -812,10 +812,8 @@ async def ytplay(_, message: Message):
     dlurl=dlurl.replace("youtube","youtubepp")
     keyboard = InlineKeyboardMarkup(
             [
-                [
-                    InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"
-                    ),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
+                [InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
+                 InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
                 ],
             ]
         )
@@ -1045,14 +1043,11 @@ async def lol_cb(b, cb):
     dlurl=dlurl.replace("youtube","youtubepp")
     keyboard = InlineKeyboardMarkup(
             [
-                [
-                    InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"
-                    ),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
+                [InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
+                 InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
                 ],
             ]
         )
-    return mar
 
     requested_by = useer_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
