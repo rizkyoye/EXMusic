@@ -1046,12 +1046,14 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", "menu"
+                    InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"
                     ),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", "cls"),
+                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
                 ],
             ]
         )
+    return mar
+
     requested_by = useer_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file_path = await convert(youtube.download(url))  
