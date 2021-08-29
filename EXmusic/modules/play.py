@@ -477,7 +477,7 @@ async def play(_, message: Message):
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>make me admin as first.</b>",
+                        "💡 To use me, I need to be an Administrator with the following **permissions:**\n\n» ❌ **Delete messages**\n» ❌ **Ban users**\n» ❌ **Add users**\n» ❌ **Manage voice chat**\n» ❌ **Add new admins**\n\nThen **type** /reload\n📣 **Updates Channel :** EXProjects",
                     )
                     return
 
@@ -671,7 +671,8 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("⏺️ ᴍᴇɴᴜ", callback_data="menu"),
+                    InlineKeyboardButton("⏺️ ᴍᴇɴᴜ", callback_data="menu"
+                    ),
                     InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
                 ]
             ]
@@ -812,9 +813,10 @@ async def ytplay(_, message: Message):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
+                    InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"
+                    ),
                     InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
-                ]
+                ],
             ]
         )
     requested_by = message.from_user.first_name
@@ -1044,9 +1046,10 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"),
+                    InlineKeyboardButton("🖱️ ᴍᴇɴᴜ", callback_data="menu"
+                    ),
                     InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
-                ]
+                ],
             ]
         )
     requested_by = useer_name
