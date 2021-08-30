@@ -216,9 +216,8 @@ async def help_(client: Client, message: Message):
     & ~ filters.edited
 )
 async def help(client: Client, message: Message):
-    await message.reply_text(
-        f"""👋 Hello {message.from_user.mention()} I'm an EX Music bot, **These are all my strengths**\n\n• I can play songs in your group and on your channel, via telegram voice chat.\n• Download songs easily.\n• Looking for song links from youtube\n\n📣 **Updates Channel :** @EXProjects\n📣 **Support Group :** @EXGroupSupport[.](https://telegra.ph/file/44cd16da042e157654087.jpg)""",
-        reply_markup=InlineKeyboardMarkup(
+        toxxt = "👋 Hello {message.from_user.mention()} I'm an EX Music bot, **These are all my strengths.**\n\n✅ I can play songs in your group and on your channel, via telegram voice chat.\n✅ Download songs easily.\n✅ Looking for song links from youtube\n\n**Updates Channel :** @EXProjects\n**Support Group :** @EXGroupSupport."
+        keyboard = InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
@@ -232,7 +231,11 @@ async def help(client: Client, message: Message):
                 ]
             ]
         ),
-    )  
+    )
+    await message.reply_photo(
+                photo="https://telegra.ph/file/567360098af1f3a09150d.jpg",
+                caption=toxxt, reply_markup=koyboard, 
+            )  
 
 @Client.on_message(
     filters.command("reload")
