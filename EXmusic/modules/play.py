@@ -33,7 +33,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Voice
 from pyrogram.errors import UserAlreadyParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, Chat, CallbackQuery, ReplyKeyboardMarkup
-from pyrogram.raw.types import KeyboardButtonRow, KeyboardButtonCallback
+from pyrogram.raw.types import KeyboardButtonRow, KeyboardButtonCallback, ReplyInlineMarkup
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
 
@@ -1049,7 +1049,7 @@ async def lol_cb(b, cb):
         return
     dlurl=url
     dlurl=dlurl.replace("youtube","youtubepp")
-    reply_markup = ReplyKeyboardMarkup(
+    reply_markup =ReplyInlineMarkup(
           rows=[
    KeyboardButtonRow(
     buttons=[
