@@ -26,6 +26,8 @@ import ffmpeg
 import requests
 import wget
 from PIL import Image, ImageDraw, ImageFont
+from pyrogram import raw
+from pyrogram import types
 from pyrogram import Client, filters
 from pyrogram.types import Voice
 from pyrogram.errors import UserAlreadyParticipant
@@ -1046,8 +1048,7 @@ async def lol_cb(b, cb):
     dlurl=url
     dlurl=dlurl.replace("youtube","youtubepp")
     reply_markup = ReplyKeyboardMarkup(
-          rows=[
-   KeyboardButtonRow(
+          rows=[KeyboardButtonRow(
     buttons=[
      KeyboardButtonCallback(
       text='❌ Batalkan',
