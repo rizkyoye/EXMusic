@@ -29,7 +29,7 @@ from PIL import Image, ImageDraw, ImageFont
 from pyrogram import Client, filters
 from pyrogram.types import Voice
 from pyrogram.errors import UserAlreadyParticipant
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, Chat, CallbackQuery
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, Chat, CallbackQuery, ReplyInlineMarkup, KeyboardButtonCallback, KeyboardButtonRow
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
 
@@ -1045,16 +1045,22 @@ async def lol_cb(b, cb):
         return
     dlurl=url
     dlurl=dlurl.replace("youtube","youtubepp")
-    keyboard = InlineKeyboardMarkup(
-        [
-            [
-                InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
-                InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
-            ],[
-                InlineKeyboardButton("⏺️ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects")
-            ],
-        ]
-    )
+    reply_markup = ReplyInlineMarkup(
+          rows=[
+   KeyboardButtonRow(
+    buttons=[
+     KeyboardButtonCallback(
+      text='❌ Batalkan',
+      data=b'play_cancel_Moyja76S_YQ'
+     ),
+     KeyboardButtonCallback(
+      text='🗑 Tutup',
+      data=b'play_close'
+     ),
+    ]
+   ),
+  ]
+ ),
     requested_by = useer_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file_path = await convert(youtube.download(url))  
