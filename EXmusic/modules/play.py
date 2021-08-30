@@ -33,7 +33,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Voice
 from pyrogram.errors import UserAlreadyParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, Chat, CallbackQuery, ReplyKeyboardMarkup
-from pyrogram.raw.types import KeyboardButtonRow
+from pyrogram.raw.types import KeyboardButtonRow, KeyboardButtonCallback
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
 
