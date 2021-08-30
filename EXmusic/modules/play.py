@@ -25,13 +25,14 @@ import aiohttp
 import ffmpeg
 import requests
 import wget
+import pyrogram
 from PIL import Image, ImageDraw, ImageFont
 from pyrogram import raw
 from pyrogram import types
 from pyrogram import Client, filters
 from pyrogram.types import Voice
 from pyrogram.errors import UserAlreadyParticipant
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, Chat, CallbackQuery, ReplyKeyboardMarkup
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, Chat, CallbackQuery, ReplyKeyboardMarkup, KeyboardButtonRow
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
 
@@ -1048,7 +1049,8 @@ async def lol_cb(b, cb):
     dlurl=url
     dlurl=dlurl.replace("youtube","youtubepp")
     reply_markup = ReplyKeyboardMarkup(
-          rows=[KeyboardButtonRow(
+          rows=[
+   KeyboardButtonRow(
     buttons=[
      KeyboardButtonCallback(
       text='❌ Batalkan',
