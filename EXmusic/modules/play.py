@@ -1083,7 +1083,7 @@ async def lol_cb(b, cb):
         await b.send_photo(chat_id,    photo="final.png",
             caption = f"💡 **Track added to the queue**\n\n🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}\n" \
                     + f"\n🔢 **Track position:** » `{position}` «",
-                   reply_markup=ReplyInlineMarkup,
+                   reply_markup=await,
         )
         os.remove("final.png")
         
@@ -1105,7 +1105,7 @@ async def lol_cb(b, cb):
             photo="final.png",
             caption = f"🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** {duration}\n💡 **Status:** Sedang Memutar\n" \
                     + f"🎧 **Request by:** {r_by.mention}",
-                    reply_markup=ReplyInlineMarkup,
+                    reply_markup=await,
         )
         os.remove("final.png")
 
