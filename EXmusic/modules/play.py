@@ -27,13 +27,10 @@ import requests
 import wget
 import pyrogram
 from PIL import Image, ImageDraw, ImageFont
-from pyrogram import raw
-from pyrogram import types
 from pyrogram import Client, filters
 from pyrogram.types import Voice
 from pyrogram.errors import UserAlreadyParticipant
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, Chat, CallbackQuery, ReplyKeyboardMarkup
-from pyrogram.raw.types import KeyboardButtonRow, KeyboardButtonCallback, ReplyInlineMarkup
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, Chat, CallbackQuery
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
 
