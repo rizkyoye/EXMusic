@@ -1054,7 +1054,7 @@ async def lol_cb(b, cb):
    KeyboardButtonRow(
     buttons=[
      KeyboardButtonCallback(
-      text='🖱️'Menu,
+      text='🖱️Menu',
       data=b'menu', requires_password=False
      ),
      KeyboardButtonCallback(
