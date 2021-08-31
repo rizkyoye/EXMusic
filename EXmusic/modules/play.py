@@ -606,7 +606,7 @@ async def play(_, message: Message):
         for i in message.command[1:]:
             query += " " + str(i)
         print(query)
-        await lel.edit("🔁 **Processing song...**")
+        await lel.edit("🔁 **Processing...**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         
         try:
@@ -1051,7 +1051,12 @@ async def lol_cb(b, cb):
     dlurl=dlurl.replace("youtube","youtubepp")
     keyboard = InlineKeyboardButton(
         [
-            [InlineKeyboardButton("👥 Support Group", url=f"https://t.me/EXGroupSupport")],
+            [
+                InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
+                InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
+            ],[
+                InlineKeyboardButton("⏺️ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ", url=f"https://t.me/EXProjects")
+            ],
         ]
     )
     requested_by = useer_name
