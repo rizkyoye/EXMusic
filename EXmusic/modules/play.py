@@ -1049,22 +1049,13 @@ async def lol_cb(b, cb):
         return
     dlurl=url
     dlurl=dlurl.replace("youtube","youtubepp")
-    reply_markup =ReplyInlineMarkup(
-          rows=[
-   KeyboardButtonRow(
-    buttons=[
-     KeyboardButtonCallback(
-      text='🖱️Menu',
-      data=b'menu', requires_password=False
-     ),
-     KeyboardButtonCallback(
-      text='🗑 Tutup',
-      data=b'cls', requires_password=False
-     ),
-    ]
-   ),
-  ]
- )
+    keyboard = InlineKeyboardButton(
+        [
+            [
+                InlineKeyboardButton("👥 Support Group", url=f"https://t.me/EXGroupSupport")
+            ],
+        ]
+    )
     requested_by = useer_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file_path = await convert(youtube.download(url))  
