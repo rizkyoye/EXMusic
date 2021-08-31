@@ -456,7 +456,7 @@ async def play(_, message: Message):
     global useer
     if message.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message.reply("🔁 **Processing...**")
+    lel = await message.reply("🔁 **Processing.**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -511,7 +511,7 @@ async def play(_, message: Message):
         )
         return
     text_links=None
-    await lel.edit("🔎 **Finding song...**")
+    await lel.edit("🔁 **Processing..**")
     if message.reply_to_message:
         entities = []
         toxt = message.reply_to_message.text or message.reply_to_message.caption
@@ -565,7 +565,7 @@ async def play(_, message: Message):
         )
     elif urls:
         query = toxt
-        await lel.edit("🎵 **Processing song..**")
+        await lel.edit("🔁 **Processing...**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
@@ -606,7 +606,7 @@ async def play(_, message: Message):
         for i in message.command[1:]:
             query += " " + str(i)
         print(query)
-        await lel.edit("🎵 **Processing song..**")
+        await lel.edit("🔁 **Processing song...**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         
         try:
@@ -1051,9 +1051,7 @@ async def lol_cb(b, cb):
     dlurl=dlurl.replace("youtube","youtubepp")
     keyboard = InlineKeyboardButton(
         [
-            [
-                InlineKeyboardButton("👥 Support Group", url=f"https://t.me/EXGroupSupport")
-            ],
+            [InlineKeyboardButton("👥 Support Group", url=f"https://t.me/EXGroupSupport")],
         ]
     )
     requested_by = useer_name
@@ -1077,7 +1075,6 @@ async def lol_cb(b, cb):
                    reply_markup=keyboard,
         )
         os.remove("final.png")
-        return await lel.delete()
         
     else:
         que[chat_id] = []
@@ -1100,7 +1097,6 @@ async def lol_cb(b, cb):
                     reply_markup=keyboard,
         )
         os.remove("final.png")
-        return await lel.delete()
 
 # rizky cakep yekan
 # Have u read all. If read RESPECT :-)
