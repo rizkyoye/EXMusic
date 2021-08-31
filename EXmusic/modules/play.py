@@ -1080,8 +1080,7 @@ async def lol_cb(b, cb):
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         await cb.message.delete()
-        await b.send_photo(chat_id,
-            photo="final.png",
+        reply_markup=await reply_markup.write(self) if reply_markup else None,    photo="final.png",
             caption = f"💡 **Track added to the queue**\n\n🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}\n" \
                     + f"\n🔢 **Track position:** » `{position}` «",
                    reply_markup=ReplyInlineMarkup,
@@ -1102,7 +1101,7 @@ async def lol_cb(b, cb):
 
         callsmusic.pytgcalls.join_group_call(chat_id, file_path)
         await cb.message.delete()
-        await b.send_photo(chat_id,
+        reply_markup=await reply_markup.write(self) if reply_markup else None,
             photo="final.png",
             caption = f"🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** {duration}\n💡 **Status:** Sedang Memutar\n" \
                     + f"🎧 **Request by:** {r_by.mention}",
