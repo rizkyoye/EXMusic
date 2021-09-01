@@ -181,8 +181,8 @@ async def help(client: Client, message: Message):
 )
 async def help(client: Client, message: Message):
     await message.reply_photo(
-        photo="https://telegra.ph/file/62b3365254c21632c5aef.jpg"
-        caption="👋 Hello {message.from_user.mention()} **Please** press the button below to read the **explanation** and see the list of available **Commands**\n\nOr you can directly **contact** the creator if you need **help**"
+        photo="https://telegra.ph/file/62b3365254c21632c5aef.jpg",
+        caption="👋 hello",
         keyboard=InlineKeyboardMarkup(
             [
                 [
