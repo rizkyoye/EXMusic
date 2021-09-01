@@ -618,7 +618,7 @@ async def play(_, message: Message):
 
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]
             while j < 5:
-                toxxt += f"{emojilist[j]} [{results[j]['title'][:25]}](https://youtube.com{results[j]['url_suffix']})\n"
+                toxxt += f"{emojilist[j]} <b>Title - [{results[j]['title'][:25]}](https://youtube.com{results[j]['url_suffix']})</b>\n"
                 toxxt += f" ├ 💡 **Duration** - {results[j]['duration']}\n"
                 toxxt += f" └ ⚡ **__Empowered by EX music bot__**\n\n"
 
@@ -1072,7 +1072,7 @@ async def lol_cb(b, cb):
         qeue.append(appendable)
         await cb.message.delete()
         await b.send_photo(chat_id,    photo="final.png",
-            caption = f"💡 **Track added to the queue**\n\n🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** `{duration}`\n" \
+            caption = f"💡 **Track added to the queue**\n\n🏷 **Title:** [{title[:80]}]({url})\n⏱ **Duration:** `{duration}`\n" \
                     + f"🎧 **Request by:** {r_by.mention}\n\n🔢 **Track position:** » `{position}` «",
                    reply_markup=keyboard,
         )
@@ -1094,7 +1094,7 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption = f"🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** {duration}\n💡 **Status:** Playing\n" \
+            caption = f"🏷 **Title:** [{title[:80]}]({url})\n⏱ **Duration:** {duration}\n💡 **Status:** Playing\n" \
                     + f"🎧 **Request by:** {r_by.mention}",
                     reply_markup=keyboard,
         )
