@@ -1070,8 +1070,8 @@ async def lol_cb(b, cb):
         qeue.append(appendable)
         await cb.message.delete()
         await b.send_photo(chat_id,    photo="final.png",
-            caption = f"💡 **Track added to the queue**\n\n🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}\n" \
-                    + f"\n🔢 **Track position:** » `{position}` «",
+            caption = f"💡 **Track added to the queue**\n\n🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** `{duration}`\n" \
+                    + f"🎧 **Request by:** {r_by.mention}\n\n🔢 **Track position:** » `{position}` «",
                    reply_markup=keyboard,
         )
         os.remove("final.png")
