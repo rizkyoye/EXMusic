@@ -179,8 +179,8 @@ async def help(client: Client, message: Message):
     & filters.group
     & ~ filters.edited
 )
-async def help(client: Client, message: Message):
-    await message.reply_photo(
+else:
+    update.effective_message.reply_photo(
         photo="https://telegra.ph/file/62b3365254c21632c5aef.jpg",
         caption="👋 hello",
         keyboard=InlineKeyboardMarkup(
