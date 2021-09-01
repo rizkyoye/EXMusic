@@ -1049,7 +1049,7 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="closed")
+                InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="closed")
             ],
         ]
     )
@@ -1086,7 +1086,6 @@ async def lol_cb(b, cb):
         loc = file_path
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
-
         callsmusic.pytgcalls.join_group_call(chat_id, file_path)
         await cb.message.delete()
         await b.send_photo(chat_id,
