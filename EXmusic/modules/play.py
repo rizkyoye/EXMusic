@@ -140,9 +140,9 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     Image.alpha_composite(image5, image6).save("temp.png")
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
+    font = ImageFont.truetype("etc/Roboto-Regular.ttf", 45)
+    draw.text((25, 590), f"Playing here", (0, 0, 0), font=font)
     font = ImageFont.truetype("etc/Roboto-Medium.ttf", 65)
-    draw.text((25, 590), f"PLAYING HERE", (0, 0, 0), font=font)
-    font = ImageFont.truetype("etc/Roboto-Regular.ttf", 50)
     draw.text((25, 660),
         f"{title}",
         (0, 0, 0),
@@ -618,7 +618,7 @@ async def play(_, message: Message):
 
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]
             while j < 5:
-                toxxt += f"{emojilist[j]} [{results[j]['title'][:25]}](https://youtube.com{results[j]['url_suffix']})</b>\n"
+                toxxt += f"{emojilist[j]} [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})</b>\n"
                 toxxt += f" ├ 💡 **Duration** - {results[j]['duration']}\n"
                 toxxt += f" └ ⚡ **__Empowered by EX music bot__**\n\n"
 
