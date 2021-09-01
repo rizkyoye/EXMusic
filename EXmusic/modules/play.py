@@ -1049,7 +1049,8 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("Support Group", url=f"https://t.me/EXGroupSupport")
+                InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/EXProjects"),
+                InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/EXGroupSupport")
             ],
         ]
     )
