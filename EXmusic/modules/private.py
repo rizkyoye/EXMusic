@@ -172,7 +172,33 @@ async def help(client: Client, message: Message):
                 ]
             ]
         ),
-    )  
+    ) 
+
+@Client.on_message(
+    filters.command(["play", f"play@{BOT_USERNAME}"])
+    & filters.group
+    & ~ filters.edited
+)
+async def help(client: Client, message: Message):
+    await message.reply_photo(
+        photo="https://telegra.ph/file/62b3365254c21632c5aef.jpg"
+        caption="👋 Hello {message.from_user.mention()} **Please** press the button below to read the **explanation** and see the list of available **Commands**\n\nOr you can directly **contact** the creator if you need **help**"
+        keyboard=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "💡 How to use bots ❔", callback_data=f"cbguide"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "🧑‍💻 Creator", url=f"https://t.me/rizexx"
+                    )
+                ]
+            ]
+        ) 
+        reply_markup=keyboard,
+
 @Client.on_message(command("help") & filters.private & ~filters.edited)
 async def help_(client: Client, message: Message):
     await message.reply_text(
