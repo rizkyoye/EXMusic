@@ -972,7 +972,7 @@ async def deezer(client: Client, message_: Message):
         qeue.append(appendable)
         await res.edit_text(f"🎵 **Lagu yang Anda minta Sedang Antri di posisi** `{position}`")
     else:
-        await res.edit_text(f"🎵 **Playing...**")
+        await res.edit_text(f"🌻 **Playing...**")
 
         que[chat_id] = []
         qeue = que.get(chat_id)
