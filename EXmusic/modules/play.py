@@ -124,7 +124,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     os.remove("background.png")
 
 
-async def generate_cover(requested_by, title, views, duration, thumbnail):
+async def generate_cover(requested_by, title, views, duration, thumbnail, message.chaf.title):
     async with aiohttp.ClientSession() as session:
         async with session.get(thumbnail) as resp:
             if resp.status == 200:
@@ -140,10 +140,10 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     Image.alpha_composite(image5, image6).save("temp.png")
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("etc/Roboto-Regular.ttf", 45)
-    draw.text((25, 590), f"Playing here", (0, 0, 0), font=font)
-    font = ImageFont.truetype("etc/Roboto-Medium.ttf", 65)
-    draw.text((25, 660),
+    font = ImageFont.truetype("etc/Roboto-Regular.ttf", 55)
+    draw.text((25, 530), f"Playing in {message.chat.title}", (0, 0, 0), font=font)
+    font = ImageFont.truetype("etc/Roboto-Medium.ttf", 70)
+    draw.text((25, 600),
         f"{title}",
         (0, 0, 0),
         font=font,
@@ -1024,7 +1024,7 @@ async def lol_cb(b, cb):
     
     results = YoutubeSearch(query, max_results=5).to_dict()
     resultss=results[x]["url_suffix"]
-    title=results[x]["title"][:40]
+    title=results[x]["title"][:25]
     thumbnail=results[x]["thumbnails"][0]
     duration=results[x]["duration"]
     views=results[x]["views"]
