@@ -652,7 +652,7 @@ async def play(_, message: Message):
             # print(results)
             try:
                 url = f"https://youtube.com{results[0]['url_suffix']}"
-                title = results[0]["title"][:25]
+                title = results[0]["title"][:40]
                 thumbnail = results[0]["thumbnails"][0]
                 thumb_name = f"thumb{title}.jpg"
                 thumb = requests.get(thumbnail, allow_redirects=True)
@@ -693,7 +693,7 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption = f"💡 **Track added to the queue**\n\n🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {message.from_user.mention}\n" \
+            caption = f"💡 **Track added to the queue**\n\n🏷 **Title:** [{title[:60]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {message.from_user.mention}\n" \
                     + f"\n🔢 **Track position:** » `{position}` «",
                    reply_markup=keyboard)
        
@@ -713,7 +713,7 @@ async def play(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** Playing\n" \
+            caption = f"🏷 **Title:** [{title[:60]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** Playing\n" \
                     + f"🎧 **Request by:** {message.from_user.mention}",
                    reply_markup=keyboard,)
 
@@ -795,7 +795,7 @@ async def ytplay(_, message: Message):
         results = YoutubeSearch(query, max_results=1).to_dict()
         url = f"https://youtube.com{results[0]['url_suffix']}"
         # print(results)
-        title = results[0]["title"][:25]
+        title = results[0]["title"][:40]
         thumbnail = results[0]["thumbnails"][0]
         thumb_name = f"thumb{title}.jpg"
         thumb = requests.get(thumbnail, allow_redirects=True)
@@ -836,7 +836,7 @@ async def ytplay(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption = f"💡 **Track added to the queue**\n\n🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {message.from_user.mention}\n" \
+            caption = f"💡 **Track added to the queue**\n\n🏷 **Title:** [{title[:60]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {message.from_user.mention}\n" \
                     + f"\n🔢 **Track position:** » `{position}` «",
                    reply_markup=keyboard,
         )
@@ -858,7 +858,7 @@ async def ytplay(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"🏷 **Title:** [{title[:30]}]({url})\n⏱ **Duration:** {duration}\n💡 **Status:** Playing\n" \
+            caption = f"🏷 **Title:** [{title[:60]}]({url})\n⏱ **Duration:** {duration}\n💡 **Status:** Playing\n" \
                     + f"🎧 **Request by:** {message.from_user.mention}",
                    reply_markup=keyboard,)
         os.remove("final.png")
@@ -1076,7 +1076,7 @@ async def lol_cb(b, cb):
         qeue.append(appendable)
         await cb.message.delete()
         await b.send_photo(chat_id,    photo="final.png",
-            caption = f"💡 **Track added to the queue**\n\n🏷 **Title:** [{title[:80]}]({url})\n⏱ **Duration:** `{duration}`\n" \
+            caption = f"💡 **Track added to the queue**\n\n🏷 **Title:** [{title[:60]}]({url})\n⏱ **Duration:** `{duration}`\n" \
                     + f"🎧 **Request by:** {r_by.mention}\n\n🔢 **Track position:** » `{position}` «",
                    reply_markup=keyboard,
         )
@@ -1098,7 +1098,7 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption = f"🏷 **Title:** [{title[:80]}]({url})\n⏱ **Duration:** {duration}\n💡 **Status:** Playing\n" \
+            caption = f"🏷 **Title:** [{title[:60]}]({url})\n⏱ **Duration:** {duration}\n💡 **Status:** Playing\n" \
                     + f"🎧 **Request by:** {r_by.mention}",
                     reply_markup=keyboard,
         )
