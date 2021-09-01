@@ -197,7 +197,6 @@ async def help(client: Client, message: Message):
                 ]
             ]
         ) 
-        reply_markup=keyboard,
 
 @Client.on_message(command("help") & filters.private & ~filters.edited)
 async def help_(client: Client, message: Message):
