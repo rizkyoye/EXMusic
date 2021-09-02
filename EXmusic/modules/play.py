@@ -124,7 +124,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     os.remove("background.png")
 
 
-async def generate_cover(title, duration, thumbnail, message.chat.title):
+async def generate_cover(title, duration, thumbnail):
     async with aiohttp.ClientSession() as session:
         async with session.get(thumbnail) as resp:
             if resp.status == 200:
