@@ -140,9 +140,9 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     Image.alpha_composite(image5, image6).save("temp.png")
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("etc/Roboto-Medium.ttf", 40)
+    font = ImageFont.truetype("etc/Roboto-Medium.ttf", 50)
     draw.text((25, 590), f"Playing here", (0, 0, 0), font=font)
-    font = ImageFont.truetype("etc/Roboto-Regular.ttf", 60)
+    font = ImageFont.truetype("etc/Roboto-Regular.ttf", 65)
     draw.text((25, 660),
         f"{title}",
         (0, 0, 0),
@@ -1076,7 +1076,7 @@ async def lol_cb(b, cb):
         qeue.append(appendable)
         await cb.message.delete()
         await b.send_photo(chat_id,    photo="final.png",
-            caption = f"💡 **Track added to the queue**\n\n🏷 **Title:** [{title}]({url})\n⏱ **Duration:** `{duration}`\n" \
+            caption = f"💡 **Track added to the queue**\n\n🏷 **Title:** [{title[60]}]({url})\n⏱ **Duration:** `{duration}`\n" \
                     + f"🎧 **Request by:** {r_by.mention}\n\n🔢 **Track position:** » `{position}` «",
                    reply_markup=keyboard,
         )
@@ -1098,7 +1098,7 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption = f"🏷 **Title:** [{title}]({url})\n⏱ **Duration:** {duration}\n💡 **Status:** Playing\n" \
+            caption = f"🏷 **Title:** [{title[60]}]({url})\n⏱ **Duration:** {duration}\n💡 **Status:** Playing\n" \
                     + f"🎧 **Request by:** {r_by.mention}",
                     reply_markup=keyboard,
         )
