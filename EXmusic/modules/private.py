@@ -106,7 +106,8 @@ def map(pos):
         button = [
             [
               InlineKeyboardButton(text = 'About bot ❔', callback_data = "help+2"),
-              InlineKeyboardButton(text = 'Commands 📚', url=f"https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13")],
+              InlineKeyboardButton(text = 'Commands 📚', url=f"https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13"),
+              InlineKeyboardButton(text = 'Back', callback_data = "start")],
         ]
     elif(pos==len(tr.HELP_MSG)-1):
         url = f"https://t.me/EXGroupSupport"
@@ -222,15 +223,17 @@ async def reload(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "👥 sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ", url=f"https://t.me/EXGroupSupport"
-                    ),
+                        "Group Support 🏷️", url=f"https://t.me/EXGroupSupport"
+                    )
+                ],
+                [
                     InlineKeyboardButton(
-                        "👩‍💻 ᴄʀᴇᴀᴛᴇᴅ ʙʏ", url=f"https://t.me/rizexx"
+                        "Channel Update 📣", url=f"https://t.me/EXProjects"
                     )
                 ]
             ]
-        )
-   )
+        ),
+    ) 
 
 @Client.on_message(command(["ping", f"ping@{BOT_USERNAME}"]) & ~filters.edited)
 async def ping_pong(client: Client, message: Message):
