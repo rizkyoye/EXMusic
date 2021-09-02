@@ -844,27 +844,24 @@ async def ytplay(_, message: Message):
 @Client.on_callback_query(filters.regex(pattern=r"plll"))
 async def lol_cb(b, cb):
     global que
-
     cbd = cb.data.strip()
     chat_id = cb.message.chat.id
     typed_=cbd.split(None, 1)[1]
-    #useer_id = cb.message.reply_to_message.from_user.id
     try:
         x,query,useer_id = typed_.split("|")      
     except:
-        await cb.message.edit("Lagu Tidak ditemukan")
+        await cb.message.edit("❌ song not found")
         return
     useer_id = int(useer_id)
     if cb.from_user.id != useer_id:
-        await cb.answer("Anda bukan orang yang meminta untuk memutar lagu!", show_alert=True)
+        await cb.answer("you are not people who requested this song !", show_alert=True)
         return
-    await cb.message.edit("**Connecting to voice chat..**")
+    #await cb.message.edit("**Connecting to voice chat...**")
     x=int(x)
     try:
         useer_name = cb.message.reply_to_message.from_user.first_name
     except:
         useer_name = cb.message.from_user.first_name
-    
     results = YoutubeSearch(query, max_results=5).to_dict()
     resultss=results[x]["url_suffix"]
     title=results[x]["title"][:30]
