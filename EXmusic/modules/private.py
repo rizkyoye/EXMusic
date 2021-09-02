@@ -77,7 +77,7 @@ async def start_(client: Client, message: Message):
         disable_web_page_preview=True
         )
 
-@Client.on_message(filters.private & filters.incoming & filters.command(['help']))
+@Client.on_message(filters.private & filters.incoming & filters.command(["help", f"help@{BOT_USERNAME}"]))
 def _help(client, message):
     client.send_message(chat_id = message.chat.id,
         text = tr.HELP_MSG[1],
