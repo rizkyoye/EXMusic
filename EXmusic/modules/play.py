@@ -430,7 +430,7 @@ async def play(_, message: Message):
     global useer
     if message.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message.reply("🔁 **Processing.**")
+    lel = #await message.reply("🔁 **Processing.**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -485,7 +485,7 @@ async def play(_, message: Message):
         )
         return
     text_links=None
-    await lel.edit("🔁 **Processing..**")
+    #await lel.edit("🔁 **Processing..**")
     if message.reply_to_message:
         entities = []
         toxt = message.reply_to_message.text or message.reply_to_message.caption
@@ -856,7 +856,7 @@ async def lol_cb(b, cb):
     if cb.from_user.id != useer_id:
         await cb.answer("you are not people who requested this song !", show_alert=True)
         return
-    #await cb.message.edit("**Connecting to voice chat...**")
+    await cb.message.edit("**Connecting to voice chat...**")
     x=int(x)
     try:
         useer_name = cb.message.reply_to_message.from_user.first_name
