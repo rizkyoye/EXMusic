@@ -539,7 +539,7 @@ async def play(_, message: Message):
         )
     elif urls:
         query = toxt
-        await lel.edit("🔁 **Processing...**")
+        #await lel.edit("🔁 **Processing...**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
@@ -580,7 +580,7 @@ async def play(_, message: Message):
         for i in message.command[1:]:
             query += " " + str(i)
         print(query)
-        await lel.edit("🔁 **Processing...**")
+        #await lel.edit("🔁 **Processing...**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         
         try:
@@ -589,7 +589,7 @@ async def play(_, message: Message):
           await lel.edit("**Give the title of the song to play!**")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "💡 Please select the song you want to play :\n\n"
+            toxxt = "💡 Please select the song you want to play :\n"
             j = 0
             useer=user_name
 
