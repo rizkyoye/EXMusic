@@ -430,7 +430,7 @@ async def play(_, message: Message):
     global useer
     if message.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message.reply("🔁 **Processing.**")
+    lel = await message.reply("🔁 `Processing...`")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -589,7 +589,7 @@ async def play(_, message: Message):
           await lel.edit("**Give the title of the song to play!**")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "💡 Please select the song you want to play :\n"
+            toxxt = "💡 Please select the song you want to play :\n\n"
             j = 0
             useer=user_name
 
@@ -917,7 +917,7 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,    photo="final.png",
             caption = f"💡 **Track added to the queue**\n\n🏷 **Title:** [{title[:60]}]({url})\n⏱ **Duration:** `{duration}`\n" \
-                    + f"🎧 **Request by:** {r_by.mention}\n🔢 **Track position:** » `{position}` «",
+                    + f"🎧 **Request by:** {r_by.mention}\n\n🔢 **Track position:** » `{position}` «",
                    reply_markup=keyboard,
         )
         os.remove("final.png")
