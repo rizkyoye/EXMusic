@@ -218,7 +218,7 @@ async def help_(client: Client, message: Message):
     & ~ filters.edited
 )
 async def reload(client: Client, message: Message):
-    await message.reply_text("""✅ Bots **Successful restart!**\n\n• **Admin list** Has been successfully **updated**""",
+    await message.reply_text("""✅ Bots **Successful restart!**\n\n✅ **Admin list** Has been successfully **updated**""",
       reply_markup=InlineKeyboardMarkup(
             [
                 [
