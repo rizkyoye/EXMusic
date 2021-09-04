@@ -119,8 +119,8 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("etc/Roboto-Medium.ttf", 65)
-    draw.text((25, 590), f"PLAYING HERE", (0, 0, 0), font=font)
-    font = ImageFont.truetype("etc/Chopsic.otf", 45)
+    draw.text((25, 590), f"Playing here", (0, 0, 0), font=font)
+    font = ImageFont.truetype("etc/Roboto-Medium.tff", 50)
     draw.text((25, 660),
         f"{title}",
         (0, 0, 0),
@@ -894,9 +894,9 @@ async def lol_cb(b, cb):
         [
             [
                 InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
-                InlineKeyboardButton("⏺️ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects"),
+                InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
             ],[
-                InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
+                InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects")
             ],
         ]
     )
@@ -917,7 +917,7 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,    photo="final.png",
             caption = f"💡 **Track added to the queue**\n\n🏷 **Title:** [{title[:40]}]({url})\n⏱ **Duration:** `{duration}`\n" \
-                    + f"🎧 **Request by:** {r_by.mention}\n🔢 **Track position:** » `{position}` «",
+                    + f"🎧 **Request by:** {r_by.mention}\n\n🔢 **Track position:** » `{position}` «",
                    reply_markup=keyboard,
         )
         os.remove("final.png")
