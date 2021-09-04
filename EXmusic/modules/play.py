@@ -120,7 +120,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("etc/Roboto-Medium.ttf", 65)
     draw.text((25, 590), f"Playing here", (0, 0, 0), font=font)
-    font = ImageFont.truetype("etc/Roboto-Medium.tff", 50)
+    font = ImageFont.truetype("etc/Roboto-Regular.tff", 50)
     draw.text((25, 660),
         f"{title}",
         (0, 0, 0),
