@@ -118,10 +118,10 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     Image.alpha_composite(image5, image6).save("temp.png")
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("etc/Roboto-Medium.ttf", 65)
-    draw.text((25, 590), f"Playing here", (0, 0, 0), font=font)
-    font = ImageFont.truetype("etc/Roboto-Regular.ttf", 50)
-    draw.text((25, 660),
+    font = ImageFont.truetype("etc/Roboto-Regular.ttf", 65)
+    draw.text((25, 535), f"Playing here", (0, 0, 0), font=font)
+    font = ImageFont.truetype("etc/Roboto-Medium.ttf", 80)
+    draw.text((25, 615),
         f"{title[:25]} . .",
         (0, 0, 0),
         font=font,
@@ -411,7 +411,7 @@ async def m_cb(b, cb):
                     f"- Skipped track\n- Now Playing **{qeue[0][0]}**\n\n⚡ **__Powered by EX Music__**"
                 )
 
-    else:
+    elif type_ == "leave":
         if chet_id in callsmusic.pytgcalls.active_calls:
             try:
                 callsmusic.queues.clear(chet_id)
@@ -419,9 +419,9 @@ async def m_cb(b, cb):
                 pass
 
             callsmusic.pytgcalls.leave_group_call(chet_id)
-            await cb.message.edit("Successfully Left the Chat!")
+            await cb.message.edit("✅ **__Assistant telah terputus dari obrolan suara__**")
         else:
-            await cb.answer("Chat is not connected!", show_alert=True)
+            await cb.answer("assistant is not connected to voice chat!", show_alert=True)
 
 
 @Client.on_message(command(["play", "p"]) & other_filters)
@@ -640,7 +640,7 @@ async def play(_, message: Message):
 
             except Exception as e:
                 await lel.edit(
-                "❎ **Song not found!** Try searching with the correct title\n**Example** » /play desahan mia khalifa\n\n💡 **Subs Channel** : @EXProjects"
+                "❎ **Song not found!** Try searching with the correct title\n\n**Example** » /play desahan mia khalifa"
             )
                 print(str(e))
                 return
