@@ -639,6 +639,9 @@ async def play(_, message: Message):
                 views = results[0]["views"]
 
            except Exception as e:
+              await lel.edit(
+                "**❎ lagu tidak ditemukan**, mohon tulis judul dengan benar\n\n» **Contoh :** `/play happier olivia rodrigo`"
+            )
                 print(str(e))
                 return
             dlurl=url
