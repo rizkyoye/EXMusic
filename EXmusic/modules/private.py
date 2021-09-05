@@ -156,8 +156,9 @@ async def start(client: Client, message: Message):
     & ~ filters.edited
 )
 async def help(client: Client, message: Message):
-    await message.reply_text(
-        f"""👋 Hello {message.from_user.mention()} **Please** press the button below to read the **explanation** and see the list of available **Commands**\n\nOr you can directly **contact** the creator if you need **help**""",
+    await message.reply_photo(
+        photo = "https://telegra.ph/file/280d8e503201fd97ef0f0.jpg",
+        caption = f"""👋 Hello {message.from_user.mention()} **Please** press the button below to read the **explanation** and see the list of available **Commands**\n""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -167,42 +168,18 @@ async def help(client: Client, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "🧑‍💻 Creator", url=f"https://t.me/rizexx"
+                        "🏷️ Support Group", url=f"https://t.me/EXGroupSupport"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "📣 Updates Channel", url=f"https://t.me/EXProjects"
                     )
                 ]
             ]
         ),
     ) 
 
-@Client.on_message(
-    filters.command(["play", f"play@{BOT_USERNAME}"])
-    & filters.group
-    & ~ filters.edited
-)
-async def help(client: Client, message: Message):
-    await message.reply_photo(
-        photo = "https://telegra.ph/file/280d8e503201fd97ef0f0.jpg",
-        caption = "❌ **Song not found!** Try searching with the correct title",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "💡 Basic Commands", callback_data=f"cbbasic"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "Support Group", url=f"https://t.me/EXGroupSupport"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "Updates Channel", url=f"https://t.me/EXProjects"
-                    )
-                ]
-            ]
-        ),
-    ) 
 
 @Client.on_message(command("help") & filters.private & ~filters.edited)
 async def help_(client: Client, message: Message):
