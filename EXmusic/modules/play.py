@@ -120,7 +120,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("etc/Roboto-Regular.ttf", 65)
     draw.text((25, 535), f"Playing here", (0, 0, 0), font=font)
-    font = ImageFont.truetype("etc/Roboto-Medium.ttf", 80)
+    font = ImageFont.truetype("etc/Roboto-Medium.ttf", 78)
     draw.text((25, 615),
         f"{title[:25]} . .",
         (0, 0, 0),
@@ -589,7 +589,6 @@ async def play(_, message: Message):
           await lel.edit("**Give the title of the song to play!**")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "💡 Please select the song you want to play :\n\n"
             j = 0
             useer=user_name
 
