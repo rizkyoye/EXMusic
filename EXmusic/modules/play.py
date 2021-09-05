@@ -639,7 +639,7 @@ async def play(_, message: Message):
                 views = results[0]["views"]
 
            except Exception as e:
-                await lel.edit(
+               await lel.edit(
                 "❎ **Song not found!** Try searching with the correct title\n**Example** » /play desahan mia khalifa\n\n💡 **Subs Channel** : @EXProjects"
             )
                 print(str(e))
