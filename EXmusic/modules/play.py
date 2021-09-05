@@ -638,10 +638,6 @@ async def play(_, message: Message):
                 results[0]["url_suffix"]
                 views = results[0]["views"]
 
-            except Exception as e:
-                #await lel.edit(
-                #"❎ **Song not found!** Try searching with the correct title\n\n**Example** » /play desahan mia khalifa"
-            )
                 print(str(e))
                 return
             dlurl=url
