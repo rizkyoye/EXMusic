@@ -638,6 +638,7 @@ async def play(_, message: Message):
                 results[0]["url_suffix"]
                 views = results[0]["views"]
 
+           except Exception as e:
                 print(str(e))
                 return
             dlurl=url
