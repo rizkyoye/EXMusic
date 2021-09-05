@@ -174,6 +174,35 @@ async def help(client: Client, message: Message):
         ),
     ) 
 
+@Client.on_message(
+    filters.command(["play", f"play@{BOT_USERNAME}"])
+    & filters.group
+    & ~ filters.edited
+)
+async def help(client: Client, message: Message):
+    await message.reply_photo(
+        photo = "https://telegra.ph/file/280d8e503201fd97ef0f0.jpg",
+        caption = "❌ **Song not found!** Try searching with the correct title",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "💡 Basic Commands", callback_data=f"cbbasic"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "Support Group", url=f"https://t.me/EXGroupSupport"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "Updates Channel", url=f"https://t.me/EXProjects"
+                ]
+            ]
+        ),
+    ) 
+
 @Client.on_message(command("help") & filters.private & ~filters.edited)
 async def help_(client: Client, message: Message):
     await message.reply_text(
