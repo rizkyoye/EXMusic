@@ -624,7 +624,7 @@ async def play(_, message: Message):
             return
             # Returning to pornhub
         except:
-            await lel.edit("🤖 **There are not enough results to choose from, start playing right away.**")
+            #await lel.edit("🤖 **There are not enough results to choose from, start playing right away.**")
                         
             # print(results)
             try:
@@ -639,8 +639,8 @@ async def play(_, message: Message):
                 views = results[0]["views"]
 
             except Exception as e:
-                await lel.edit(
-                "❎ **Song not found!** Try searching with the correct title\n\n**Example** » /play desahan mia khalifa"
+                #await lel.edit(
+                #"❎ **Song not found!** Try searching with the correct title\n\n**Example** » /play desahan mia khalifa"
             )
                 print(str(e))
                 return
