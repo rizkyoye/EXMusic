@@ -159,6 +159,26 @@ async def reload(client: Client, message: Message):
         ),
     ) 
 
+@Client.on_message(command("help") & filters.private & ~filters.edited)
+async def help_(client: Client, message: Message):
+    await message.reply_text(
+        f"""<b>💡 **Hello {message.from_user.mention} welcome to the help menu !**</b>
+**__In this menu you can open several available command menus, in each command menu there is also a brief explanation of each command__**
+🧑‍💻 **Maintained by @rizexx**""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "📚 List commands", callback_data="cbguide"
+                    ),
+                    InlineKeyboardButton(
+                        "🧑‍💻 Created by", url=f"https://t.me/rizexx"
+                    )
+                ]
+            ]
+        )
+    )
+
 @Client.on_message(command(["ping", f"ping@{BOT_USERNAME}"]) & ~filters.edited)
 async def ping_pong(client: Client, message: Message):
     start = time()
