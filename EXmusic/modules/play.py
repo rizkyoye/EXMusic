@@ -624,7 +624,7 @@ async def play(_, message: Message):
             return
             # Returning to pornhub
         except:
-            #await lel.edit("🤖 **There are not enough results to choose from, start playing right away.**")
+            await lel.edit("🤖 **There are not enough results to choose from, start playing right away.**")
                         
             # print(results)
             try:
