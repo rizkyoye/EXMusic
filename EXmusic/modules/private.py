@@ -198,6 +198,7 @@ async def help(client: Client, message: Message):
                 [
                     InlineKeyboardButton(
                         "Updates Channel", url=f"https://t.me/EXProjects"
+                    )
                 ]
             ]
         ),
