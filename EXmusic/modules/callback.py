@@ -66,11 +66,6 @@ In this menu you can open several **available command** menus, in each command m
                 ],
                 [
                     InlineKeyboardButton(
-                        "📔 ғᴜɴ ᴄᴍᴅ", callback_data="cbfun"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
                         "⬅️ ʙᴀᴄᴋ ᴛᴏ ʜᴇʟᴘ", callback_data="cbguide"
                     )
                 ]
@@ -225,29 +220,6 @@ async def cbowner(_, query: CallbackQuery):
     )
 
 
-@Client.on_callback_query(filters.regex("cbfun"))
-async def cbfun(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""<b>📝 here is the fun commands</b>
-
-/chika - check it by yourself
-/wibu - check it by yourself
-/asupan - check it by yourself
-/truth - check it by yourself
-/dare - check it by yourself
-
-🧑‍💻 Maintained by @rizexx""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "ʙᴀᴄᴋ", callback_data="cbhelp"
-                    )
-                ]
-            ]
-        )
-    )
-
 
 @Client.on_callback_query(filters.regex("cbguide"))
 async def cbguide(_, query: CallbackQuery):
@@ -278,7 +250,6 @@ async def cbguide(_, query: CallbackQuery):
             ]
         )
     )
-
 
 @Client.on_callback_query(filters.regex("close"))
 @cb_admin_check
