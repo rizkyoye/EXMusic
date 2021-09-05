@@ -589,6 +589,7 @@ async def play(_, message: Message):
           await lel.edit("**Give the title of the song to play!**")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
+            toxxt = ""
             j = 0
             useer=user_name
 
