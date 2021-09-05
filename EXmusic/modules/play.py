@@ -378,10 +378,9 @@ async def m_cb(b, cb):
                     InlineKeyboardButton("⏹", "leave"),
                     InlineKeyboardButton("⏸", "puse"),
                     InlineKeyboardButton("▶️", "resume"),
-                    InlineKeyboardButton("⏭", "skip"),
+                    InlineKeyboardButton("⏭", "skip")
                 ],
                 [
-                    InlineKeyboardButton("⏺️ Channel", url=f"https://t.me/EXProjects"),
                     InlineKeyboardButton("📜 Playlist", "playlist"),
                 ],[
                     InlineKeyboardButton("🗑️ Close", "cls")
