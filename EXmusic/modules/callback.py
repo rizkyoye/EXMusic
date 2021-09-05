@@ -89,12 +89,11 @@ async def cbbasic(_, query: CallbackQuery):
 /play (song name) - play song from youtube
 /ytp (song name) - play song directly from youtube 
 /stream (reply to audio) - play song using audio file
-/playlist - show the list song in queue
+/player - show the list song in queue
 /song (song name) - download song from youtube
 /search (video name) - search video from youtube detailed
 /vsong (video name) - download video from youtube detailed
 /lyric - (song name) lyrics scrapper
-/vk (song name) - download song from inline mode
 
 🎧 [ CHANNEL VC CMD ]
 
