@@ -241,16 +241,7 @@ async def ping_pong(client: Client, message: Message):
     delta_ping = time() - start
     await m_reply.edit_text(
         "🏓 `PONG!!`\n"
-        f"⚡️ `{delta_ping * 1000:.3f} ms`",
-      reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "📣 Group Support", url=f"https://t.me/EXGroupSupport"
-                    )
-                ]
-            ]
-        ),
+        f"⚡️ `{delta_ping * 1000:.3f} ms`"
     ) 
 
 
@@ -263,5 +254,14 @@ async def get_uptime(client: Client, message: Message):
     await message.reply_text(
         "🤖 bot status:\n"
         f"• **uptime:** `{uptime}`\n"
-        f"• **start time:** `{START_TIME_ISO}`"
+        f"• **start time:** `{START_TIME_ISO}`",
+      reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "Group Support", url=f"https://t.me/EXGroupSupport"
+                    )
+                ]
+            ]
+        ),
     )
