@@ -8,11 +8,12 @@ from EXmusic.modules.play import cb_admin_check
 
 
 @Client.on_callback_query(filters.regex("cbstart"))
-async def cbstart(_, query: CallbackQuery):
-    await query.edit_message_text(
+async def start_(client: Client, message: Message):
+    await message.reply_text(
         f"""<b>👋 **𝗪𝗲𝗹𝗰𝗼𝗺𝗲** {message.from_user.mention()}**\n
 💭 [𝗘𝗫 𝗠𝘂𝘀𝗶𝗰](https://t.me/{BOT_USERNAME}) 𝗮𝗹𝗹𝗼𝘄 𝘆𝗼𝘂 𝘁𝗼 𝗽𝗹𝗮𝘆 𝗺𝘂𝘀𝗶𝗰 𝗼𝗻 𝗴𝗿𝗼𝘂𝗽𝘀 𝘁𝗵𝗿𝗼𝘂𝗴𝗵 𝘁𝗵𝗲 𝗻𝗲𝘄 𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺'𝘀 𝘃𝗼𝗶𝗰𝗲 𝗰𝗵𝗮𝘁𝘀!
 💡 𝗖𝗹𝗶𝗰𝗸 [𝗵𝗲𝗿𝗲](https://t.me/{BOT_USERNAME}?startgroup=true) 𝘁𝗼 𝗮𝗱𝗱 𝗺𝗲 𝘁𝗼 𝘆𝗼𝘂𝗿 𝗴𝗿𝗼𝘂𝗽!
+
 ❔ 𝗙𝗼𝗿 𝗶𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻 𝗮𝗯𝗼𝘂𝘁 𝗮𝗹𝗹 𝗳𝗲𝗮𝘁𝘂𝗿𝗲 𝗼𝗳 𝘁𝗵𝗶𝘀 𝗯𝗼𝘁, 𝗷𝘂𝘀𝘁 𝘁𝘆𝗽𝗲 /help
 <b>""",
 
@@ -20,12 +21,22 @@ async def cbstart(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "⏺️ Official Channel", url=f"https://t.me/EXProjects"), 
-                    InlineKeyboardButton(
-                        "👥 Support Group", url=f"https://t.me/EXGroupSupport")
-                ],[
-                    InlineKeyboardButton(
-                        "👩‍💻 Created by", url=f"https://t.me/rizexx")
+                        "💡 How to use bots", callback_data="cbhowtouse")
+                ],
+                [
+                   InlineKeyboardButton(
+                       "📚 Commands", url=f"https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13"
+                   ),
+                   InlineKeyboardButton(
+                       "✨ Donation", url=f"https://t.me/rizexx")
+                ],
+                [
+                   InlineKeyboardButton(
+                       "👥 Official Group", url=f"https://t.me/EXGroupSupport"
+                   ),
+                   InlineKeyboardButton(
+                       "📣 Updates Channel", url=f"https://t.me/EXProjects"
+                   )
                 ]
             ]
         ),
