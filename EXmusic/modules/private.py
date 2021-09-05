@@ -241,8 +241,17 @@ async def ping_pong(client: Client, message: Message):
     delta_ping = time() - start
     await m_reply.edit_text(
         "🏓 `PONG!!`\n"
-        f"⚡️ `{delta_ping * 1000:.3f} ms`"
-    )
+        f"⚡️ `{delta_ping * 1000:.3f} ms`",
+      reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "📣 Group Support", url=f"https://t.me/EXGroupSupport"
+                    )
+                ]
+            ]
+        ),
+    ) 
 
 
 @Client.on_message(command(["uptime", f"uptime@{BOT_USERNAME}"]) & ~filters.edited)
