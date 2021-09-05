@@ -134,8 +134,9 @@ async def start(client: Client, message: Message):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
-    await message.reply_text(
-        f"""✅ **bot is running Successful**\n\n<b>• **uptime:**</b> `{uptime}`\n• **start time:** `{START_TIME_ISO}`""",
+    await message.reply_photo(
+        photo = "https://telegra.ph/file/3c8c418580e9418f34c2b.jpg",
+        caption = f"""✅ **bot is running Successful**\n\n<b>• **uptime:**</b> `{uptime}`\n• **start time:** `{START_TIME_ISO}`""",
         reply_markup=InlineKeyboardMarkup(
             [   
                 [    
@@ -156,9 +157,8 @@ async def start(client: Client, message: Message):
     & ~ filters.edited
 )
 async def help(client: Client, message: Message):
-    await message.reply_photo(
-        photo = "https://telegra.ph/file/280d8e503201fd97ef0f0.jpg",
-        caption = f"""👋 Hello {message.from_user.mention()} **Please** press the button below to read the **explanation** and see the list of available **Commands**\n""",
+    await message.reply_text(
+        f"""👋 Hello {message.from_user.mention()} **Please** press the button below to read the **explanation** and see the list of available **Commands**\n\nOr you can directly **contact** the creator if you need **help**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -168,12 +168,7 @@ async def help(client: Client, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "🏷️ Support Group", url=f"https://t.me/EXGroupSupport"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "📣 Updates Channel", url=f"https://t.me/EXProjects"
+                        "🧑‍💻 Creator", url=f"https://t.me/rizexx"
                     )
                 ]
             ]
