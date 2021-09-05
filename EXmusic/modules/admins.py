@@ -148,7 +148,7 @@ async def skip(_, message: Message):
         skip = qeue.pop(0)
     if not qeue:
         return
-    await message.reply_text(f"💡 **You jump to the next song queue..**\n ┈────────────────────┈\n• skipped : **{skip[0]}**\n• now playing : **{qeue[0][0]}**")
+    await message.reply_text(f"💡 **You jump to the next song queue..**\n\n• skipped : **{skip[0]}**\n• now playing : **{qeue[0][0]}**")
 
 
 @Client.on_message(command("auth") & other_filters)
