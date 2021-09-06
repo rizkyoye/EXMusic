@@ -163,7 +163,7 @@ async def reload(client: Client, message: Message):
 async def help_(client: Client, message: Message):
     await message.reply_text(
         f"""<b>💡 **Hello {message.from_user.mention} welcome to the help menu !**</b>
-**__In this menu you can open several available command menus, in each command menu there is also a brief explanation of each command__**
+**__In this menu you can open several available command menus\n\n in each command menu there is also a brief explanation of each command__**
 💡 Bot by @rizexx""",
         reply_markup=InlineKeyboardMarkup(
             [
