@@ -118,9 +118,9 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     Image.alpha_composite(image5, image6).save("temp.png")
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("etc/Roboto-Regular.ttf", 65)
+    font = ImageFont.truetype("etc/Roboto-Regular.ttf", 58)
     draw.text((25, 535), f"Playing here", (0, 0, 0), font=font)
-    font = ImageFont.truetype("etc/Roboto-Medium.ttf", 78)
+    font = ImageFont.truetype("etc/Roboto-Medium.ttf", 75)
     draw.text((25, 615),
         f"{title[:25]} . .",
         (0, 0, 0),
@@ -840,8 +840,9 @@ async def ytplay(_, message: Message):
         os.remove("final.png")
         return await lel.delete()
     
-@Client.on_callback_query(filters.regex(pattern=r"plll"))
-async def lol_cb(b, cb):
+@Client.on_callback_query(filters.regex(pattern=r"cls"))
+@authorized_users_only
+async def close(_, query: CallbackQuery):
     global que
     cbd = cb.data.strip()
     chat_id = cb.message.chat.id
@@ -892,10 +893,7 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
-                InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
-            ],[
-                InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/EXProjects")
+                InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
             ],
         ]
     )
@@ -915,8 +913,8 @@ async def lol_cb(b, cb):
         qeue.append(appendable)
         await cb.message.delete()
         await b.send_photo(chat_id,    photo="final.png",
-            caption = f"💡 **Track added to the queue**\n\n🏷 **Title:** [{title[:40]}]({url})\n⏱ **Duration:** `{duration}`\n" \
-                    + f"🎧 **Request by:** {r_by.mention}\n\n🔢 **Track position:** » `{position}` «",
+            caption = f"💡 **Track added to the queue** » `{position}`\n\n🏷 **Title:** [{title}]({url})\n⏱ **Duration:** `{duration}`\n" \
+                    + f"🎧 **Request by:** {r_by.mention}",
                    reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -937,7 +935,7 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption = f"🏷 **Title:** [{title[:40]}]({url})\n⏱ **Duration:** {duration}\n💡 **Status:** Playing\n" \
+            caption = f"🏷 **Title:** [{title}]({url})\n⏱ **Duration:** {duration}\n💡 **Status:** Playing\n" \
                     + f"🎧 **Request by:** {r_by.mention}",
                     reply_markup=keyboard,
         )
