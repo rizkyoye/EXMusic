@@ -904,7 +904,7 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
+                InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="closed")
             ],
         ]
     )
