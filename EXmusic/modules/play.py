@@ -281,6 +281,16 @@ async def p_cb(b, cb):
                 msg += f"\n• Req by {usr}\n"
         await cb.message.edit(msg)
 
+@Client.on_callback_query(
+    filters.regex(pattern=r"^(closed)$")
+)
+@cb_admin_check
+async def bt_cls(b, cb):
+    type_ = cb.matches[0].group(1)
+    cb.message.chat.id
+    if type_ == "closed":
+        await cb.answer("CLOSE")
+        await cb.message.delete()
 
 @Client.on_callback_query(
     filters.regex(pattern=r"^(play|pause|skip|leave|puse|resume|menu|cls)$")
