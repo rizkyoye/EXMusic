@@ -841,9 +841,9 @@ async def ytplay(_, message: Message):
         os.remove("final.png")
         return await lel.delete()
     
-@Client.on_callback_query(filters.regex(pattern=r"close"))
-@authorized_users_only
-async def close(_, query: CallbackQuery):
+
+@Client.on_callback_query(filters.regex(pattern=r"plll"))
+async def lol_cb(b, cb):
     global que
     cbd = cb.data.strip()
     chat_id = cb.message.chat.id
