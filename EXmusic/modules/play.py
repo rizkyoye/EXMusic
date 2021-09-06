@@ -26,6 +26,7 @@ import ffmpeg
 import requests
 import wget
 import pyrogram
+from pyrogram.parser import html
 from PIL import Image, ImageDraw, ImageFont
 from pyrogram import Client, filters
 from pyrogram.types import Voice
