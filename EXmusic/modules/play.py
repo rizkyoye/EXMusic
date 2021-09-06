@@ -840,7 +840,7 @@ async def ytplay(_, message: Message):
         os.remove("final.png")
         return await lel.delete()
     
-@Client.on_callback_query(filters.regex(pattern=r"cls"))
+@Client.on_callback_query(filters.regex(pattern=r"close"))
 @authorized_users_only
 async def close(_, query: CallbackQuery):
     global que
@@ -893,7 +893,7 @@ async def close(_, query: CallbackQuery):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls")
+                InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="cls")
             ],
         ]
     )
