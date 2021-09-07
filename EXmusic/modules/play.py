@@ -294,13 +294,13 @@ async def bt_cls(b, cb):
         await cb.message.delete()
 
 @Client.on_callback_query(
-    filters.regex(pattern=r"^(menud)$")
+    filters.regex(pattern=r"^(menu)$")
 )
 @cb_admin_check
 async def bt_menu(b, cb):
     type_ = cb.matches[0].group(1)
     cb.message.chat.id
-    elif type_ == "menud":
+    if type_ == "menu":
         stats = updated_stats(cb.message.chat, qeue)
         await cb.answer("Menu opened")
         marr = InlineKeyboardMarkup(
@@ -933,7 +933,7 @@ async def lol_cb(b, cb):
         [
             [
                 InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="closed"),
-                InlineKeyboardButton("menu", callback_data="menud")
+                InlineKeyboardButton("menu", callback_data="menu")
             ],
         ]
     )
