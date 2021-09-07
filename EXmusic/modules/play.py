@@ -300,9 +300,25 @@ async def bt_cls(b, cb):
 async def bt_menu(b, cb):
     type_ = cb.matches[0].group(1)
     cb.message.chat.id
-    if type_ == "menud":
-        await cb.answer("closed menu")
-        await cb.message.delete()
+    elif type_ == "menud":
+        stats = updated_stats(cb.message.chat, qeue)
+        await cb.answer("Menu opened")
+        marr = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("⏹", "leave"),
+                    InlineKeyboardButton("⏸", "puse"),
+                    InlineKeyboardButton("▶️", "resume"),
+                    InlineKeyboardButton("⏭", "skip")
+                ],
+                [
+                    InlineKeyboardButton("📜 Playlist", "playlist"),
+                ],[
+                    InlineKeyboardButton("🗑️ Close", "cls")
+                ],
+            ]
+        )
+        await cb.message.edit(stats, reply_markup=marr)
 
 @Client.on_callback_query(
     filters.regex(pattern=r"^(play|pause|skip|leave|puse|resume|menu|cls)$")
