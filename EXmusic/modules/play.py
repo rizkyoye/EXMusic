@@ -301,7 +301,7 @@ async def bt_menu(b, cb):
     type_ = cb.matches[0].group(1)
     cb.message.chat.id
     if type_ == "menud":
-        stats = updated_stats(cb.message.chat, qeue)
+        stats = updated_stats(cb.message.chat, queues)
         await cb.answer("Menu opened")
         marr = InlineKeyboardMarkup(
             [
