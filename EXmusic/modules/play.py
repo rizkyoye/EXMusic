@@ -905,8 +905,8 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📣 Channel", url="https://t.me/EXProjects"),
-                InlineKeyboardButton("❌ Close", callback_data="closed")
+                InlineKeyboardButton("🖱️ Channel", url="https://t.me/EXProjects"),
+                InlineKeyboardButton("🗑️ Close", callback_data="closed")
             ],
         ]
     )
