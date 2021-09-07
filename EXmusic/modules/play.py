@@ -436,7 +436,7 @@ async def m_cb(b, cb):
     elif type_ == "leave":
         if chet_id in callsmusic.pytgcalls.active_calls:
             try:
-               await callsmusic.queues.clear(chet_id)
+                callsmusic.queues.clear(chet_id)
             except QueueEmpty:
                 pass
 
