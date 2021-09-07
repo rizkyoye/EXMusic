@@ -54,6 +54,7 @@ from EXmusic.services.callsmusic.callsmusic import client as USER
 from EXmusic.services.converter.converter import convert
 from EXmusic.services.downloaders import youtube
 from EXmusic.services.queues import queues
+from EXmusic.services.callsmusic.callsmusic import queues
 
 aiohttpsession = aiohttp.ClientSession()
 chat_id = None
@@ -293,6 +294,17 @@ async def bt_cls(b, cb):
         await cb.message.delete()
 
 @Client.on_callback_query(
+    filters.regex(pattern=r"^(menud)$")
+)
+@cb_admin_check
+async def bt_menu(b, cb):
+    type_ = cb.matches[0].group(1)
+    cb.message.chat.id
+    if type_ == "menud":
+        await cb.answer("closed menu")
+        await cb.message.delete()
+
+@Client.on_callback_query(
     filters.regex(pattern=r"^(play|pause|skip|leave|puse|resume|menu|cls)$")
 )
 @cb_admin_check
@@ -424,7 +436,7 @@ async def m_cb(b, cb):
     elif type_ == "leave":
         if chet_id in callsmusic.pytgcalls.active_calls:
             try:
-                callsmusic.queues.clear(chet_id)
+               await callsmusic.queues.clear(chet_id)
             except QueueEmpty:
                 pass
 
@@ -904,7 +916,8 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="closed")
+                InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="closed"),
+                InlineKeyboardButton("menu", callback_data="menud")
             ],
         ]
     )
