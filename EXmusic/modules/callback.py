@@ -13,15 +13,13 @@ async def cbstart(_, query: CallbackQuery):
         f"""<b>👋 **𝗪𝗲𝗹𝗰𝗼𝗺𝗲** {message.from_user.mention()}**\n
 💭 [𝗘𝗫 𝗠𝘂𝘀𝗶𝗰](https://t.me/{BOT_USERNAME}) 𝗮𝗹𝗹𝗼𝘄 𝘆𝗼𝘂 𝘁𝗼 𝗽𝗹𝗮𝘆 𝗺𝘂𝘀𝗶𝗰 𝗼𝗻 𝗴𝗿𝗼𝘂𝗽𝘀 𝘁𝗵𝗿𝗼𝘂𝗴𝗵 𝘁𝗵𝗲 𝗻𝗲𝘄 𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺'𝘀 𝘃𝗼𝗶𝗰𝗲 𝗰𝗵𝗮𝘁𝘀!
 💡 𝗖𝗹𝗶𝗰𝗸 [𝗵𝗲𝗿𝗲](https://t.me/{BOT_USERNAME}?startgroup=true) 𝘁𝗼 𝗮𝗱𝗱 𝗺𝗲 𝘁𝗼 𝘆𝗼𝘂𝗿 𝗴𝗿𝗼𝘂𝗽!
-
-❔ 𝗙𝗼𝗿 𝗶𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻 𝗮𝗯𝗼𝘂𝘁 𝗮𝗹𝗹 𝗳𝗲𝗮𝘁𝘂𝗿𝗲 𝗼𝗳 𝘁𝗵𝗶𝘀 𝗯𝗼𝘁, 𝗷𝘂𝘀𝘁 𝘁𝘆𝗽𝗲 /help
 <b>""",
 
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "💡 How to use bots", callback_data="cbhowtouse")
+                        "💡 How to use bots", callback_data="cbhelp")
                 ],
                 [
                    InlineKeyboardButton(
@@ -417,35 +415,6 @@ async def cbhelps(_, query: CallbackQuery):
                 [
                     InlineKeyboardButton(
                         "🏡 BACK TO HOME", callback_data="cbstart"
-                    )
-                ]
-            ]
-        )
-    )
-
-
-@Client.on_callback_query(filters.regex("cbhowtouse"))
-async def cbguides(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""❓ HOW TO USE THIS BOT:
-
-1.) first, add me to your group.
-
-2.) then promote me as admin and give all permissions except anonymous admin.
-
-3.) add @{ASSISTANT_NAME} to your group or type /userbotjoin to invite her.
-
-4.) turn on the voice chat first before start to play music.
-
-🧑‍💻 **Maintained by @rizexx**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "ʙᴀᴄᴋ", callback_data="cbstart"
-                    ),
-                    InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://t.me/EXGroupSupport"
                     )
                 ]
             ]
