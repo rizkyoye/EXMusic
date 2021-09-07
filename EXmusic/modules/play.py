@@ -122,7 +122,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("etc/Roboto-Regular.ttf", 58)
-    draw.text((25, 535), f"Playing here {}".format(message.chat.title), (0, 0, 0), font=font)
+    draw.text((25, 535), f"Playing here {}.format(message.chat.title)", (0, 0, 0), font=font)
     font = ImageFont.truetype("etc/Roboto-Medium.ttf", 75)
     draw.text((25, 615),
         f"{title[:25]} . .",
