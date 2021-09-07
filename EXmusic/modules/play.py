@@ -34,6 +34,7 @@ from pyrogram.errors import UserAlreadyParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, Chat, CallbackQuery
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
+from asyncio.queues import QueueEmpty
 
 from EXmusic.config import ARQ_API_KEY
 from EXmusic.config import BOT_NAME as bn
