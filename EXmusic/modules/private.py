@@ -46,31 +46,6 @@ async def _human_time_duration(seconds):
                          .format(amount, unit, "" if amount == 1 else "s"))
     return ', '.join(parts)
 
-
-@Client.on_message(
-    filters.command(["help", f"help@{BOT_USERNAME}"])
-    & filters.group
-    & ~ filters.edited
-)
-async def help(client: Client, message: Message):
-    await message.reply_text(
-        f"""👋 Hello {message.from_user.mention()} **Please** press the button below to read the **explanation** and see the list of available **Commands**\n\nOr you can directly **contact** the creator if you need **help**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "💡 How to use bots ❔", callback_data=f"cbguide"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "🧑‍💻 Creator", url=f"https://t.me/rizexx"
-                    )
-                ]
-            ]
-        ),
-    ) 
-
 @Client.on_message(
     filters.command("reload")
     & filters.group
@@ -82,7 +57,7 @@ async def reload(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "Group Support 🏷️", url=f"https://t.me/EXGroupSupport"
+                        "Group Support 🏷️", url=f"https://t.me/EXSupportGroup"
                     )
                 ],
                 [
