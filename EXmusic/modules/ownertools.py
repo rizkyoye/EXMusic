@@ -19,32 +19,6 @@ from EXmusic.helpers.dbtools import main_broadcast_handler
 from EXmusic.modules.song import humanbytes, get_text
 from EXmusic.config import BOT_USERNAME, OWNER, SUDO_USERS, SUPPORT_GROUP
 
-
-# Stats Of Your Bot
-@Client.on_message(filters.command("stats") & filters.user(SUDO_USERS))
-async def botstats(_, message: Message):
-    total, used, free = shutil.disk_usage(".")
-    total = humanbytes(total)
-    used = humanbytes(used)
-    free = humanbytes(free)
-    cpu_usage = psutil.cpu_percent()
-    ram_usage = psutil.virtual_memory().percent
-    disk_usage = psutil.disk_usage('/').percent
-    total_users = await db.total_users_count()
-    await message.reply_text(
-        text=f"**📊 stats Of @EXMusiccbot** \n\n**🤖 bot version:** `v7.0` \n\n**🙎🏼 users:** \n » **users on pm:** `{total_users}` \n\n**💾 disk usage,** \n » **disk space:** `{total}` \n » **used:** `{used}({disk_usage}%)` \n » **free:** `{free}` \n\n**🎛 hardware usage,** \n » **CPU usage:** `{cpu_usage}%` \n » **RAM usage:** `{ram_usage}%`",
-        parse_mode="Markdown",
-        quote=True
-    )
-    disable_web_page_preview=True
-
-
-@Client.on_message(filters.private & filters.command("broadcast") & filters.user(OWNER) & filters.reply)
-async def broadcast_handler_open(_, m: Message):
-    await main_broadcast_handler(m, db)
-
-
-# Ban User
 @Client.on_message(filters.private & filters.command("ban") & filters.user(OWNER))
 async def ban(c: Client, m: Message):
     if len(m.command) == 1:
