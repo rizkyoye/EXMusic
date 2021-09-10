@@ -57,12 +57,12 @@ async def reload(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "Group Support 🏷️", url=f"https://t.me/EXSupportGroup"
+                        "🖱️ Group Support", url=f"https://t.me/EXSupportGroup"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "Channel Update 📣", url=f"https://t.me/EXProjects"
+                        "📣 Channel Update", url=f"https://t.me/EXProjects"
                     )
                 ]
             ]
@@ -98,14 +98,15 @@ async def alive(client: Client, message: Message):
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_photo(
         photo=f"https://telegra.ph/file/caabb857dab098c5fc372.jpg",
-        caption=f"""🟢 Holla I'am **[{BOT_NAME}](https://t.me/{BOT_USERNAME})**
-🟢 I'm Working **Properly**
+        caption=f"""🔵 Holla I'am **[{BOT_NAME}](https://t.me/{BOT_USERNAME})**
 
-🟢 Bot : **6.5 LATEST**
+🔵 I'm Working **Properly**
 
-🟢 My Master : [EX](https://t.me/rizexx)
+🔵 Bot : **6.5 LATEST**
 
-🟢 Service Uptime : `{uptime}`
+🔵 My Master : [EX](https://t.me/rizexx)
+
+🔵 Service Uptime : `{uptime}`
 
 **Thanks For Using Me ♡**""",
         reply_markup=InlineKeyboardMarkup(
