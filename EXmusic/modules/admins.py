@@ -14,10 +14,6 @@ from EXmusic.modules.play import cb_admin_check
 from EXmusic.helpers.filters import command, other_filters
 from EXmusic.services.callsmusic import callsmusic
 from EXmusic.services.callsmusic import queues
-from EXmusic.config import OWNER, BOT_USERNAME
-from EXmusic.helpers.helper_functions.admin_check import admin_check
-from EXmusic.helpers.helper_functions.extract_user import extract_user
-from EXmusic.helpers.helper_functions.string_handling import extract_time
 
 
 @Client.on_message(command("pause") & other_filters)
