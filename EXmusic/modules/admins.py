@@ -20,13 +20,6 @@ from EXmusic.helpers.helper_functions.extract_user import extract_user
 from EXmusic.helpers.helper_functions.string_handling import extract_time
 
 
-@Client.on_message()
-async def _(bot: Client, cmd: Message):
-    await handle_user_status(bot, cmd)
-
-# Back Button
-BACK_BUTTON = InlineKeyboardMarkup([[InlineKeyboardButton("🏠 go back", callback_data="cbback")]])
-
 @Client.on_message(filters.text & ~filters.private)
 async def delcmd(_, message: Message):
     if await delcmd_is_on(message.chat.id) and message.text.startswith("/") or message.text.startswith("!"):
