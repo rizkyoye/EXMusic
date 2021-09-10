@@ -15,7 +15,6 @@ pillow
 future
 psutil
 wget
-motor
 dnspython
 bs4
 Python_ARQ
