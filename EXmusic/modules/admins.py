@@ -20,12 +20,6 @@ from EXmusic.helpers.helper_functions.extract_user import extract_user
 from EXmusic.helpers.helper_functions.string_handling import extract_time
 
 
-@Client.on_message(filters.text & ~filters.private)
-async def delcmd(_, message: Message):
-    if await delcmd_is_on(message.chat.id) and message.text.startswith("/") or message.text.startswith("!"):
-        await message.delete()
-    await message.continue_propagation()
-
 @Client.on_message(command("pause") & other_filters)
 @errors
 @authorized_users_only
