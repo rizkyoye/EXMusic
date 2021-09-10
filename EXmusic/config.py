@@ -42,11 +42,5 @@ SOURCE_CODE = getenv("SOURCE_CODE", "github.com/rizkyoye/EXMusic")
 DURATION_LIMIT = int(getenv("DURATION_LIMIT", "15"))
 ARQ_API_KEY = getenv("ARQ_API_KEY", None)
 PMPERMIT = getenv("PMPERMIT", None)
-LOG_GRP = getenv("LOG_GRP", None)
-DATABASE_URL = os.environ.get("DATABASE_URL") # fill with your mongodb url
-LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL")) # make a private channel and get the id
-BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", False)) # just fill with True or False (optional)
-
-COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ !").split())
 
 SUDO_USERS = list(map(int, getenv("SUDO_USERS").split()))
