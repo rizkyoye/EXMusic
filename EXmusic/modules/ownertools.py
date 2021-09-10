@@ -16,7 +16,6 @@ from os import environ, execle, path, remove
 from EXmusic.services.callsmusic.callsmusic import client as pakaya
 from EXmusic.helpers.database import db
 from EXmusic.helpers.dbtools import main_broadcast_handler
-from EXmusic.modules.song import humanbytes, get_text
 from EXmusic.config import BOT_USERNAME, OWNER, SUDO_USERS, SUPPORT_GROUP
 
 @Client.on_message(filters.private & filters.command("ban") & filters.user(OWNER))
