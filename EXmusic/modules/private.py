@@ -46,69 +46,6 @@ async def _human_time_duration(seconds):
                          .format(amount, unit, "" if amount == 1 else "s"))
     return ', '.join(parts)
 
-@Client.on_message(
-    filters.command(["start", f"start@{BOT_USERNAME}"])
-    & filters.private
-    & ~ filters.edited
-)
-async def start_(client: Client, message: Message):
-    await message.reply_text(
-        f"""<b>👋 **𝗪𝗲𝗹𝗰𝗼𝗺𝗲** {message.from_user.mention()}**\n
-💭 [𝗘𝗫 𝗠𝘂𝘀𝗶𝗰](https://t.me/{BOT_USERNAME}) 𝗮𝗹𝗹𝗼𝘄 𝘆𝗼𝘂 𝘁𝗼 𝗽𝗹𝗮𝘆 𝗺𝘂𝘀𝗶𝗰 𝗼𝗻 𝗴𝗿𝗼𝘂𝗽𝘀 𝘁𝗵𝗿𝗼𝘂𝗴𝗵 𝘁𝗵𝗲 𝗻𝗲𝘄 𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺'𝘀 𝘃𝗼𝗶𝗰𝗲 𝗰𝗵𝗮𝘁𝘀!
-💡 𝗖𝗹𝗶𝗰𝗸 [𝗵𝗲𝗿𝗲](https://t.me/{BOT_USERNAME}?startgroup=true) 𝘁𝗼 𝗮𝗱𝗱 𝗺𝗲 𝘁𝗼 𝘆𝗼𝘂𝗿 𝗴𝗿𝗼𝘂𝗽!
-<b>""",
-
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "💡 How to use bots", callback_data="cbhelp")
-                ],
-                [
-                   InlineKeyboardButton(
-                       "📚 Commands", url=f"https://telegra.ph/PGuide-to-using-EXMUSIC-bot-08-13"
-                   ),
-                   InlineKeyboardButton(
-                       "✨ Donation", url=f"https://t.me/rizexx")
-                ],
-                [
-                   InlineKeyboardButton(
-                       "👥 Official Group", url=f"https://t.me/EXGroupSupport"
-                   ),
-                   InlineKeyboardButton(
-                       "📣 Updates Channel", url=f"https://t.me/EXProjects"
-                   )
-                ]
-            ]
-        ),
-        disable_web_page_preview=True
-        )
-
-
-@Client.on_message(
-    filters.command(["start", f"start@{BOT_USERNAME}"])
-    & filters.group
-    & ~ filters.edited
-)
-async def start(client: Client, message: Message):
-    current_time = datetime.utcnow()
-    uptime_sec = (current_time - START_TIME).total_seconds()
-    uptime = await _human_time_duration(int(uptime_sec))
-    await message.reply_text(
-        f"""✅ **bot is running Successful**\n\n<b>• **uptime:**</b> `{uptime}`\n• **start time:** `{START_TIME_ISO}`""",
-        reply_markup=InlineKeyboardMarkup(
-            [   
-                [    
-                    InlineKeyboardButton(
-                        "👥 Group", url=f"https://t.me/EXGroupSupport"
-                    ),
-                    InlineKeyboardButton(
-                        "⏺️ Channel", url=f"https://t.me/EXProjects"
-                    )
-                ]
-            ]
-        )
-    )
 
 @Client.on_message(
     filters.command(["help", f"help@{BOT_USERNAME}"])
@@ -157,17 +94,6 @@ async def reload(client: Client, message: Message):
         ),
     ) 
 
-@Client.on_message(command(["ping", f"ping@{BOT_USERNAME}"]) & ~filters.edited)
-async def ping_pong(client: Client, message: Message):
-    start = time()
-    m_reply = await message.reply_text("pinging...")
-    delta_ping = time() - start
-    await m_reply.edit_text(
-        "🏓 `PONG!!`\n"
-        f"⚡️ `{delta_ping * 1000:.3f} ms`"
-    ) 
-
-
 @Client.on_message(command(["uptime", f"uptime@{BOT_USERNAME}"]) & ~filters.edited)
 @authorized_users_only
 async def get_uptime(client: Client, message: Message):
@@ -187,4 +113,32 @@ async def get_uptime(client: Client, message: Message):
                 ]
             ]
         ),
+    )
+
+
+@Client.on_message(filters.command(["alive", f"alive@{BOT_USERNAME}"]))
+async def alive(client: Client, message: Message):
+    current_time = datetime.utcnow()
+    uptime_sec = (current_time - START_TIME).total_seconds()
+    uptime = await _human_time_duration(int(uptime_sec))
+    await message.reply_photo(
+        photo=f"https://telegra.ph/file/375e7d9b3dd70a3431418.jpg",
+        caption=f"""**• Holla I'm [{BOT_NAME}](https://t.me/{BOT_USERNAME})**
+• **I'm Working Properly**
+• **Bot : 6.5 LATEST**
+• **My Master : [EX](https://t.me/rizexx)**
+• **Service Uptime : `{uptime}`**
+**Thanks For Using Me ♡**""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "🚨 Group", url=f"https://t.me/EXSupportGroup"
+                    ),
+                    InlineKeyboardButton(
+                        "📡 Channel", url=f"https://t.me/EXProjects"
+                    )
+                ]
+            ]
+        )
     )
