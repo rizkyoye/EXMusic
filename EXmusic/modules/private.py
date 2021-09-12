@@ -59,11 +59,6 @@ async def reload(client: Client, message: Message):
                     InlineKeyboardButton(
                         "🖱️ Group Support", url=f"https://t.me/EXSupportGroup"
                     )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "📣 Channel Update", url=f"https://t.me/EXProjects"
-                    )
                 ]
             ]
         ),
