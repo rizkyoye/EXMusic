@@ -25,17 +25,14 @@ import aiohttp
 import ffmpeg
 import requests
 import wget
-import pyrogram
-from pyrogram.parser import html
 from PIL import Image, ImageDraw, ImageFont
 from pyrogram import Client, filters
 from pyrogram.types import Voice
 from pyrogram.errors import UserAlreadyParticipant
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, Chat, CallbackQuery
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
 from asyncio.queues import QueueEmpty
-from asyncio.exceptions import TimeoutError as TimeoutErr
 
 from EXmusic.config import ARQ_API_KEY
 from EXmusic.config import BOT_NAME as bn
@@ -56,7 +53,6 @@ from EXmusic.services.callsmusic.callsmusic import client as USER
 from EXmusic.services.converter.converter import convert
 from EXmusic.services.downloaders import youtube
 from EXmusic.services.queues import queues
-from EXmusic.services.callsmusic.callsmusic import queues
 
 aiohttpsession = aiohttp.ClientSession()
 chat_id = None
