@@ -442,7 +442,7 @@ async def play(_, message: Message):
     global useer
     if message.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message.reply("🔁 `Processing...`")
+    lel = await message.reply("🔁 **__Processing...__**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
