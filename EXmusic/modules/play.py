@@ -35,6 +35,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, 
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
 from asyncio.queues import QueueEmpty
+from asyncio.exceptions import TimeoutError as TimeoutErr
 
 from EXmusic.config import ARQ_API_KEY
 from EXmusic.config import BOT_NAME as bn
