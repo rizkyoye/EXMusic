@@ -429,7 +429,7 @@ async def m_cb(b, cb):
                 pass
 
             callsmusic.pytgcalls.leave_group_call(chet_id)
-            await cb.message.edit("✅ **__Assistant telah terputus dari obrolan suara__**")
+            await cb.message.edit("✅ **__Assistant telah terputus dari obrolan suara di__** {message.chat.title}")
         else:
             await cb.answer("assistant is not connected to voice chat!", show_alert=True)
 
@@ -607,7 +607,7 @@ async def play(_, message: Message):
             while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})</b>\n"
                 toxxt += f" ├ 💡 **Duration** - {results[j]['duration']}\n"
-                toxxt += f" └ ⚡ **__Empowered by EX music bot__**\n\n"
+                toxxt += f" └ ⚡ **__Empowered by Alina Robot Music__**\n\n"
 
                 j += 1            
             koyboard = InlineKeyboardMarkup(
@@ -627,7 +627,7 @@ async def play(_, message: Message):
             )
      
             await message.reply_photo(
-                photo="https://telegra.ph/file/9e22f6e3c3606996087ea.jpg",
+                photo="https://telegra.ph/file/ceb2e3ff767959ef5addb.jpg",
                 caption=toxxt, reply_markup=koyboard, 
             )
             await lel.delete()
