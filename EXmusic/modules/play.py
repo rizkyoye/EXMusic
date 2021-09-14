@@ -429,7 +429,7 @@ async def m_cb(b, cb):
                 pass
 
             callsmusic.pytgcalls.leave_group_call(chet_id)
-            await cb.message.edit("✅ **__Assistant telah terputus dari obrolan suara di__** {message.chat.title}")
+            await cb.message.edit("✅ __Assistant telah terputus dari obrolan suara di__ **{}**.format(cb.message.chat.title)")
         else:
             await cb.answer("assistant is not connected to voice chat!", show_alert=True)
 
