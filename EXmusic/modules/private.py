@@ -101,7 +101,7 @@ async def alive(client: Client, message: Message):
 
 🔵 My Master : [EX](https://t.me/rizexx)
 
-🔵 Service Uptime : `{uptime}`
+🔵 Python version : 3.9.7
 
 **Thanks For Using Me ♡**""",
         reply_markup=InlineKeyboardMarkup(
