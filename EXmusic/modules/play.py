@@ -429,7 +429,7 @@ async def m_cb(b, cb):
                 pass
 
             callsmusic.pytgcalls.leave_group_call(chet_id)
-            await cb.message.edit("✅ __Assistant telah terputus dari obrolan suara di__ **{}**.format(cb.message.chat.title)")
+            await cb.message.edit("✅ __Assistant telah terputus dari obrolan suara__")
         else:
             await cb.answer("assistant is not connected to voice chat!", show_alert=True)
 
@@ -607,7 +607,7 @@ async def play(_, message: Message):
             while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})</b>\n"
                 toxxt += f" ├ 💡 **Duration** - {results[j]['duration']}\n"
-                toxxt += f" └ ⚡ **__Empowered by Alina Robot Music__**\n\n"
+                toxxt += f" └ ⚡ **__Empowered by Alina Robot__**\n"
 
                 j += 1            
             koyboard = InlineKeyboardMarkup(
