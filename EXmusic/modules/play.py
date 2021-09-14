@@ -606,7 +606,8 @@ async def play(_, message: Message):
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]
             while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})</b>\n"
-                toxxt += f" └💡 **Duration** - {results[j]['duration']}\n\n"
+                toxxt += f" ├💡 **Duration** - {results[j]['duration']}\n"
+                toxxt += f" └⚡ __Empowered by Alina Robot__\n\n"
 
                 j += 1            
             koyboard = InlineKeyboardMarkup(
@@ -874,7 +875,7 @@ async def lol_cb(b, cb):
         useer_name = cb.message.from_user.first_name
     results = YoutubeSearch(query, max_results=5).to_dict()
     resultss=results[x]["url_suffix"]
-    title=results[x]["title"][:30]
+    title=results[0]["title"]
     thumbnail=results[x]["thumbnails"][0]
     duration=results[x]["duration"]
     views=results[x]["views"]
