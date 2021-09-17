@@ -435,7 +435,6 @@ async def m_cb(b, cb):
 
 
 @Client.on_message(command(["play", "p"]) & other_filters)
-async def play(_, message: Message):
     global que
     global useer
     if message.chat.id in DISABLED_GROUPS:
